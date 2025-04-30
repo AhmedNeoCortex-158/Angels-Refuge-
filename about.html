@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Angels'</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="assets/images/Logo.png">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+           
+        }
+
+        .container {
+            width: 85%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        .main-bg {
+            background: linear-gradient(120deg, #219a8a 48%, #63666a 0%);
+            position: relative;
+            border-radius: 0 0 32px 32px;
+            overflow: hidden;
+            padding-bottom: 40px;
+        }
+        
+        .main-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 5% 0 5%;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-left: auto;
+            order: 1;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            margin-right: auto;
+            order: 3;
+            gap: 8px;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo {
+            width: 120px;
+            height: auto;
+            order: 2;
+        }
+
+        .contact-header-btn {
+            background: #00a69c;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            padding: 12px 28px;
+            font-size: 1.1em;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background 0.2s;
+            order: 1;
+            white-space: nowrap;
+        }
+
+        .contact-header-btn:hover {
+            background: #188c65;
+        }
+
+        .main-nav {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            order: 2;
+        }
+
+        .search-container {
+            position: relative;
+            margin-left: 16px;
+        }
+
+        .search-container.expanded {
+            background: white;
+            border-radius: 8px;
+            padding: 8px 16px;
+            display: flex;
+            align-items: center;
+            width: 240px;
+        }
+
+        .search-container:not(.expanded) .search-input {
+            display: none;
+        }
+
+        .search-input {
+            border: none;
+            outline: none;
+            width: 100%;
+            padding: 4px;
+            font-size: 1em;
+            background: transparent;
+            color: #333;
+            direction: rtl;
+        }
+
+        .search-input::placeholder {
+            color: #999;
+        }
+
+        .search-icon {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #00a69c;
+        }
+
+        .search-container.expanded .search-icon {
+            background: transparent;
+        }
+
+        .search-icon svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .search-icon svg circle,
+        .search-icon svg line {
+            stroke: #fff;
+        }
+
+        .search-container.expanded .search-icon svg circle,
+        .search-container.expanded .search-icon svg line {
+            stroke: #00a69c;
+        }
+
+        .search-popup {
+            display: none;
+        }
+
+        .lang-switcher {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #fff;
+        }
+
+        .lang-btn {
+            color: #fff;
+            text-decoration: none;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+            font-size: 1.1em;
+            padding: 0 4px;
+        }
+
+        .lang-btn.active {
+            opacity: 1;
+        }
+
+        .lang-btn:hover {
+            opacity: 1;
+        }
+
+        .logo-title-flex {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .main-nav ul {
+            list-style: none;
+            display: flex;
+            gap: 32px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .main-nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.1em;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+
+        .main-nav a.active,
+        .main-nav a:hover {
+            color: #00a69c;
+        }
+
+        .hero-section {
+            text-align: center;
+            color: #fff;
+            padding: 60px 0;
+        }
+
+        .hero-section h1 {
+            font-size: 2.5em;
+            margin: 0 0 10px;
+        }
+
+        .hero-section p {
+            font-size: 1.1em;
+            margin: 0;
+            opacity: 0.9;
+        }
+
+        .about-images-row {
+            display: flex;
+            gap: 32px;
+            justify-content: flex-start;
+            margin: 48px 0 24px 0;
+            padding-right: 8%;
+        }
+        .about-img-main {
+            width: 320px;
+            border-radius: 18px;
+            border: 6px solid #b2e4e0;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+        }
+        .about-img-overlap {
+            width: 220px;
+            border-radius: 18px;
+            border: 6px solid #b2e4e0;
+            margin-right: -60px;
+            margin-top: 60px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+        }
+        .about-support-box {
+            background: #f3f6f6;
+            border-radius: 12px;
+            padding: 32px 24px;
+            margin: 0 8% 32px 8%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 32px;
+        }
+        .about-support-box h2 {
+            color: #222;
+            font-size: 1.5em;
+            margin-bottom: 12px;
+        }
+        .about-support-box p {
+            color: #444;
+            font-size: 1.1em;
+        }
+        .about-support-btn {
+            background: #00a69c;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            padding: 10px 28px;
+            font-size: 1em;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+        .about-support-btn:hover {
+            background: #188c65;
+        }
+        .about-main-content {
+            display: flex;
+            gap: 48px;
+            align-items: flex-start;
+            justify-content: space-between;
+            margin: 48px 8%;
+        }
+        .about-main-left {
+            flex: 1.2;
+        }
+        .about-main-right {
+            flex: 1;
+        }
+        .about-main-title {
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 16px;
+            color: #222;
+        }
+        .about-main-desc {
+            font-size: 1.1em;
+            color: #444;
+            margin-bottom: 24px;
+        }
+        .about-mv-boxes {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+        .about-mv-box {
+            background: #e0f7f5;
+            border-radius: 10px;
+            padding: 18px 16px;
+            flex: 1;
+            text-align: center;
+        }
+        .about-mv-title {
+            font-weight: bold;
+            color: #00a69c;
+            margin-bottom: 8px;
+        }
+        .about-mv-desc {
+            color: #444;
+            font-size: 1em;
+        }
+        .about-progress {
+            margin: 24px 0;
+        }
+        .about-progress-label {
+            font-size: 1em;
+            color: #222;
+            margin-bottom: 4px;
+        }
+        .about-progress-bar {
+            background: #e0f7f5;
+            border-radius: 8px;
+            height: 12px;
+            width: 100%;
+            margin-bottom: 8px;
+            overflow: hidden;
+        }
+        .about-progress-bar-inner {
+            background: #00a69c;
+            height: 100%;
+            border-radius: 8px;
+        }
+        .about-main-right img {
+            width: 100%;
+            border-radius: 16px;
+            margin-bottom: 16px;
+        }
+        .about-main-right .about-card {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            padding: 18px 16px;
+            margin-bottom: 16px;
+        }
+        .about-card-title {
+            color: #219a8a;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        .about-card-list {
+            color: #444;
+            margin: 0 0 0 16px;
+            padding: 0 0 0 16px;
+        }
+        .features-section {
+            background: #e0f7f5;
+            padding: 48px 0;
+        }
+        .features-title {
+            text-align: center;
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 32px;
+            color: #222;
+        }
+        .features-row {
+            display: flex;
+            gap: 24px;
+            justify-content: center;
+            margin-bottom: 32px;
+        }
+        .feature-box {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            padding: 32px 24px;
+            flex: 1;
+            min-width: 260px;
+            text-align: center;
+        }
+        .feature-icon {
+            font-size: 2.5em;
+            color: #00a69c;
+            margin-bottom: 12px;
+        }
+        .feature-title {
+            color: #00a69c;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        .feature-desc {
+            color: #444;
+            font-size: 1em;
+        }
+        .stats-row {
+            display: flex;
+            gap: 24px;
+            justify-content: center;
+            margin-bottom: 48px;
+        }
+        .stat-box {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            padding: 32px 24px;
+            flex: 1;
+            min-width: 180px;
+            text-align: center;
+        }
+        .stat-number {
+            font-size: 2em;
+            color: #00a69c;
+            font-weight: bold;
+        }
+        .stat-label {
+            color: #444;
+            font-size: 1.1em;
+        }
+        .gallery-section {
+            padding: 48px 0;
+            background: #f8f9f8;
+        }
+        .gallery-title {
+            text-align: right;
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 32px;
+            color: #222;
+            margin-right: 8%;
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin: 0 8%;
+        }
+        .gallery-grid img {
+            width: 100%;
+            border-radius: 12px;
+            object-fit: cover;
+            height: 160px;
+        }
+        .site-footer {
+            background: #222;
+            color: #fff;
+            padding: 48px 0 24px 0;
+        }
+        .footer-content {
+            display: flex;
+            gap: 48px;
+            justify-content: space-between;
+            margin: 0 8%;
+        }
+        .footer-brand img {
+            width: 100px;
+        }
+        .footer-links, .footer-contact, .footer-newsletter {
+            flex: 1;
+        }
+        .footer-links h3, .footer-contact h3, .footer-newsletter h3 {
+            color: #00a69c;
+            margin-bottom: 12px;
+        }
+        .footer-links ul, .footer-contact ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .footer-links ul li, .footer-contact ul li {
+            margin-bottom: 8px;
+        }
+        .footer-links ul li a, .footer-contact ul li a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .footer-links ul li a:hover, .footer-contact ul li a:hover {
+            color: #00a69c;
+        }
+        .newsletter-form {
+            display: flex;
+            gap: 8px;
+            margin-top: 8px;
+        }
+        .newsletter-form input[type="email"] {
+            padding: 8px 12px;
+            border-radius: 6px;
+            border: none;
+            font-size: 1em;
+        }
+        .newsletter-form button {
+            background: #00a69c;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            padding: 8px 18px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .footer-social {
+            margin-top: 16px;
+        }
+        .footer-social a {
+            color: #fff;
+            margin-left: 12px;
+            font-size: 1.3em;
+            transition: color 0.2s;
+        }
+        .footer-social a:hover {
+            color: #00a69c;
+        }
+        @media (max-width: 1100px) {
+            .about-main-content, .footer-content {
+                flex-direction: column;
+                gap: 32px;
+            }
+            .about-images-row {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 700px) {
+            .about-main-content, .footer-content {
+                margin: 0 2%;
+            }
+            .about-support-box {
+                flex-direction: column;
+                gap: 16px;
+                margin: 0 2% 32px 2%;
+            }
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-bg">
+        <header>
+            <div class="main-header">
+                <div class="header-left">
+                    <img src="assets/images/Logo_2.png" alt="Logo" class="logo">
+                    <a href="contact.html" class="contact-header-btn" data-i18n="contactUs">تواصل معنا</a>
+                </div>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="index.html" data-i18n="home">الرئيسية</a></li>
+                        <li><a href="about.html" class="active" data-i18n="about">من نحن</a></li>
+                        <li><a href="causes.html" data-i18n="causes">قضايانا</a></li>
+                        <li><a href="#" data-i18n="pages">صفحات</a></li>
+                        <li><a href="blog.html" data-i18n="blogs">المدونة</a></li>
+                    </ul>
+                </nav>
+                <div class="header-right">
+                    <a href="#" class="lang-btn" data-lang="en">EN</a> |
+                    <a href="#" class="lang-btn active" data-lang="ar">AR</a>
+                    <div class="search-container" id="search-container">
+                        <input type="text" class="search-input" placeholder="ابحث هنا..." data-i18n="searchPlaceholder">
+                        <span class="search-icon" id="search-icon" tabindex="0" aria-label="بحث">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <circle cx="11" cy="11" r="7" stroke-width="2"/>
+                                <line x1="16.4142" y1="16" x2="21" y2="20.5858" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-section">
+                <h1 data-i18n="aboutTitle">من نحن</h1>
+                <p data-i18n="heroSubheading">الصفحة الرئيسية / من نحن</p>
+            </div>
+        </header>
+    </div>
+    <div class="about-images-row">
+        <img src="assets/images/Frame 5.png" alt="Together we build a better future" class="about-img-main">
+        <img src="assets/images/Frame 6.png" alt="Children group" class="about-img-overlap">
+    </div>
+    <div class="about-support-box">
+        <div>
+            <h2>دعمك قوي حقاً.</h2>
+            <p>سر السعادة يكمن في مساعدة الغير. لا تستهين أبداً بالدعم الذي يمكنك أن تحدثه في حياة الفقراء والمحتاجين. العطاء يعلم ويغير الآخرين.</p>
+        </div>
+        <a href="#" class="about-support-btn">اقرأ أكثر</a>
+    </div>
+    <div class="about-main-content">
+        <div class="about-main-left">
+            <div class="about-main-title">لنتآث معاً لجعل الحياة أفضل.</div>
+            <div class="about-main-desc">نحن هنا لتقديم الدعم والرعاية والخدمات المجتمعية في مختلف أنحاء العالم. من خلال التبرعات، التطوع، ونشر الوعي، نعمل معاً لبناء مستقبل أفضل للأطفال والعائلات المحتاجة. رؤيتنا هي عالم ينعم فيه الجميع بالعدالة والكرامة. مهمتنا هي تحقيق العدالة الاجتماعية وتوفير الدعم الأساسي للجميع.</div>
+            <div class="about-mv-boxes">
+                <div class="about-mv-box">
+                    <div class="about-mv-title">مهمتنا</div>
+                    <div class="about-mv-desc">مهمتنا هي تحقيق العدالة الاجتماعية من خلال توفير الدعم الأساسي للأطفال والعائلات المحتاجة، ونؤمن بحقهم في عيش حياتهم بكرامة وتلبية احتياجاتهم الأساسية.</div>
+                </div>
+                <div class="about-mv-box">
+                    <div class="about-mv-title">رؤيتنا</div>
+                    <div class="about-mv-desc">نؤمن أن التعليم، الغذاء، والرعاية الصحية حق لكل إنسان، ونسعى لأن يكون لنا دور في المجتمع ومستقبل أفضل.</div>
+                </div>
+            </div>
+            <div class="about-progress">
+                <div class="about-progress-label">المساعدات الطبية</div>
+                <div class="about-progress-bar"><div class="about-progress-bar-inner" style="width: 90%"></div></div>
+                <div class="about-progress-label">التبرعات</div>
+                <div class="about-progress-bar"><div class="about-progress-bar-inner" style="width: 75%"></div></div>
+            </div>
+        </div>
+        <div class="about-main-right">
+            <img src="assets/images/Frame 5.png" alt="Group photo">
+            <div class="about-card">
+                <div class="about-card-title">معاً نصنع المستقبل</div>
+                <ul class="about-card-list">
+                    <li>الأطفال بيتك يكونون تدريب على صناعة كل خير</li>
+                    <li>نستطيع المخاطب مع متبرعين من العالم الكل</li>
+                    <li>نحن نرحب بالجميع ونعمل إلى نشر الأمل</li>
+                    <li>مساهمون في تربية وتوعية</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="features-section">
+        <div class="features-title">مميزاتنا</div>
+        <div class="features-row">
+            <div class="feature-box">
+                <div class="feature-icon">🏠</div>
+                <div class="feature-title">جمعية الغذاء والمشردين</div>
+                <div class="feature-desc">جمعيتنا تهدف لتقديم الغذاء والمأوى للمحتاجين في مختلف أنحاء العالم. نؤمن أن لكل إنسان الحق في حياة كريمة.</div>
+            </div>
+            <div class="feature-box">
+                <div class="feature-icon">💵</div>
+                <div class="feature-title">قدّم تبرعك</div>
+                <div class="feature-desc">ساهم في دعم الأطفال والعائلات المحتاجة من خلال التبرع. تبرعك يمكن أن يصنع فرقاً كبيراً في حياة الآخرين.</div>
+            </div>
+            <div class="feature-box">
+                <div class="feature-icon">🤝</div>
+                <div class="feature-title">منظمة غير ربحية</div>
+                <div class="feature-desc">نحن منظمة غير ربحية تهدف لتحقيق العدالة الاجتماعية وتوفير الدعم الأساسي للجميع.</div>
+            </div>
+        </div>
+        <div class="stats-row">
+            <div class="stat-box">
+                <div class="stat-number">4597+</div>
+                <div class="stat-label">أشخاص تغيرت حياتهم</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">8945+</div>
+                <div class="stat-label">تطوع</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">10M+</div>
+                <div class="stat-label">فقراء تم إنقاذهم</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">100+</div>
+                <div class="stat-label">الدول المشاركة</div>
+            </div>
+        </div>
+    </div>
+    <div class="gallery-section">
+        <div class="gallery-title">معرضنا</div>
+        <div class="gallery-grid">
+            <img src="assets/images/Frame 8.png" alt="Gallery 1">
+            <img src="assets/images/Frame 7.png" alt="Gallery 2">
+            <img src="assets/images/Bitmap.png" alt="Gallery 3">
+            <img src="assets/images/news.png" alt="Gallery 4">
+            <img src="assets/images/charity01.png" alt="Gallery 5">
+            <img src="assets/images/Lorem ipsum2.png" alt="Gallery 6">
+            <img src="assets/images/ChatGPT Image.png" alt="Gallery 7">
+            <img src="assets/images/ChatGPT Image Apr 18, 2025, 06_24_31 PM.png" alt="Gallery 8">
+        </div>
+    </div>
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <img src="assets/images/Logo_2.png" alt="Angels">
+                <div style="margin-top: 12px; color: #e0f7f5;">10k<br>Worldwide Client<br>Already Connected</div>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Link</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="#">Blog Post</a></li>
+                    <li><a href="#">Photo Gallery</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h3>Get In Touch</h3>
+                <ul>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="#">Our Services</a></li>
+                </ul>
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-newsletter">
+                <h3>Newsletter</h3>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Enter Your Email">
+                    <button type="submit">Subscribe</button>
+                </form>
+                <p style="color:#e0f7f5; font-size:0.95em; margin-top:8px;">Your email is safe with us, we don't spam.</p>
+            </div>
+        </div>
+        <div style="text-align:center; color:#b2e4e0; margin-top:24px;">Designed By Ahmed Kamal Developed By Ibrahim Mohamed</div>
+    </footer>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="translations.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchContainer = document.getElementById('search-container');
+            const searchIcon = document.getElementById('search-icon');
+            const searchInput = searchContainer.querySelector('.search-input');
+
+            // Toggle search box
+            searchIcon.addEventListener('click', () => {
+                searchContainer.classList.toggle('expanded');
+                if (searchContainer.classList.contains('expanded')) {
+                    searchInput.focus();
+                }
+            });
+
+            // Close search box when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!searchContainer.contains(e.target)) {
+                    searchContainer.classList.remove('expanded');
+                }
+            });
+
+            // Prevent search box from closing when clicking inside it
+            searchContainer.addEventListener('click', (e) => {
+                e.stopPropagation();
+            });
+
+            // Language switcher functionality
+            const langButtons = document.querySelectorAll('.lang-btn');
+            const htmlTag = document.documentElement;
+
+            langButtons.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const lang = btn.dataset.lang;
+                    
+                    // Update active state
+                    langButtons.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+
+                    // Update HTML lang and dir attributes
+                    htmlTag.setAttribute('lang', lang);
+                    htmlTag.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+
+                    // Update translations
+                    const elements = document.querySelectorAll('[data-i18n]');
+                    elements.forEach(el => {
+                        const key = el.getAttribute('data-i18n');
+                        if (translations[lang] && translations[lang][key]) {
+                            if (el.tagName === 'INPUT') {
+                                el.placeholder = translations[lang][key];
+                            } else {
+                                el.textContent = translations[lang][key];
+                            }
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html> 

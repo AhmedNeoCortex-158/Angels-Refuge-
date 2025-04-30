@@ -1,0 +1,1831 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angels'</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="assets/images/Logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Cairo', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #249b8e;
+        }
+        
+        .container {
+            width: 85%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+        
+        /* Header Styles */
+        header {
+            background: none;
+            color: white;
+            padding: 0;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            gap: 20px;
+        }
+
+        .logo {
+            width: 120px;
+            filter: drop-shadow(0 0 4px rgba(0,0,0,0.15));
+        }
+
+        .main-nav {
+            display: flex;
+            align-items: center;
+        }
+
+        .main-nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .main-nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1em;
+            transition: color 0.2s;
+        }
+
+        .main-nav ul li a:hover {
+            color: #e0f7f5;
+        }
+
+        .lang-switcher {
+            margin-right: 15px;
+            font-weight: bold;
+            font-size: 1em;
+        }
+
+        .lang-switcher a {
+            color: white;
+            text-decoration: none;
+            margin: 0 2px;
+            opacity: 0.8;
+        }
+
+        .lang-switcher a.active, .lang-switcher a:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+
+        .search-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+        
+        .search-icon {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(0,0,0,0.10);
+            transition: background 0.2s;
+        }
+        
+        .search-icon:focus, .search-icon:hover {
+            background: rgba(0,0,0,0.18);
+        }
+        
+        .search-popup {
+            display: none;
+            position: absolute;
+            top: 45px;
+            right: 0;
+            background: rgba(255,255,255,0.92);
+            border-radius: 10px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.13);
+            padding: 8px 12px 8px 40px;
+            z-index: 9999;
+            width: 180px;
+            max-width: 80vw;
+            min-width: 120px;
+            flex-direction: row;
+            align-items: center;
+            gap: 6px;
+            transition: opacity 0.2s;
+        }
+        
+        .search-popup.open {
+            display: flex;
+        }
+        
+        .search-input-popup {
+            flex: 1;
+            padding: 8px 12px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            font-family: 'Cairo', sans-serif;
+            font-size: 1em;
+        }
+        
+        .search-close {
+            background: none;
+            border: none;
+            font-size: 1.5em;
+            color: #00a69c;
+            cursor: pointer;
+            margin-right: 4px;
+        }
+        
+        .hero-bg {
+            background: linear-gradient(120deg, #219a8a 48%, #63666a 0%);
+            position: relative;
+            border-radius: 0 0 32px 32px;
+            overflow: hidden;
+            padding-bottom: 40px;
+        }
+        
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding-top: 30px;
+        }
+        
+        .hero-text {
+            text-align: center;
+            margin-top: 40px;
+            margin-bottom: 30px;
+        }
+        
+        .main-heading {
+            font-size: 2.5em;
+            color: #fff;
+            text-align: center;
+            margin: 0 0 18px 0;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+        
+        .hero-subheading {
+            font-size: 1.3em;
+            color: #e0f7f5;
+            margin-bottom: 32px;
+            margin-top: 0;
+            font-weight: 400;
+        }
+        
+        .donate-btn {
+            display: inline-block;
+            background: linear-gradient(90deg, #fff 60%, #e0f7f5 100%);
+            color: #00a69c;
+            padding: 14px 38px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 30px;
+            margin-top: 10px;
+            font-size: 1.2em;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            transition: background 0.3s, color 0.3s;
+        }
+        
+        .donate-btn:hover {
+            background: #00a69c;
+            color: #fff;
+        }
+        
+        .about-btn {
+            display: inline-block;
+            background: transparent;
+            color: #fff;
+            border: 2px solid #fff;
+            padding: 12px 32px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 30px;
+            margin-top: 10px;
+            margin-right: 16px;
+            font-size: 1.1em;
+            transition: background 0.3s, color 0.3s, border 0.3s;
+        }
+        
+        .about-btn:hover {
+            background: #fff;
+            color: #00a69c;
+            border-color: #e0f7f5;
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 50px 0;
+        }
+        
+        .about {
+            background-color: #f9f9f9;
+        }
+        
+        /* Our Causes Section */
+        .causes-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            text-align: right;
+            margin-bottom: 40px;
+        }
+        
+        .cause-card {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .cause-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .cause-card h3 {
+            color: #00a69c;
+            margin-bottom: 10px;
+        }
+        
+        .help-options {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            text-align: center;
+            line-height: 1.8;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #00a69c;
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+            margin-top: 40px;
+        }
+
+        .stats-container {
+            display: flex;
+            justify-content: space-around;
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .stat-item {
+            color: #00a69c;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            min-width: 150px;
+        }
+
+        .stat-number {
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .main-bg {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 30px 0;
+        }
+
+        .main-container {
+            background: #fff;
+            border-radius: 24px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .about-box {
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+            padding: 32px 24px;
+            margin: 0 auto;
+            max-width: 600px;
+            text-align: center;
+            position: relative;
+        }
+        .about-icon {
+            font-size: 1.5em;
+            vertical-align: middle;
+            margin-left: 8px;
+        }
+        .cause-card {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 16px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            transition: transform 0.25s, box-shadow 0.25s;
+            cursor: pointer;
+            position: relative;
+        }
+        .cause-card img {
+            width: 100%;
+            border-radius: 12px;
+            margin-bottom: 15px;
+        }
+        .cause-card h3 {
+            color: #00a69c;
+            margin-bottom: 10px;
+        }
+        .interactive-card:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 8px 24px rgba(0,166,156,0.13);
+            z-index: 2;
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(.4,0,.2,1), transform 0.8s cubic-bezier(.4,0,.2,1);
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: none;
+        }
+        .hero-mini-title {
+            font-size: 1.1em;
+            color: #e0f7f5;
+            font-weight: 400;
+            margin-bottom: 8px;
+            margin-top: 0;
+            letter-spacing: 0.5px;
+        }
+        .about-flex {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 48px;
+            flex-wrap: wrap;
+        }
+        .about-images {
+            position: relative;
+            min-width: 260px;
+            width: 320px;
+            height: 220px;
+        }
+        .about-img {
+            border: 6px solid #b2e4e0;
+            border-radius: 12px;
+            width: 200px;
+            height: 160px;
+            object-fit: cover;
+            position: absolute;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+        }
+        .about-img-top {
+            top: 0;
+            left: 40px;
+            z-index: 2;
+        }
+        .about-img-bottom {
+            bottom: 0;
+            left: 0;
+            z-index: 1;
+        }
+        .about-content {
+            min-width: 260px;
+            max-width: 400px;
+        }
+        .about-title {
+            color: #888;
+            font-size: 1.1em;
+            margin-bottom: 8px;
+        }
+        .about-heading {
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 16px;
+            color: #222;
+        }
+        .about-desc {
+            font-size: 1.1em;
+            color: #444;
+            margin-bottom: 24px;
+        }
+        .about-more-btn {
+            display: inline-block;
+            background: #1fa87a;
+            color: #fff;
+            padding: 10px 28px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1em;
+            transition: background 0.2s;
+        }
+        .about-more-btn:hover {
+            background: #188c65;
+        }
+        .logo-title-flex {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .site-title {
+            color: #fff;
+            font-size: 1.5em;
+            font-weight: bold;
+            letter-spacing: 1px;
+            font-family: 'Cairo', sans-serif;
+        }
+        .contact-header-btn {
+            background: #19c49c;
+            color: #fff;
+            padding: 8px 22px;
+            border-radius: 7px;
+            font-size: 1.1em;
+            font-weight: 600;
+            text-decoration: none;
+            margin-right: 0;
+            margin-left: 0;
+            transition: background 0.2s, color 0.2s;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .contact-header-btn:hover {
+            background: #0e9c7b;
+            color: #fff;
+        }
+        /* Impact Section Styles */
+        .impact-section {
+            background: #fff;
+            padding: 60px 0 40px 0;
+        }
+        .impact-flex {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 48px;
+        }
+        .impact-titles-col {
+            flex: 1 1 520px;
+            max-width: 600px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+        }
+        .impact-welcome {
+            font-size: 1.1em;
+            color: #888;
+            font-weight: 400;
+            margin-bottom: 8px;
+            margin-top: 0;
+            letter-spacing: 0.5px;
+        }
+        .impact-title {
+            font-size: 2.2em;
+            font-weight: bold;
+            margin-bottom: 16px;
+            color: #222;
+        }
+        .impact-desc {
+            font-size: 1.1em;
+            color: #444;
+            margin-bottom: 24px;
+            max-width: 90%;
+        }
+        .impact-mv-flex {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 18px;
+            width: 100%;
+        }
+        .impact-mv-card {
+            background: #eaf7f5;
+            border-radius: 8px;
+            padding: 18px 16px;
+            min-width: 200px;
+            flex: 1 1 0;
+            box-sizing: border-box;
+        }
+        .impact-progress-group {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        .impact-progress-labels {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        .impact-image-col {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            justify-content: center;
+        }
+        .impact-image-wrap {
+            position: relative;
+            width: 370px;
+            max-width: 100%;
+        }
+        .impact-main-img {
+            width: 100%;
+            border-radius: 12px;
+            display: block;
+        }
+        .impact-card-on-image {
+            position: absolute;
+            bottom: 24px;
+            right: 24px;
+            background: #f3f9f8;
+            border: 3px solid #b2e4e0;
+            border-radius: 10px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.13);
+            padding: 22px 26px 22px 26px;
+            width: 340px;
+            max-width: 90%;
+            z-index: 2;
+        }
+        @media (max-width: 900px) {
+            .impact-flex {
+                flex-direction: column;
+                gap: 32px;
+                align-items: stretch;
+            }
+            .impact-titles-col {
+                max-width: 100%;
+            }
+            .impact-image-col {
+                align-items: center;
+            }
+            .impact-image-wrap {
+                width: 100%;
+                max-width: 100%;
+            }
+            .impact-card-on-image {
+                position: static;
+                margin: 18px auto 0 auto;
+                width: 100%;
+                max-width: 100%;
+                right: auto;
+                left: auto;
+            }
+        }
+        .impact-card-next-image {
+            background: #f3f9f8;
+            border: 3px solid #b2e4e0;
+            border-radius: 10px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.13);
+            padding: 22px 26px 22px 26px;
+            width: 340px;
+            max-width: 95vw;
+            z-index: 2;
+            margin-bottom: 0;
+        }
+        .impact-progress-bar {
+            width: 100%;
+            height: 12px;
+            background: #e0f7f5;
+            border-radius: 6px;
+            margin-bottom: 18px;
+            overflow: hidden;
+        }
+        .impact-progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #249b8e 80%, #b2e4e0 100%);
+            border-radius: 6px;
+        }
+        .impact-progress-labels {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 4px;
+            font-size: 1.1em;
+        }
+        /* Responsive RTL Causes Carousel Styles */
+        .causes-section-rtl {
+            direction: rtl;
+            font-family: 'Cairo', 'Tajawal', Arial, sans-serif;
+            background: #fff;
+            padding: 60px 0 40px 0;
+        }
+        .causes-header-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        .causes-header-text {
+            text-align: right;
+        }
+        .causes-title {
+            font-size: 2.2em;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #222;
+        }
+        .causes-subtitle {
+            color: #888;
+            font-size: 1.1em;
+            margin-bottom: 8px;
+            border-bottom: 2px solid #e0f7f5;
+            display: inline-block;
+            padding-bottom: 2px;
+        }
+        .causes-arrows {
+            display: flex;
+            gap: 12px;
+        }
+        .causes-arrow {
+            background: #eaf7f5;
+            border: none;
+            border-radius: 50%;
+            width: 38px;
+            height: 38px;
+            font-size: 1.5em;
+            color: #249b8e;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .causes-arrow:hover {
+            background: #b2e4e0;
+        }
+        .causes-carousel {
+            display: flex;
+            gap: 24px;
+            overflow-x: auto;
+            padding-bottom: 12px;
+            scroll-snap-type: x mandatory;
+        }
+        .cause-card-new {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+            overflow: hidden;
+            min-width: 260px;
+            max-width: 280px;
+            display: flex;
+            flex-direction: column;
+            scroll-snap-align: start;
+            transition: box-shadow 0.2s, transform 0.2s;
+        }
+        .cause-card-new:hover {
+            box-shadow: 0 8px 24px rgba(36,155,142,0.13);
+            transform: translateY(-6px) scale(1.03);
+        }
+        .cause-card-img-wrap {
+            width: 100%;
+            height: 140px;
+            overflow: hidden;
+        }
+        .cause-card-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .cause-card-content {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            padding: 20px;
+        }
+        .cause-card-category {
+            font-size: 1em;
+            font-weight: bold;
+            margin-bottom: 4px;
+            display: inline-block;
+        }
+        .cause-card-category-med { color: #249b8e; }
+        .cause-card-category-shelter { color: #7bc47f; }
+        .cause-card-category-edu { color: #1fa87a; }
+        .cause-card-category-food { color: #b2e44c; }
+        .cause-card-title {
+            font-size: 1.1em;
+            font-weight: bold;
+            margin-bottom: 4px;
+            color: #222;
+        }
+        .cause-card-desc {
+            font-size: 0.98em;
+            color: #444;
+            margin-bottom: 8px;
+        }
+        .cause-card-progress-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.98em;
+            margin-bottom: 2px;
+        }
+        .cause-card-progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #e0f7f5;
+            border-radius: 6px;
+            margin-bottom: 8px;
+            overflow: hidden;
+        }
+        .cause-card-progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #249b8e 80%, #b2e4e0 100%);
+            border-radius: 6px;
+        }
+        .cause-card-stats-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.97em;
+            color: #888;
+            margin-bottom: 8px;
+        }
+        .cause-card-btn {
+            display: inline-block;
+            background: #eaf7f5;
+            color: #249b8e;
+            border: 1.5px solid #249b8e;
+            border-radius: 6px;
+            padding: 8px 18px;
+            font-weight: 600;
+            font-size: 1em;
+            text-align: center;
+            text-decoration: none;
+            margin-top: 4px;
+            transition: background 0.2s, color 0.2s, border 0.2s;
+        }
+        .cause-card-btn:hover {
+            background: #249b8e;
+            color: #fff;
+            border-color: #1fa87a;
+        }
+        @media (max-width: 900px) {
+            .causes-header-row { flex-direction: column-reverse; align-items: flex-end; }
+            .causes-carousel { gap: 12px; }
+        }
+        /* For RTL support */
+        html[dir="rtl"] .causes-header-row {
+            flex-direction: row-reverse;
+        }
+        .stats {
+            padding: 80px 0;
+            background-color: #f8f9fa;
+        }
+
+        .stats-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .stats-title {
+            color: #666;
+            font-size: 16px;
+            margin-bottom: 16px;
+        }
+
+        .stats-subtitle {
+            font-size: 32px;
+            font-weight: bold;
+            color: #333;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .stat-item {
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .stat-icon {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .stat-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .stat-number {
+            font-size: 36px;
+            font-weight: bold;
+            color: #00A8A8;
+        }
+
+        .stat-label {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.4;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .stats-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 576px) {
+            .stats-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-subtitle {
+                font-size: 24px;
+            }
+        }
+
+        .latest-news {
+            padding: 80px 0;
+            background-color: #fff;
+        }
+
+        .news-header {
+            text-align: left;
+            margin-bottom: 40px;
+        }
+
+        .news-header .subtitle {
+            color: #666;
+            font-size: 14px;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .news-header .title {
+            font-size: 32px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .news-carousel {
+            position: relative;
+            padding: 0 40px;
+        }
+
+        .nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #E6F7F7;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #00A8A8;
+            transition: all 0.3s ease;
+        }
+
+        .nav-btn:hover {
+            background-color: #00A8A8;
+            color: #fff;
+        }
+
+        .nav-btn.prev {
+            left: 0;
+        }
+
+        .nav-btn.next {
+            right: 0;
+        }
+
+        .news-cards {
+            display: flex;
+            gap: 30px;
+            overflow: hidden;
+        }
+
+        .news-card {
+            flex: 0 0 calc(33.333% - 20px);
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .news-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .news-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .news-content {
+            padding: 20px;
+        }
+
+        .news-meta {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 15px;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .news-meta span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .news-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .news-excerpt {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .read-more {
+            display: inline-block;
+            padding: 8px 20px;
+            border: 2px solid #00A8A8;
+            color: #00A8A8;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .read-more:hover {
+            background: #00A8A8;
+            color: #fff;
+        }
+
+        /* RTL Support */
+        [dir="rtl"] .news-header {
+            text-align: right;
+        }
+
+        [dir="rtl"] .nav-btn.prev {
+            right: 0;
+            left: auto;
+        }
+
+        [dir="rtl"] .nav-btn.next {
+            left: 0;
+            right: auto;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .news-cards {
+                flex-wrap: wrap;
+            }
+            
+            .news-card {
+                flex: 0 0 calc(50% - 15px);
+            }
+        }
+
+        @media (max-width: 576px) {
+            .news-card {
+                flex: 0 0 100%;
+            }
+        }
+
+        .site-footer {
+            background-color: #1E2530;
+            color: #fff;
+            padding: 80px 0 0;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 2fr;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        /* Brand Section */
+        .footer-brand {
+            margin-right: 40px;
+        }
+
+        .footer-logo {
+            display: block;
+            margin-bottom: 30px;
+        }
+
+        .footer-logo img {
+            height: 40px;
+        }
+
+        .stats .stat-number {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .stats .stat-text {
+            color: #fff;
+            line-height: 1.5;
+        }
+
+        /* Links Sections */
+        .footer-links h3,
+        .footer-contact h3,
+        .footer-newsletter h3 {
+            color: #fff;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .footer-links ul,
+        .footer-contact ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links ul li,
+        .footer-contact ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links ul li a,
+        .footer-contact ul li a {
+            color: #8b8e93;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links ul li a:hover,
+        .footer-contact ul li a:hover {
+            color: #fff;
+        }
+
+        /* Newsletter Section */
+        .address {
+            margin-bottom: 30px;
+        }
+
+        .address p {
+            color: #8b8e93;
+            line-height: 1.5;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            background: #fff;
+        }
+
+        .newsletter-form button {
+            padding: 10px 20px;
+            background: #00A8A8;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .newsletter-form button:hover {
+            background: #008080;
+        }
+
+        .privacy-note {
+            color: #8b8e93;
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+
+        /* Social Links */
+        .social-links {
+            margin-top: 30px;
+        }
+
+        .social-title {
+            color: #fff;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .social-icon svg {
+            width: 18px;
+            height: 18px;
+            fill: #fff;
+            transition: all 0.3s ease;
+        }
+
+        /* Individual social media colors on hover */
+        .social-icon.twitter:hover {
+            background: #1DA1F2;
+        }
+
+        .social-icon.instagram:hover {
+            background: #E4405F;
+        }
+
+        .social-icon.pinterest:hover {
+            background: #BD081C;
+        }
+
+        .social-icon.youtube:hover {
+            background: #FF0000;
+        }
+
+        /* RTL Support */
+        [dir="rtl"] .social-icons {
+            flex-direction: row-reverse;
+        }
+
+        /* Hover animation */
+        .social-icon:hover {
+            transform: translateY(-3px);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .social-icons {
+                justify-content: center;
+            }
+        }
+
+        /* Footer Bottom */
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 20px 0;
+            text-align: center;
+            margin-top: auto;
+        }
+
+        .footer-bottom .copyright {
+            color: #8b8e93;
+            font-size: 14px;
+            margin: 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-brand {
+                margin-right: 0;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body class="rtl">
+    <div class="main-bg">
+        <div class="main-container">
+            <!-- Header Section -->
+            <header>
+                <div class="hero-bg">
+                    <div class="container hero-content">
+                        <div class="header-top">
+                            <div class="logo-title-flex">
+                                <img src="assets/images/Logo_2.png" alt="Logo" class="logo">
+                                <a href="contact.html" class="contact-header-btn class="contactUs" data-i18n="contactUs"">تواصل معنا</a>
+                            </div>
+                            <nav class="main-nav">
+                                <ul>
+                       <li><a href="index.html" data-i18n="home">الرئيسية</a></li>
+                       <li><a href="about.html" data-i18n="about">من نحن</a></li>
+                        <li><a href="#causes" data-i18n="causes">الأسباب</a></li>
+                        <li><a href="#pages" data-i18n="pages">الصفحات</a></li>
+                        <li><a href="#blogs" data-i18n="blogs">المدونات</a></li>
+                                </ul>
+                            </nav>
+                            <div class="lang-switcher">
+                                <a href="#" class="lang-btn active" data-lang="ar">AR</a> |
+                                <a href="#" class="lang-btn" data-lang="en">EN</a>
+                            </div>
+                            <div class="search-container">
+                                <span class="search-icon" id="search-icon" tabindex="0" aria-label="بحث">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                        <circle cx="11" cy="11" r="7" stroke="#fff" stroke-width="2"/>
+                                        <line x1="16.4142" y1="16" x2="21" y2="20.5858" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+                                    </svg>
+                                </span>
+                                <div class="search-popup" id="search-popup">
+                                    <input type="text" class="search-input-popup" placeholder="ابحث هنا...">
+                                    <button class="search-close" id="search-close" aria-label="إغلاق البحث" style="width:1px;height:1px;padding:0;border:0;overflow:hidden;position:absolute;clip:rect(0,0,0,0);"> </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hero-text">
+                            <div class="hero-mini-title" data-i18n="heroMiniTitle">امنح الأمل للمشردين.</div>
+                            <h1 class="main-heading" data-i18n="mainHeading">مساعدة بعضنا البعض يمكن أن تجعل العالم أفضل</h1>
+                            <p class="hero-subheading" data-i18n="heroSubheading">نحن نبحث عن صانعي التغيير والمُؤثرين حول العالم، ونزوّدهم بالأدوات اللازمة لتحقيق هدفهم الفريد.</p>
+                            <a href="#" class="donate-btn" data-i18n="donateBtn">تبرع الآن</a>
+                            <a href="about.html" class="about-btn" id="about-btn" data-i18n="aboutBtn">تعرف علينا</a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <!--End Header Section -->
+            <!-- About Us Section -->
+            <section class="about fade-in">
+                <div class="container about-flex">
+                    <div class="about-images">
+                        <img src="assets/images/Frame 5.png" alt="Orphanage Welcome" class="about-img about-img-top">
+                        <img src="assets/images/Frame 6.png" alt="Orphanage Kids" class="about-img about-img-bottom">
+                    </div>
+                    <div class="about-content">
+                        <div class="about-title" data-i18n="aboutTitle">من نحن</div>
+                        <div class="about-heading" data-i18n="aboutHeading">دعمك قوي حقاً.</div>
+                        <div class="about-desc" data-i18n="aboutDesc">يمكنك سر السعادة في مساعدة الآخرين، لا تقلل أبداً من قدر الطريق الذي يمكنك إحداثه في حياة الفقراء والمحتاجين، فالعطاء يعلم ويغير الآخرين.</div>
+                        <a href="#" class="about-more-btn" data-i18n="aboutMoreBtn">اقرأ أكثر</a>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Impact Section (from user image) -->
+            <section class="impact-section fade-in">
+                <div class="container impact-flex">
+                    <div class="impact-titles-col">
+                        <div class="impact-welcome" data-i18n="impactWelcome">مرحباً بكم في الأعمال الخيرية</div>
+                        <h2 class="impact-title" data-i18n="impactTitle">دعونا نجتمع معاً لإحداث فرق</h2>
+                        <div class="impact-desc" data-i18n="impactDesc">
+                            في هذا العالم، كل واحد منا لديه القدرة على إحداث التغيير، سواء من خلال التبرع أو التطوع أو حتى مجرد نشر الوعي. دعونا نعمل معاً من أجل مستقبل أفضل للأطفال والعائلات المحتاجة.
+                        </div>
+                        <div class="impact-mv-flex">
+                            <div class="impact-vision impact-mv-card">
+                                <div class="mv-title mv-vision">رؤيتنا</div>
+                                <div class="mv-desc">نؤمن أن التعليم، الغذاء، والرعاية الصحية حق لكل إنسان، ونسعى لأن يكون لنا دور في المجتمع ومستقبل أفضل.</div>
+                            </div>
+                            <div class="impact-mission impact-mv-card">
+                                <div class="mv-title mv-mission">مهمتنا</div>
+                                <div class="mv-desc">مهمتنا هي تحقيق العدالة الاجتماعية من خلال توفير الدعم الأساسي للأطفال والعائلات المحتاجة، ونؤمن بحقهم في عيش حياتهم بكرامة وتلبية احتياجاتهم الأساسية.</div>
+                            </div>
+                        </div>
+                        <div class="impact-progress-group">
+                            <div class="impact-progress-labels" style="display: flex; justify-content: space-between; align-items: center;">
+                                <span class="progress-value">75%</span>
+                                <span class="progress-label" style="font-weight: bold;">التبرعات</span>
+                            </div>
+                            <div class="impact-progress-bar">
+                                <div class="impact-progress-fill" style="width:75%"></div>
+                            </div>
+                        </div>
+                        <div class="impact-progress-group">
+                            <div class="impact-progress-labels" style="display: flex; justify-content: space-between; align-items: center;">
+                                <span class="progress-value">90%</span>
+                                <span class="progress-label" style="font-weight: bold;">المساعدة الطبية</span>
+                            </div>
+                            <div class="impact-progress-bar">
+                                <div class="impact-progress-fill" style="width:90%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="impact-image-col">
+                        <div class="impact-image-wrap impact-image-mint-border">
+                            <img style="margin-bottom: 150px;" src="assets/images/Frame 5.png" alt="Children and volunteers group photo" class="impact-main-img">
+                            <div class="impact-card-on-image impact-card-bottom-right">
+                                <div class="impact-card-title" style="color:#219a8a; font-weight:bold;">معاً نصنع المستقبل</div>
+                                <div class="impact-card-desc" style="margin-bottom:10px; color:#444;">متحدون بالأمل والعمل الإنساني، يقف متطوعونا والأطفال معاً لبناء غدٍ أفضل.</div>
+                                <ul class="impact-card-list">
+                                    <li>دعم المجتمع والعمل الجماعي</li>
+                                    <li>بناء مستقبل أفضل</li>
+                                    <li>حماية الأطفال من الحرب والعنف</li>
+                                    <li>الأمل والعمل الإنساني</li>
+                                </ul>
+                            </div>
+                            <!-- <div class="impact-image-caption" style="margin-top:10px; color:#888; font-size:0.95em; text-align:center;">صورة جماعية أمام كوخ تقليدي، وجوه مبتسمة بزي المتطوعين</div> -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Responsive RTL Causes Carousel Section -->
+            <section class="causes-section-rtl fade-in">
+              <div class="container causes-container">
+                <div class="causes-header">
+                  <div style="margin-left: 200px;" class="causes-header">
+                    <div class="causes-subtitle" data-i18n="causesSubtitle">أحدث الأسباب</div>
+                    <h2 class="causes-title" data-i18n="causesTitle">ابحث عن القضية الشعبية وتبرع لهم.</h2> <br>
+                  </div>
+                  <div class="causes-arrows" style="margin-left: auto;">
+                  </div>
+                </div>
+                <div class="causes-carousel">
+                  <div class="cause-card-new">
+                    <div class="cause-card-img-wrap">
+                      <img src="assets/images/Frame 7.png" alt="تبرع لعلاج الفقراء وأوديتهم" class="cause-card-img">
+                    </div>
+                    <div class="cause-card-content">
+                      <div class="cause-card-category cause-card-category-med">طب</div>
+                      <div class="cause-card-title">تبرع لعلاج الفقراء وأوديتهم.</div>
+                      <div class="cause-card-desc">في كل يوم هناك من يحتاج للعلاج والدعم، ساهم في رسم بسمة على وجه المحتاجين.</div>
+                      <div class="cause-card-progress-row">
+                        <span class="cause-card-progress-label">Donatone</span>
+                        <span class="cause-card-progress-value">60%</span>
+                      </div>
+                      <div class="cause-card-progress-bar">
+                        <div class="cause-card-progress-fill" style="width:60%"></div>
+                      </div>
+                      <div class="cause-card-stats-row">
+                        <span>Raised: $600</span>
+                        <span>Goal: $1,000</span>
+                      </div>
+                      <a href="#" class="cause-card-btn">تبرع الآن</a>
+                    </div>
+                  </div>
+                  <div class="cause-card-new">
+                    <div class="cause-card-img-wrap">
+                      <img src="assets/images/Frame 6.png" alt="الأطفال الذين نعمل معهم" class="cause-card-img">
+                    </div>
+                    <div class="cause-card-content">
+                      <div class="cause-card-category cause-card-category-shelter">مشرد</div>
+                      <div class="cause-card-title">الأطفال الذين نعمل معهم.</div>
+                      <div class="cause-card-desc">نعمل يومياً مع أطفال حرموا من أبسط حقوقهم في العلاج والغذاء والتعليم. بعضهم يعاني من أمراض مزمنة ولا يستطيع الحصول على الدواء.</div>
+                      <div class="cause-card-progress-row">
+                        <span class="cause-card-progress-label">Donatone</span>
+                        <span class="cause-card-progress-value">85%</span>
+                      </div>
+                      <div class="cause-card-progress-bar">
+                        <div class="cause-card-progress-fill" style="width:85%"></div>
+                      </div>
+                      <div class="cause-card-stats-row">
+                        <span>Raised: $8500</span>
+                        <span>Goal: $10,000</span>
+                      </div>
+                      <a href="#" class="cause-card-btn">تبرع الآن</a>
+                    </div>
+                  </div>
+                  <div class="cause-card-new">
+                    <div class="cause-card-img-wrap">
+                      <img src="assets/images/Frame 8.png"alt="مساعدة للتعليم" class="cause-card-img">
+                    </div>
+                    <div class="cause-card-content">
+                      <div class="cause-card-category cause-card-category-edu">تعليم</div>
+                      <div class="cause-card-title">مساعدة للتعليم</div>
+                      <div class="cause-card-desc">من بين الأطفال الذين نعمل معهم، كثيرون حرموا من فرصة الذهاب إلى المدرسة بسبب الفقر أو المرض.</div>
+                      <div class="cause-card-progress-row">
+                        <span class="cause-card-progress-label">Donatone</span>
+                        <span class="cause-card-progress-value">90%</span>
+                      </div>
+                      <div class="cause-card-progress-bar">
+                        <div class="cause-card-progress-fill" style="width:90%"></div>
+                      </div>
+                      <div class="cause-card-stats-row">
+                        <span>Raised: $9,000</span>
+                        <span>Goal: $10,000</span>
+                      </div>
+                      <a href="#" class="cause-card-btn">تبرع الآن</a>
+                    </div>
+                  </div>
+                  <div class="cause-card-new">
+                    <div class="cause-card-img-wrap">
+                      <img src="assets/images/Bitmap.png" alt="مساعدة للغذاء" class="cause-card-img">
+                    </div>
+                    <div class="cause-card-content">
+                      <div class="cause-card-category cause-card-category-food">طعام</div>
+                      <div class="cause-card-title">مساعدة للغذاء</div>
+                      <div class="cause-card-desc">العديد من الأسر يعانون من نقص الغذاء ولا يستطيعون توفير وجبات كافية لأطفالهم. ساعدهم ليكون لديهم أمل في غدٍ أفضل.</div>
+                      <div class="cause-card-progress-row">
+                        <span class="cause-card-progress-label">Donatone</span>
+                        <span class="cause-card-progress-value">75%</span>
+                      </div>
+                      <div class="cause-card-progress-bar">
+                        <div class="cause-card-progress-fill" style="width:75%"></div>
+                      </div>
+                      <div class="cause-card-stats-row">
+                        <span>Raised: $1,500</span>
+                        <span>Goal: $2,000</span>
+                      </div>
+                      <a href="#" class="cause-card-btn">تبرع الآن</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+            
+            <!-- Stats Section -->
+            <section class="stats fade-in">
+                <div class="container">
+                    <div class="stats-header">
+                        <div style="margin-left: 900px;" class="stats-title" data-i18n="statsTitle">حقائقنا المجمعة</div>
+                        <div style="margin-left: 450px;" class="stats-subtitle" data-i18n="statsSubtitle">نعتقد أنه يمكننا إنقاذ المزيد من الأرواح معك.</div>
+                    </div>
+                    <div class="stats-container">
+                        <div class="stat-item">
+                            <div class="stat-icon">
+                                <img src="assets/images/Group 3235.png" alt="Beneficiaries Icon">
+                            </div>
+                            <div class="stat-number counter" data-target="4597">4597+</div>
+                            <div class="stat-label">نفس الأشخاص تغيرت حياتهم</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-icon">
+                                <img src="assets/images/Group 3236.png" alt="Volunteers Icon">
+                            </div>
+                            <div class="stat-number counter" data-target="8945">8945+</div>
+                            <div class="stat-label">التطوع</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-icon">
+                                <img src="assets/images/Group 3239.png" alt="People Helped Icon">
+                            </div>
+                            <div class="stat-number counter" data-target="10000">10M+</div>
+                            <div class="stat-label">فقراء تم انقاذهم</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-icon">
+                                <img src="assets/images/Group 3238.png" alt="Countries Icon">
+                            </div>
+                            <div class="stat-number counter" data-target="1000">100+</div>
+                            <div class="stat-label">الدول المشاركة</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Latest News Section -->
+            <section class="latest-news">
+                <div class="container">
+                    <div class="news-header">
+                        <span class="subtitle">آخر الأخبار</span>
+                        <h2 class="title">مقال قد تقرأه</h2>
+                    </div>
+
+                    <div class="news-carousel">
+                        <div class="news-cards">
+                            <!-- Article 1 -->
+                            <article class="news-card">
+                                <div class="news-image">
+                                    <img src="assets/images/charity01.png" alt="Charity Word Cloud">
+                                </div>
+                                <div class="news-content">
+                                    <div class="news-meta">
+                                        <span class="author">
+                                            <i class="user-icon"></i>
+                                            Esther Howard
+                                        </span>
+                                        <span class="date">
+                                            <i class="calendar-icon"></i>
+                                            12 Sep 2021
+                                        </span>
+                                    </div>
+                                    <h3 class="news-title">الإحسان والتوقعات مقابل الواقع</h3>
+                                    <p class="news-excerpt">Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Sed Diam Nonumy, Tempor Invidunt Ut Labore Et Magna Aliquyam Erat, Sed Diam Voluptua....</p>
+                                    <a href="#" class="read-more">Read More</a>
+                                </div>
+                            </article>
+
+                            <!-- Article 2 -->
+                            <article class="news-card">
+                                <div class="news-image">
+                                    <img src="assets/images/news.png" alt="Charity Protest">
+                                </div>
+                                <div class="news-content">
+                                    <div class="news-meta">
+                                        <span class="author">
+                                            <i class="user-icon"></i>
+                                            Jacob Jones
+                                        </span>
+                                        <span class="date">
+                                            <i class="calendar-icon"></i>
+                                            22 Aug 2021
+                                        </span>
+                                    </div>
+                                    <h3 class="news-title">أبرز القصص هذا الأسبوع عن الأعمال الخيرية</h3>
+                                    <p class="news-excerpt">Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Sed Diam Nonumy, Tempor Invidunt Ut Labore Et Magna Aliquyam Erat, Sed Diam Voluptua....</p>
+                                    <a href="#" class="read-more">Read More</a>
+                                </div>
+                            </article>
+
+                            <!-- Article 3 -->
+                            <article class="news-card">
+                                <div class="news-image">
+                                    <img src="assets/images/Lorem ipsum2.png" alt="Woman Portrait">
+                                </div>
+                                <div class="news-content">
+                                    <div class="news-meta">
+                                        <span class="author">
+                                            <i class="user-icon"></i>
+                                            Floyd Miles
+                                        </span>
+                                        <span class="date">
+                                            <i class="calendar-icon"></i>
+                                            30 Jul 2021
+                                        </span>
+                                    </div>
+                                    <h3 class="news-title">لماذا يجب أن نركز على الأعمال الخيرية</h3>
+                                    <p class="news-excerpt">Lorem Ipsum Dolor Sit Amet, Consetetur Sadipscing Sed Diam Nonumy, Tempor Invidunt Ut Labore Et Magna Aliquyam Erat, Sed Diam Voluptua....</p>
+                                    <a href="#" class="read-more">Read More</a>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer class="site-footer">
+                <div class="container">
+                    <div class="footer-content">
+                        <!-- Logo and Stats Section -->
+                        <div class="footer-brand">
+                            <a href="/" class="footer-logo">
+                                <img src="assets/images/Logo_2.png" style="width: 100px; height: auto;" alt="Angels">
+                            </a>
+                            <!-- <div class="stats">
+                                <div class="stat-number">10k</div>
+                                <div class="stat-text">
+                                    Worldwide Client<br>
+                                    Already Connected
+                                </div>
+                            </div> -->
+                        </div>
+
+                        <!-- Quick Links Section -->
+                        <div class="footer-links">
+                            <h3>Quick Link</h3>
+                            <ul>
+                                <li><a href="/">Home</a></li>
+                                <li><a href="/about">About Us</a></li>
+                                <li><a href="/blog">Blog Post</a></li>
+                                <li><a href="/gallery">Photo Gallery</a></li>
+                            </ul>
+                        </div>
+
+                        <!-- Get In Touch Section -->
+                        <div class="footer-contact">
+                            <h3>Get In Touch</h3>
+                            <ul>
+                                <li><a href="/contact">Contact Us</a></li>
+                                <li><a href="/services">Our Services</a></li>
+                            </ul>
+                        </div>
+
+                        <!-- Address and Newsletter Section -->
+                        <div class="footer-newsletter">
+                            <div class="address">
+                                <h3>Address</h3>
+                                <p>Next to Small Industries Complex, Industrial Area2, Al-Sharqia Governorate</p>
+                            </div>
+                            
+                            <div class="newsletter">
+                                <h3>Newsletter</h3>
+                                <form class="newsletter-form">
+                                    <input type="email" placeholder="Enter Your Email">
+                                    <button type="submit">Subscribe</button>
+                                </form>
+                                <p class="privacy-note">Your email is safe with us,we don't spam.</p>
+                            </div>
+
+                            <div class="social-links">
+                                <h3 class="social-title" data-i18n="followMe">Follow Me</h3>
+                                <div class="social-icons">
+                                    <a href="#" class="social-icon twitter" aria-label="Twitter">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M23.643 4.937c-.835.37-1.732.62-2.675.733.962-.576 1.7-1.49 2.048-2.578-.9.534-1.897.922-2.958 1.13-.85-.904-2.06-1.47-3.4-1.47-2.572 0-4.658 2.086-4.658 4.66 0 .364.042.718.12 1.06-3.873-.195-7.304-2.05-9.602-4.868-.4.69-.63 1.49-.63 2.342 0 1.616.823 3.043 2.072 3.878-.764-.025-1.482-.234-2.11-.583v.06c0 2.257 1.605 4.14 3.737 4.568-.392.106-.803.162-1.227.162-.3 0-.593-.028-.877-.082.593 1.85 2.313 3.198 4.352 3.234-1.595 1.25-3.604 1.995-5.786 1.995-.376 0-.747-.022-1.112-.065 2.062 1.323 4.51 2.093 7.14 2.093 8.57 0 13.255-7.098 13.255-13.254 0-.2-.005-.402-.014-.602.91-.658 1.7-1.477 2.323-2.41z"/>
+                                        </svg>
+                                    </a>
+                                    <a href="#" class="social-icon instagram" aria-label="Instagram">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                                        </svg>
+                                    </a>
+                                    <a href="#" class="social-icon pinterest" aria-label="Pinterest">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.39 18.592.026 11.985.026L12.017 0z"/>
+                                        </svg>
+                                    </a>
+                                    <a href="#" class="social-icon youtube" aria-label="YouTube">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <div class="container">
+                        <p class="copyright">Designed By Ahmed Kamal Developed By Ibrahim Mohamed</p>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <script src="translations.js"></script>
+    <script src="languageSwitcher.js"></script>
+    <script>
+    // Fade-in on scroll
+    function revealOnScroll() {
+        document.querySelectorAll('.fade-in').forEach(function(el) {
+            const rect = el.getBoundingClientRect();
+            if (rect.top < window.innerHeight - 60) {
+                el.classList.add('visible');
+            }
+        });
+    }
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('DOMContentLoaded', revealOnScroll);
+
+    // Animated Counters
+    let countersStarted = false;
+    function animateCounters() {
+        if (countersStarted) return;
+        const statsSection = document.querySelector('.stats');
+        const rect = statsSection.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 60) {
+            countersStarted = true;
+            document.querySelectorAll('.counter').forEach(counter => {
+                const target = +counter.getAttribute('data-target');
+                let count = 0;
+                const duration = 1500;
+                const step = Math.ceil(target / (duration / 16));
+                function updateCounter() {
+                    count += step;
+                    if (count < target) {
+                        counter.textContent = count + '+';
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        counter.textContent = target + '+';
+                    }
+                }
+                updateCounter();
+            });
+        }
+    }
+    window.addEventListener('scroll', animateCounters);
+    window.addEventListener('DOMContentLoaded', animateCounters);
+
+    // Initialize language switcher
+    document.addEventListener('DOMContentLoaded', () => {
+        const langSwitcher = new LanguageSwitcher();
+    });
+
+    // Search Icon Popup (robust infinite open/close)
+    document.addEventListener('DOMContentLoaded', function() {
+        let searchOpen = false;
+        const searchIcon = document.getElementById('search-icon');
+        const searchPopup = document.getElementById('search-popup');
+        const searchClose = document.getElementById('search-close');
+        const searchInputPopup = document.querySelector('.search-input-popup');
+
+        function openSearchPopup() {
+            searchOpen = true;
+            searchPopup.classList.add('open');
+            setTimeout(() => searchInputPopup.focus(), 100);
+        }
+
+        function closeSearchPopup() {
+            searchOpen = false;
+            searchPopup.classList.remove('open');
+            searchInputPopup.value = '';
+        }
+
+        if (searchIcon && searchPopup && searchClose && searchInputPopup) {
+            searchIcon.addEventListener('click', function(e) {
+                e.stopPropagation();
+                if (!searchOpen) {
+                    openSearchPopup();
+                } else {
+                    closeSearchPopup();
+                }
+            });
+            searchIcon.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    if (!searchOpen) {
+                        openSearchPopup();
+                    } else {
+                        closeSearchPopup();
+                    }
+                }
+            });
+            searchClose.addEventListener('click', function(e) {
+                e.stopPropagation();
+                closeSearchPopup();
+            });
+            document.addEventListener('click', function(e) {
+                if (searchOpen && !searchPopup.contains(e.target) && e.target !== searchIcon) {
+                    closeSearchPopup();
+                }
+            });
+            searchInputPopup.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') closeSearchPopup();
+            });
+            // Prevent click inside popup from closing it
+            searchPopup.addEventListener('click', function(e) {
+                e.stopPropagation();
+            });
+        } else {
+            console.error('Search elements not found!');
+        }
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const carousel = document.querySelector('.news-cards');
+        const prevBtn = document.querySelector('.nav-btn.prev');
+        const nextBtn = document.querySelector('.nav-btn.next');
+        const cards = document.querySelectorAll('.news-card');
+        let currentIndex = 0;
+
+        function updateCarousel() {
+            const cardWidth = cards[0].offsetWidth + 30; // Including gap
+            carousel.style.transform = `translateX(${-currentIndex * cardWidth}px)`;
+        }
+
+        prevBtn.addEventListener('click', () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateCarousel();
+            }
+        });
+
+        nextBtn.addEventListener('click', () => {
+            if (currentIndex < cards.length - 1) {
+                currentIndex++;
+                updateCarousel();
+            }
+        });
+
+        // Update on window resize
+        window.addEventListener('resize', updateCarousel);
+    });
+    </script>
+</body>
+</html>
