@@ -82,38 +82,58 @@
         .header-right {
             display: flex;
             align-items: center;
-            gap: 15px;
-        }
-
-        .contact-header-btn {
-            background: transparent;
-            color: #fff;
-            padding: 8px 20px;
-            border-radius: 4px;
-            font-size: 0.9em;
-            font-weight: 500;
-            text-decoration: none;
-            transition: background 0.2s;
-        }
-
-        .contact-header-btn:hover {
-            background: rgba(255, 255, 255, 0.1);
+            gap: 20px;
         }
 
         .search-icon {
-            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 32px;
-            height: 32px;
-            border-radius: 4px;
-            background: rgba(255, 255, 255, 0.1);
-            transition: background 0.2s;
+            cursor: pointer;
+            transition: all 0.3s ease;
         }
 
         .search-icon:hover {
             background: rgba(255, 255, 255, 0.2);
+        }
+
+        .search-icon svg {
+            width: 20px;
+            height: 20px;
+            stroke: #fff;
+        }
+
+        .contact-header-btn {
+            background: #00a69c;
+            color: #fff;
+            padding: 12px 28px;
+            border-radius: 66px;
+            font-size: 1.1em;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .contact-header-btn:hover {
+            background: #188c65;
+            transform: translateY(-2px);
+        }
+
+        .lang-text {
+            color: #fff;
+            font-size: 1.1em;
+            font-weight: 500;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+        }
+
+        .lang-text:hover {
+            opacity: 0.8;
         }
 
         /* Hero Content */
@@ -147,39 +167,47 @@
 
         .hero-buttons {
             display: flex;
-            gap: 15px;
+            gap: 20px;
             justify-content: center;
             margin-top: 30px;
         }
 
         .donate-btn {
-            background: #19c49c;
-            color: #fff;
-            padding: 12px 30px;
-            border-radius: 4px;
-            font-size: 1em;
-            font-weight: 500;
+            display: inline-block;
+            background: linear-gradient(90deg, #fff 60%, #e0f7f5 100%);
+            color: #00a69c;
+            padding: 14px 38px;
             text-decoration: none;
-            transition: background 0.2s;
+            font-weight: bold;
+            border-radius: 30px;
+            font-size: 1.2em;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
         }
-
+        
         .donate-btn:hover {
-            background: #0e9c7b;
-        }
-
-        .about-btn {
-            background: rgba(255, 255, 255, 0.1);
+            background: #00a69c;
             color: #fff;
-            padding: 12px 30px;
-            border-radius: 4px;
-            font-size: 1em;
-            font-weight: 500;
-            text-decoration: none;
-            transition: background 0.2s;
+            transform: translateY(-3px);
         }
-
+        
+        .about-btn {
+            display: inline-block;
+            background: transparent;
+            color: #fff;
+            border: 2px solid #fff;
+            padding: 12px 32px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 30px;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+        }
+        
         .about-btn:hover {
-            background: rgba(255, 255, 255, 0.2);
+            background: #fff;
+            color: #00a69c;
+            transform: translateY(-3px);
         }
 
         /* Blog Single Page Specific Styles */
@@ -465,46 +493,6 @@
         }
 
         /* Button Styles */
-        .donate-btn {
-            display: inline-block;
-            background: linear-gradient(90deg, #fff 60%, #e0f7f5 100%);
-            color: #00a69c;
-            padding: 14px 38px;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 30px;
-            margin-top: 10px;
-            font-size: 1.2em;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-            transition: background 0.3s, color 0.3s;
-        }
-        
-        .donate-btn:hover {
-            background: #00a69c;
-            color: #fff;
-        }
-        
-        .about-btn {
-            display: inline-block;
-            background: transparent;
-            color: #fff;
-            border: 2px solid #fff;
-            padding: 12px 32px;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 30px;
-            margin-top: 10px;
-            margin-right: 16px;
-            font-size: 1.1em;
-            transition: background 0.3s, color 0.3s, border 0.3s;
-        }
-        
-        .about-btn:hover {
-            background: #fff;
-            color: #00a69c;
-            border-color: #e0f7f5;
-        }
-
         .contact-header-btn {
             background: #19c49c;
             color: #fff;
@@ -526,6 +514,72 @@
             margin-right: 0;
             margin-left: 16px;
         }
+
+        .lang-switcher {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #fff;
+        }
+
+        .lang-btn {
+            color: #fff;
+            text-decoration: none;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+            font-size: 1.1em;
+            padding: 0 4px;
+        }
+
+        .lang-btn.active {
+            opacity: 1;
+        }
+
+        .lang-btn:hover {
+            opacity: 1;
+        }
+
+        .search-container {
+            position: relative;
+            margin-left: 16px;
+        }
+
+        .search-container.expanded {
+            background: white;
+            border-radius: 8px;
+            padding: 8px 16px;
+            display: flex;
+            align-items: center;
+            width: 240px;
+        }
+
+        .search-container:not(.expanded) .search-input {
+            display: none;
+        }
+
+        .search-input {
+            border: none;
+            outline: none;
+            width: 100%;
+            padding: 4px;
+            font-size: 1em;
+            background: transparent;
+            color: #333;
+            direction: rtl;
+        }
+
+        .search-input::placeholder {
+            color: #999;
+        }
+
+        .search-container.expanded .search-icon {
+            background: transparent;
+        }
+
+        .search-container.expanded .search-icon svg circle,
+        .search-container.expanded .search-icon svg line {
+            stroke: #00a69c;
+        }
     </style>
 </head>
 <body class="rtl">
@@ -546,20 +600,26 @@
                         </ul>
                     </nav>
                     <div class="header-right">
-                        <span>En</span>
+                        <div class="lang-switcher">
+                            <a href="#" class="lang-btn" data-lang="en">EN</a> |
+                            <a href="#" class="lang-btn active" data-lang="ar">AR</a>
+                        </div>
                         <a href="contact.html" class="contact-header-btn">Contact us</a>
-                        <div class="search-icon">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2">
-                                <circle cx="11" cy="11" r="7"/>
-                                <line x1="16.4142" y1="16" x2="21" y2="20.5858" stroke-linecap="round"/>
-                            </svg>
+                        <div class="search-container" id="search-container">
+                            <input type="text" class="search-input" placeholder="Search here..." data-i18n="searchPlaceholder">
+                            <span class="search-icon" id="search-icon" tabindex="0" aria-label="Search">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <circle cx="11" cy="11" r="7" stroke-width="2"/>
+                                    <line x1="16.4142" y1="16" x2="21" y2="20.5858" stroke-width="2" stroke-linecap="round"/>
+                                </svg>
+                            </span>
                         </div>
                     </div>
                 </div>
                 <div class="hero-content">
-                    <h1 class="main-heading">الإحسان والتوقعات مقابل </h1>
+                    <h1 class="main-heading">الإحسان والتوقعات مقابل</h1>
                     <div class="hero-buttons">
-                        <a href="#" class="donate-btn">Donate Now</a>
+                        <a href="donate.html" class="donate-btn">Donate Now</a>
                         <a href="about.html" class="about-btn">Know About Us</a>
                     </div>
                 </div>
@@ -685,13 +745,13 @@
             offset: 100
         });
         
-        // Add the same JavaScript functionality as about.html
         document.addEventListener('DOMContentLoaded', function() {
             // Search functionality
             const searchContainer = document.getElementById('search-container');
             const searchIcon = document.getElementById('search-icon');
             const searchInput = searchContainer.querySelector('.search-input');
 
+            // Toggle search box
             searchIcon.addEventListener('click', () => {
                 searchContainer.classList.toggle('expanded');
                 if (searchContainer.classList.contains('expanded')) {
@@ -699,17 +759,19 @@
                 }
             });
 
+            // Close search box when clicking outside
             document.addEventListener('click', (e) => {
                 if (!searchContainer.contains(e.target)) {
                     searchContainer.classList.remove('expanded');
                 }
             });
 
+            // Prevent search box from closing when clicking inside it
             searchContainer.addEventListener('click', (e) => {
                 e.stopPropagation();
             });
 
-            // Language switcher
+            // Language switcher functionality
             const langButtons = document.querySelectorAll('.lang-btn');
             const htmlTag = document.documentElement;
 
@@ -718,12 +780,15 @@
                     e.preventDefault();
                     const lang = btn.dataset.lang;
                     
+                    // Update active state
                     langButtons.forEach(b => b.classList.remove('active'));
                     btn.classList.add('active');
 
+                    // Update HTML lang and dir attributes
                     htmlTag.setAttribute('lang', lang);
                     htmlTag.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
 
+                    // Update translations
                     const elements = document.querySelectorAll('[data-i18n]');
                     elements.forEach(el => {
                         const key = el.getAttribute('data-i18n');
