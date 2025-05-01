@@ -11,6 +11,7 @@ const translations = {
         heroMiniTitle: "امنح الأمل للمشردين.",
         mainHeading: "مساعدة بعضنا البعض يمكن أن تجعل العالم أفضل",
         heroSubheading: "نحن نبحث عن صانعي التغيير والمُؤثرين حول العالم، ونزوّدهم بالأدوات اللازمة لتحقيق هدفهم الفريد.",
+        aboutBreadcrumb: "الصفحة الرئيسية / من نحن",
         donateBtn: "تبرع الآن",
         aboutBtn: "تعرف علينا",
 
@@ -120,6 +121,7 @@ const translations = {
         heroMiniTitle: "Give hope to the homeless.",
         mainHeading: "Helping each other can make the world better",
         heroSubheading: "We seek changemakers and influencers worldwide, equipping them with the tools to achieve their unique goals.",
+        aboutBreadcrumb: "Home / About Us",
         donateBtn: "Donate Now",
         aboutBtn: "Get to Know Us",
 
