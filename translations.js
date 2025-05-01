@@ -8,6 +8,7 @@ const translations = {
         contactHeaderBtn: "تواصل معنا",
 
         // Hero Section
+        heroTitle: "الإحسان والتوقعات مقابل",
         heroMiniTitle: "امنح الأمل للمشردين.",
         mainHeading: "مساعدة بعضنا البعض يمكن أن تجعل العالم أفضل",
         heroSubheading: "نحن نبحث عن صانعي التغيير والمُؤثرين حول العالم، ونزوّدهم بالأدوات اللازمة لتحقيق هدفهم الفريد.",
@@ -108,16 +109,53 @@ const translations = {
         socialInstagram: "انستغرام",
         socialTwitter: "تويتر",
         socialFacebook: "فيسبوك",
+
+        // Blog Content
+        blogAuthor: "بواسطة إبراهيم محمد",
+        blogDate: "15 مايو 2024",
+        blogComments: "5 تعليقات",
+        blogTitle: "نحن نبحث عن صانعي التغيير والمُؤثرين حول العالم",
+        blogContent: `نحن في جمعية الخير نؤمن بأن كل شخص لديه القدرة على إحداث تغيير إيجابي في العالم. نبحث باستمرار عن الأفراد الملهمين الذين يشاركوننا رؤيتنا في بناء مجتمع أفضل وأكثر عدالة.
+
+من خلال برامجنا المتنوعة، نعمل على تمكين المتطوعين والناشطين من تحقيق أهدافهم في خدمة المجتمع. نوفر التدريب والموارد والدعم اللازم لتحويل أفكارهم إلى مشاريع ملموسة تحدث فرقاً حقيقياً في حياة الآخرين.
+
+نؤمن بأن العمل الخيري يتجاوز مجرد تقديم المساعدات المادية. إنه يتعلق ببناء جسور التواصل والتعاون بين مختلف فئات المجتمع، وتعزيز قيم التضامن والتكافل الاجتماعي.`,
+        
+        // Categories
+        categories: "التصنيفات",
+        charitableWork: "العمل الخيري",
+        volunteering: "التطوع",
+        community: "المجتمع",
+        sustainableDevelopment: "التنمية المستدامة",
+        inspiringStories: "قصص ملهمة",
+        
+        // Recent Posts
+        recentPosts: "آخر المقالات",
+        howToHelp: "كيف نساعد المحتاجين؟",
+        successStories: "قصص نجاح من الميدان",
+        futureOfCharity: "مستقبل العمل الخيري",
+        
+        // Share
+        sharePost: "شارك المقال:",
+        
+        // Tags
+        tags: {
+            charity: "العمل الخيري",
+            volunteering: "التطوع",
+            community: "المجتمع",
+            positiveChange: "التغيير الإيجابي"
+        }
     },
     en: {
         // Navigation
         navHome: "Home",
-        navAbout: "About ",
-        navProjects: "Causes",
-        navContact: "Blogs",
-        contactHeaderBtn: "Contact us",
+        navAbout: "About",
+        navProjects: "Projects",
+        navContact: "Contact Us",
+        contactHeaderBtn: "Contact Us",
 
         // Hero Section
+        heroTitle: "charity and expectations vs.",
         heroMiniTitle: "Give hope to the homeless.",
         mainHeading: "Helping each other can make the world better",
         heroSubheading: "We seek changemakers and influencers worldwide, equipping them with the tools to achieve their unique goals.",
@@ -218,5 +256,41 @@ const translations = {
         socialInstagram: "Instagram",
         socialTwitter: "Twitter",
         socialFacebook: "Facebook",
+
+        // Blog Content
+        blogAuthor: "By Ibrahim Mohamed",
+        blogDate: "May 15, 2024",
+        blogComments: "5 Comments",
+        blogTitle: "We are looking for changemakers and influencers around the world",
+        blogContent: `We at the Charity Association believe that every person has the ability to make a positive change in the world. We are constantly looking for inspiring individuals who share our vision of building a better and more just society.
+
+Through our various programs, we work to empower volunteers and activists to achieve their goals in community service. We provide the training, resources, and support needed to transform their ideas into tangible projects that make a real difference in the lives of others.
+
+We believe that charitable work goes beyond just providing material assistance. It's about building bridges of communication and cooperation between different segments of society, and promoting the values of solidarity and social solidarity.`,
+        
+        // Categories
+        categories: "Categories",
+        charitableWork: "Charitable Work",
+        volunteering: "Volunteering",
+        community: "Community",
+        sustainableDevelopment: "Sustainable Development",
+        inspiringStories: "Inspiring Stories",
+        
+        // Recent Posts
+        recentPosts: "Recent Posts",
+        howToHelp: "How can we help those in need?",
+        successStories: "Success Stories from the Field",
+        futureOfCharity: "The Future of Charitable Work",
+        
+        // Share
+        sharePost: "Share Post:",
+        
+        // Tags
+        tags: {
+            charity: "Charity",
+            volunteering: "Volunteering",
+            community: "Community",
+            positiveChange: "Positive Change"
+        }
     }
 }; 
