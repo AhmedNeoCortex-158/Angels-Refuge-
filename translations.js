@@ -144,7 +144,15 @@ const translations = {
             volunteering: "التطوع",
             community: "المجتمع",
             positiveChange: "التغيير الإيجابي"
-        }
+        },
+
+        // Product Categories
+        productCategories: "فئات المنتجات",
+        education: "التعليم",
+        food: "طعام",
+        medicalCare: "رعاية طبية",
+        housing: "منزل",
+        cleanWater: "ماء نظيف",
     },
     en: {
         // Navigation
@@ -291,6 +299,14 @@ We believe that charitable work goes beyond just providing material assistance. 
             volunteering: "Volunteering",
             community: "Community",
             positiveChange: "Positive Change"
-        }
+        },
+
+        // Product Categories
+        productCategories: "Product Categories",
+        education: "Education",
+        food: "Food",
+        medicalCare: "Medical Care",
+        housing: "Housing",
+        cleanWater: "Clean Water",
     }
 }; 

@@ -588,6 +588,452 @@
         .search-container.expanded .search-icon svg line {
             stroke: #00a69c;
         }
+
+        /* New Content Layout Styles */
+        .blog-single-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background: #f8f9fa;
+        }
+
+        .content-layout {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 30px;
+            margin-top: 20px;
+            direction: rtl;
+        }
+
+        .main-content {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            padding: 25px;
+        }
+
+        .page-title {
+            font-size: 1.6em;
+            color: #333;
+            margin-bottom: 25px;
+            text-align: right;
+            font-weight: 600;
+        }
+
+        .content-with-toc {
+            display: grid;
+            grid-template-columns: 1fr 220px;
+            gap: 25px;
+        }
+
+        /* Table of Contents Styles */
+        .toc-sidebar {
+            background: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            height: fit-content;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .toc-container {
+            position: sticky;
+            top: 20px;
+        }
+
+        .toc-title {
+            color: #333;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+            text-align: right;
+            font-weight: 600;
+        }
+
+        .toc-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .toc-list li {
+            margin-bottom: 12px;
+            text-align: right;
+            padding-right: 12px;
+            position: relative;
+        }
+
+        .toc-list li::before {
+            content: "";
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: #219a8a;
+        }
+
+        .toc-list a {
+            color: #666;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 0.9em;
+            display: block;
+        }
+
+        .toc-list a:hover {
+            color: #219a8a;
+        }
+
+        /* Main Article Styles */
+        .main-article {
+            background: #fff;
+        }
+
+        .article-main-image {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
+
+        .social-share {
+            display: flex;
+            gap: 8px;
+            margin: 15px 0;
+            justify-content: flex-end;
+        }
+
+        .share-btn {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            transition: all 0.3s;
+        }
+
+        .share-btn:hover {
+            background: #219a8a;
+            color: #fff;
+        }
+
+        .article-content {
+            color: #444;
+            line-height: 1.8;
+        }
+
+        .article-content h2 {
+            color: #333;
+            margin: 0 0 15px;
+            font-size: 1.3em;
+            text-align: right;
+            font-weight: 600;
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            text-align: right;
+            font-size: 0.95em;
+            line-height: 1.8;
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .sidebar-widget {
+            background: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .widget-title {
+            color: #333;
+            font-size: 1.1em;
+            margin-bottom: 20px;
+            text-align: right;
+            font-weight: 600;
+        }
+
+        .recent-updates-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .update-item {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+        }
+
+        .update-item img {
+            width: 65px;
+            height: 65px;
+            border-radius: 4px;
+            object-fit: cover;
+        }
+
+        .update-content {
+            flex: 1;
+            text-align: right;
+        }
+
+        .update-content h4 {
+            color: #333;
+            font-size: 0.9em;
+            margin: 0 0 6px;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        .update-content p {
+            color: #666;
+            font-size: 0.8em;
+            margin: 0;
+        }
+
+        .tags-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: flex-end;
+        }
+
+        .tag {
+            background: #e8f6f3;
+            color: #219a8a;
+            padding: 6px 12px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 0.85em;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .tag:hover {
+            background: #219a8a;
+            color: #fff;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .content-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .content-with-toc {
+                grid-template-columns: 1fr;
+            }
+
+            .toc-sidebar {
+                order: 2;
+            }
+
+            .main-article {
+                order: 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .blog-single-content {
+                padding: 20px 10px;
+            }
+
+            .page-title {
+                font-size: 1.4em;
+            }
+        }
+
+        .page-intro {
+            background: #f8f9fa;
+            padding: 30px 0;
+            margin-bottom: 40px;
+        }
+
+        .intro-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 40px;
+            direction: rtl;
+        }
+
+        .intro-title {
+            font-size: 24px;
+            color: #333;
+            margin: 0;
+            font-weight: 600;
+            flex: 1;
+        }
+
+        .intro-toc {
+            background: white;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .intro-toc .toc-title {
+            color: #333;
+            font-size: 1.4em;
+            margin-bottom: 25px;
+            text-align: right;
+            font-weight: 600;
+        }
+
+        .intro-toc .toc-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .intro-toc .toc-list li {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .intro-toc .toc-list li::before {
+            content: "";
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: #219a8a;
+        }
+
+        .intro-toc .toc-list a {
+            color: #666;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 1.1em;
+            display: block;
+        }
+
+        .intro-toc .toc-list a:hover {
+            color: #219a8a;
+        }
+
+        @media (max-width: 768px) {
+            .intro-content {
+                flex-direction: column;
+            }
+
+            .intro-toc {
+                width: 100%;
+            }
+        }
+
+        .footer-link {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            display: block;
+            padding: 8px 0;
+        }
+        
+        .footer-link:hover {
+            color: #219A8A;
+        }
+
+        .social-section {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .social-links {
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .social-links h3 {
+            color: white;
+            font-size: 24px;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background: #2D3339;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            color: white;
+        }
+
+        .social-icon svg {
+            width: 20px;
+            height: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-5px);
+        }
+
+        .social-icon.twitter:hover {
+            background: #1DA1F2;
+        }
+
+        .social-icon.instagram:hover {
+            background: #E4405F;
+        }
+
+        .social-icon.pinterest:hover {
+            background: #BD081C;
+        }
+
+        .social-icon.youtube:hover {
+            background: #FF0000;
+        }
+
+        .footer-title {
+            color: white;
+            font-size: 1.4em;
+            margin: 0 0 20px;
+            font-weight: 600;
+        }
+
+        .subscribe-btn:hover {
+            background: #1a7d6f;
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body class="rtl">
@@ -637,109 +1083,240 @@
         </div>
     </div>
 
-    <div class="blog-single-content">
-        <div class="blog-main-content">
-            <img src="assets/images/Frame 5.png" alt="Blog Header Image" class="blog-header-image">
-            <div class="blog-meta">
-                <div class="blog-meta-item">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-                    </svg>
-                    <span data-i18n="blogAuthor">بواسطة إبراهيم محمد</span>
+    <div class="page-intro">
+        <div class="container">
+            <div class="intro-content" style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start;">
+                <div style="display: flex; flex-direction: column; gap: 20px;">
+                    <h1 class="intro-title" style="text-align: right; margin: 0; font-size: 2.5em; font-weight: 700;">مساعدة الفقراء بالتبرعات</h1>
+                    <img src="assets/images/Donation.jpg" alt="مساعدة الفقراء بالتبرعات" style="width: 100%; height: auto; border-radius: 20px; margin: 0;">
                 </div>
-                <div class="blog-meta-item">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
-                    </svg>
-                    <span data-i18n="blogDate">15 مايو 2024</span>
+                <div style="background: #EDF7F5; padding: 25px; border-radius: 12px; height: fit-content; margin-top: 60px;">
+                    <h3 style="color: #333; font-size: 1.5em; margin: 0 0 20px; text-align: right;">فئات المنتجات</h3>
+                    <ul style="list-style: none; padding: 0; margin: 0;">
+                        <li style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                            <span style="color: #666; font-size: 0.9em;">(1)</span>
+                            <span style="color: #666;">التعليم</span>
+                        </li>
+                        <li style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                            <span style="color: #666; font-size: 0.9em;">(2)</span>
+                            <span style="color: #666;">طعام</span>
+                        </li>
+                        <li style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                            <span style="color: #666; font-size: 0.9em;">(3)</span>
+                            <span style="color: #666;">رعاية طبية</span>
+                        </li>
+                        <li style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                            <span style="color: #666; font-size: 0.9em;">(4)</span>
+                            <span style="color: #666;">منزل</span>
+                        </li>
+                        <li style="display: flex; justify-content: space-between; align-items: center;">
+                            <span style="color: #666; font-size: 0.9em;">(5)</span>
+                            <span style="color: #666;">ماء نظيف</span>
+                        </li>
+                    </ul>
                 </div>
-                <div class="blog-meta-item">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M21.99 4c0-1.1-.89-2-1.99-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14l4 4-.01-18z"/>
-                    </svg>
-                    <span data-i18n="blogComments">5 تعليقات</span>
-                </div>
-            </div>
-
-            <h1 class="blog-title" data-i18n="blogTitle">نحن نبحث عن صانعي التغيير والمُؤثرين حول العالم</h1>
-
-            <div class="blog-content" data-i18n="blogContent">
-                نحن في جمعية الخير نؤمن بأن كل شخص لديه القدرة على إحداث تغيير إيجابي في العالم. نبحث باستمرار عن الأفراد الملهمين الذين يشاركوننا رؤيتنا في بناء مجتمع أفضل وأكثر عدالة.
-            </div>
-
-            <div class="blog-tags">
-                <span class="blog-tag" data-i18n="tags.charity">العمل الخيري</span>
-                <span class="blog-tag" data-i18n="tags.volunteering">التطوع</span>
-                <span class="blog-tag" data-i18n="tags.community">المجتمع</span>
-                <span class="blog-tag" data-i18n="tags.positiveChange">التغيير الإيجابي</span>
-            </div>
-
-            <div class="blog-share">
-                <span class="share-label" data-i18n="sharePost">شارك المقال:</span>
-                <div class="share-buttons">
-                    <a href="#" class="share-button facebook" aria-label="Share on Facebook">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
-                        </svg>
-                    </a>
-                    <a href="#" class="share-button twitter" aria-label="Share on Twitter">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/>
-                        </svg>
-                    </a>
-                    <a href="#" class="share-button linkedin" aria-label="Share on LinkedIn">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/>
-                            <circle cx="4" cy="4" r="2"/>
-                        </svg>
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <div class="blog-sidebar">
-            <div class="sidebar-widget">
-                <h3 class="widget-title" data-i18n="recentPosts">آخر المقالات</h3>
-                <div class="recent-posts">
-                    <div class="recent-post">
-                        <img src="assets/images/Frame 6.png" alt="Recent Post">
-                        <div class="recent-post-info">
-                            <div class="recent-post-title" data-i18n="howToHelp">كيف نساعد المحتاجين؟</div>
-                            <div class="recent-post-date">10 مايو 2024</div>
-                        </div>
-                    </div>
-                    <div class="recent-post">
-                        <img src="assets/images/Frame 7.png" alt="Recent Post">
-                        <div class="recent-post-info">
-                            <div class="recent-post-title" data-i18n="successStories">قصص نجاح من الميدان</div>
-                            <div class="recent-post-date">8 مايو 2024</div>
-                        </div>
-                    </div>
-                    <div class="recent-post">
-                        <img src="assets/images/Frame 8.png" alt="Recent Post">
-                        <div class="recent-post-info">
-                            <div class="recent-post-title" data-i18n="futureOfCharity">مستقبل العمل الخيري</div>
-                            <div class="recent-post-date">5 مايو 2024</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="sidebar-widget">
-                <h3 class="widget-title" data-i18n="categories">التصنيفات</h3>
-                <ul class="categories-list">
-                    <li><a href="#"><span data-i18n="charitableWork">العمل الخيري</span> <span class="category-count">15</span></a></li>
-                    <li><a href="#"><span data-i18n="volunteering">التطوع</span> <span class="category-count">23</span></a></li>
-                    <li><a href="#"><span data-i18n="community">المجتمع</span> <span class="category-count">7</span></a></li>
-                    <li><a href="#"><span data-i18n="sustainableDevelopment">التنمية المستدامة</span> <span class="category-count">12</span></a></li>
-                    <li><a href="#"><span data-i18n="inspiringStories">قصص ملهمة</span> <span class="category-count">9</span></a></li>
-                </ul>
             </div>
         </div>
     </div>
 
-    <footer class="site-footer">
-        <!-- Footer content remains the same as about.html -->
+    <div class="container" style="padding: 40px 20px;">
+        <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 40px; direction: rtl;">
+            <!-- Main Content -->
+            <div style="display: flex; flex-direction: column; gap: 30px;">
+                <!-- First Article -->
+                <article style="background: #fff; padding: 25px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                    <h2 style="color: #333; font-size: 1.5em; margin: 0 0 15px; font-weight: 600;">العودة إلى المستقبل: التعليم الجيد من خلال الاحترام، الالتزام، والمساءلة</h2>
+                    <p style="color: #666; line-height: 1.8; margin: 0; font-size: 1em;">في هذا الوقت، يجب أن تكون المعلم أداة رئيسية لتمكين الأطفال ومنحهم الفرص لتحقيق أهدافهم نحو التعليم الجيد. لا يتحقق الأمر خلال يوم واحد بل على الاحترام المتبادل بين الأطفال والمعلمين، والالتزام بتوفير الأدوات والمعرفة التي يحتاجها الطلاب. في هذا المجال، سواء كانوا طلاباً أو معلمين، سيكونون جميعاً عنصراً أساسياً للمضي في تحقيق أهداف تعليمية وتأسيس مستقبل مشرق.</p>
+                </article>
+
+                <!-- Second Article -->
+                <article style="background: #fff; padding: 25px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                    <p style="color: #666; line-height: 1.8; margin: 0 0 20px; font-size: 1em;">في هذا الاتجاه، التعليم ليس مجرد اكتساب معلومات، بل هو فهم حقيقة لتغيير المستقبل. عندما نؤمن بأهمية الاحترام بين المعلمين والأطفال، والالتزام بتقديم أفضل تجربة تعليمية والمساءلة لضمان تحقيق التطور والنمو، نكون بذلك قد وضعنا قاعدة صلبة للمستقبل. يجب أن نضع أنظمة لتعلم المواد الدراسية، ثم نقدمهم أيضاً ليصبحوا مسؤولين قادرين على بناء مجتمع أفضل.</p>
+                </article>
+
+                <!-- Third Article -->
+                <article style="background: #fff; padding: 25px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                    <h2 style="color: #333; font-size: 1.5em; margin: 0 0 15px; font-weight: 600;">الماء النظيف يساعد في إبقاء الأطفال في المدارس، خاصة الفتيات</h2>
+                    <p style="color: #666; line-height: 1.8; margin: 0; font-size: 1em;">الماء النظيف لا يحمي صحة الأطفال فحسب، بل يساهم بشكل كبير في استمرارهم في التعليم، خاصة الفتيات. فغياب المرافق الصحية والمياه النظيفة يؤثر بشكل كبير على قدرة الفتيات على المداومة في المدارس، خصوصاً في فترات معينة من الشهر. لذا فإن توفير مياة نظيفة ومرافق في الأقسام والمدارس يعد خطوة أساسية نحو مستقبل أفضل للجميع.</p>
+                </article>
+            </div>
+
+            <!-- Sidebar -->
+            <div style="background: #EDF7F5; padding: 25px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); height: fit-content;">
+                <h3 style="color: #333; font-size: 1.3em; margin: 0 0 20px; font-weight: 600;">المشاركات الأخيرة</h3>
+                <div style="display: flex; flex-direction: column; gap: 20px;">
+                    <!-- Recent Post 1 -->
+                    <div style="display: flex; gap: 15px; align-items: start;">
+                        <img src="assets/images/Frame 6.png" alt="الفصل الحيوي" style="width: 80px; height: 80px; border-radius: 8px; object-fit: cover;">
+                        <div>
+                            <h4 style="color: #333; font-size: 1.1em; margin: 0 0 8px;">العمل الخيري
+                                التوقعات مقابل الواقع</h4>
+                            <p style="color: #666; font-size: 0.9em; margin: 0;">مشردون</p>
+                        </div>
+                    </div>
+
+                    <!-- Recent Post 2 -->
+                    <div style="display: flex; gap: 15px; align-items: start;">
+                        <img src="assets/images/Frame 7.png" alt="أبرز أحداث هذا الأسبوع" style="width: 80px; height: 80px; border-radius: 8px; object-fit: cover;">
+                        <div>
+                            <h4 style="color: #333; font-size: 1.1em; margin: 0 0 8px;">أبرز أحداث هذا الأسبوع عن...</h4>
+                            <p style="color: #666; font-size: 0.9em; margin: 0;">رعاية طيبة</p>
+                        </div>
+                    </div>
+
+                    <!-- Recent Post 3 -->
+                    <div style="display: flex; gap: 15px; align-items: start;">
+                        <img src="assets/images/Frame 8.png" alt="أهمية التركيز على العمل" style="width: 80px; height: 80px; border-radius: 8px; object-fit: cover;">
+                        <div>
+                            <h4 style="color: #333; font-size: 1.1em; margin: 0 0 8px;">أهمية التركيز على العمل الخيري وأهمية يحتاجه العالم اليوم</h4>
+                            <p style="color: #666; font-size: 0.9em; margin: 0;">طعام</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" style="padding: 40px 20px;">
+        <!-- Organization Section -->
+        <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 40px; direction: rtl;">
+            <div style="background: #63666A; padding: 40px; border-radius: 12px; text-align: center; color: white;">
+                <img src="assets/images/Logo.png" alt="Angels" style="width: 120px; height: 120px; margin-bottom: 20px;">
+                <h2 style="margin: 0 0 10px; font-size: 1.8em;">مؤسسة</h2>
+                <h3 style="margin: 0 0 30px; font-size: 1.5em;">ملائكة</h3>
+                <p style="color: #fff; font-size: 1em; line-height: 1.6; max-width: 600px; margin: 0 auto;">
+                    Seamlessly Network Focused Bandwidth After Magnetic Convergence. Energistically
+                    Iterate Seamless Opportunities Before Innovative Infrastructures.
+                </p>
+            </div>
+
+            <!-- Common Tags -->
+            <div style="background: #EDF7F5; padding: 25px; border-radius: 12px;">
+                <h3 style="color: #333; font-size: 1.3em; margin: 0 0 20px; text-align: right;">العلامات الشائعة</h3>
+                <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: flex-end;">
+                    <span style="background: #219A8A; color: white; padding: 6px 12px; border-radius: 4px; font-size: 0.9em;">نجمة الخير</span>
+                    <span style="background: #219A8A; color: white; padding: 6px 12px; border-radius: 4px; font-size: 0.9em;">رعاية طيبة</span>
+                    <span style="background: #219A8A; color: white; padding: 6px 12px; border-radius: 4px; font-size: 0.9em;">مشردون</span>
+                    <span style="background: #219A8A; color: white; padding: 6px 12px; border-radius: 4px; font-size: 0.9em;">التعليم</span>
+                    <span style="background: #219A8A; color: white; padding: 6px 12px; border-radius: 4px; font-size: 0.9em;">المياه</span>
+                    <span style="background: #219A8A; color: white; padding: 6px 12px; border-radius: 4px; font-size: 0.9em;">التعليم</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Legal Problems Section -->
+        <div style="margin-top: 40px; background: white; padding: 30px; border-radius: 12px; direction: rtl;">
+            <h2 style="color: #333; font-size: 1.8em; margin: 0 0 20px; text-align: right;">المشاكل مع القانون منذ ذلك اليوم</h2>
+            <div style="display: flex; flex-direction: column; gap: 20px;">
+                <p style="color: #666; line-height: 1.8; margin: 0; font-size: 1em;">
+                    نواجه نحن الأيتام تحديات قانونية مستمرة منذ فترة، حيث تتعلق هذه المشاكل بمسائل تتعلق بالحضانة والحقوق القانونية للأطفال. وضمان حقوقهم بشكل كامل يتطلب الوقت نحو قانونا مستمرا لضمان توفير بيئة آمنة ومستقرة للأطفال.
+                </p>
+                <p style="color: #666; line-height: 1.8; margin: 0; font-size: 1em;">
+                    نواجه نحن في الأيتام مشاكل قانونية معقدة منذ فترة، حيث تمتد هذه التحديات بين قضايا تتعلق بحقوق الأطفال وحمايتهم من الأذى. لذا نسعى لقضية قانونية تتعلق بالرعاية والموارد المتاحة لهم في كثير من الأحوال. قد تؤدي هذه المشاكل إلى الإجراءات أو الإحالات القانونية أو إلى فقدان الدعم للأطفال. الوصول إلى الدعم والرعاية المناسبة. يتطلب الأمر تدخلات قانونية مستمرة لضمان أن الأطفال في هذه الدور يحصلون على الحماية الأبدية. مع الالتزام بكافة المعايير القانونية لضمان حمايتهم.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer" style="background: #2D3339; color: white; padding: 60px 0 20px;">
+        <div class="container">
+            <div class="footer-content" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px;">
+                <!-- Logo and Stats Section -->
+                <div class="footer-brand">
+                    <a href="index.html" class="footer-logo">
+                        <img src="assets/images/Logo_2.png" alt="Angels" style="width: 120px;">
+                    </a>
+                    <div class="stats" style="margin-top: 20px;">
+                        <h2 class="stats-number" style="font-size: 2.5em; margin: 0; font-weight: 600;">10k</h2>
+                        <p class="stats-text" style="margin: 5px 0 0; font-size: 1.1em;">
+                            Worldwide Client<br>
+                            Already Connected
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Quick Link Section -->
+                <div class="footer-links">
+                    <h3 class="footer-title" style="font-size: 1.2em; margin: 0 0 20px;">Quick Link</h3>
+                    <ul class="link-list" style="list-style: none; padding: 0; margin: 0;">
+                        <li><a href="index.html" class="footer-link">Home</a></li>
+                        <li><a href="about.html" class="footer-link">About Us</a></li>
+                        <li><a href="blog.html" class="footer-link">Blog Post</a></li>
+                        <li><a href="gallery.html" class="footer-link">Photo Gallery</a></li>
+                    </ul>
+                </div>
+
+                <!-- Get In Touch Section -->
+                <div class="footer-contact">
+                    <h3 class="footer-title" style="font-size: 1.2em; margin: 0 0 20px;">Get In Touch</h3>
+                    <ul class="contact-list" style="list-style: none; padding: 0; margin: 0;">
+                        <li><a href="contact.html" class="footer-link">Contact Us</a></li>
+                        <li><a href="services.html" class="footer-link">Our Services</a></li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter Section -->
+                <div class="footer-newsletter">
+                    <h3 class="footer-title" style="font-size: 1.2em; margin: 0 0 20px;">Newsletter</h3>
+                    <form id="newsletter-form" class="newsletter-form" onsubmit="return handleNewsletterSubmit(event)">
+                        <div class="form-group" style="display: flex; gap: 10px; margin-bottom: 10px;">
+                            <input type="email" id="newsletter-email" placeholder="Enter Your Email" required 
+                                style="flex: 1; padding: 8px 12px; border: none; border-radius: 4px;">
+                            <button type="submit" class="subscribe-btn" 
+                                style="background: #219A8A; color: white; border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer;">
+                                Subscribe
+                            </button>
+                        </div>
+                        <p class="form-note" style="margin: 10px 0 0; font-size: 0.9em; color: #ccc;">
+                            Your email is safe with us,we don't spam.
+                        </p>
+                    </form>
+
+                    <!-- Address Section -->
+                    <div class="address-section" style="margin: 30px 0;">
+                        <h3 class="footer-title" style="font-size: 1.2em; margin: 0 0 10px;">Address</h3>
+                        <p class="address" style="margin: 0; color: #ccc;">
+                            2464 Royal Ln. Mesa, New<br>
+                            Jersey 45463
+                        </p>
+                    </div>
+
+                    <div class="social-links">
+                        <h3>Follow Me</h3>
+                        <div class="social-icons">
+                            <a href="#" class="social-icon twitter" aria-label="Twitter">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M23.643 4.937c-.835.37-1.732.62-2.675.733.962-.576 1.7-1.49 2.048-2.578-.9.534-1.897.922-2.958 1.13-.85-.904-2.06-1.47-3.4-1.47-2.572 0-4.658 2.086-4.658 4.66 0 .364.042.718.12 1.06-3.873-.195-7.304-2.05-9.602-4.868-.4.69-.63 1.49-.63 2.342 0 1.616.823 3.043 2.072 3.878-.764-.025-1.482-.234-2.11-.583v.06c0 2.257 1.605 4.14 3.737 4.568-.392.106-.803.162-1.227.162-.3 0-.593-.028-.877-.082.593 1.85 2.313 3.198 4.352 3.234-1.595 1.25-3.604 1.995-5.786 1.995-.376 0-.747-.022-1.112-.065 2.062 1.323 4.51 2.093 7.14 2.093 8.57 0 13.255-7.098 13.255-13.254 0-.2-.005-.402-.014-.602.91-.658 1.7-1.477 2.323-2.41z"/>
+                                </svg>
+                            </a>
+                            <a href="#" class="social-icon instagram" aria-label="Instagram">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                                </svg>
+                            </a>
+                            <a href="#" class="social-icon pinterest" aria-label="Pinterest">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.39 18.592.026 11.985.026L12.017 0z"/>
+                                </svg>
+                            </a>
+                            <a href="#" class="social-icon youtube" aria-label="YouTube">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Credits -->
+        <div class="footer-credits" style="text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1);">
+            <p style="color: #ccc; font-size: 0.9em;">
+                Designed By <a href="https://themefisher.com" target="_blank" style="color: #219A8A; text-decoration: none;">Ahmed Kamal</a> 
+                Developed By <a href="https://gethugthemes.com" target="_blank" style="color: #219A8A; text-decoration: none;">Ibrahim Mohamed</a>
+            </p>
+        </div>
     </footer>
 
     <script src="translations.js"></script>
@@ -780,6 +1357,32 @@
 
             // Initialize language switcher
             const langSwitcher = new LanguageSwitcher();
+        });
+
+        function handleNewsletterSubmit(event) {
+            event.preventDefault();
+            const email = document.getElementById('newsletter-email').value;
+            
+            // Here you would typically send this to your backend
+            console.log('Newsletter subscription for:', email);
+            
+            // Show success message
+            alert('Thank you for subscribing to our newsletter!');
+            event.target.reset();
+            return false;
+        }
+
+        // Add smooth scroll behavior to footer links
+        document.querySelectorAll('.footer-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href.startsWith('#')) {
+                    e.preventDefault();
+                    document.querySelector(href).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
         });
     </script>
 </body>
