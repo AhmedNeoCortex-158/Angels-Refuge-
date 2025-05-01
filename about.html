@@ -7,6 +7,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="assets/images/Logo.png">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assets/css/about.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <style>
         body {
             font-family: 'Cairo', sans-serif;
@@ -64,14 +67,14 @@
         .logo {
             width: 120px;
             height: auto;
-            order: 2;
+            left: 2;
         }
 
         .contact-header-btn {
             background: #00a69c;
             color: #fff;
             border: none;
-            border-radius: 6px;
+            border-radius: 66px;
             padding: 12px 28px;
             font-size: 1.1em;
             font-weight: 600;
@@ -366,8 +369,8 @@
         }
         .about-card-list {
             color: #444;
-            margin: 0 0 0 16px;
-            padding: 0 0 0 16px;
+            margin: 1 0 0 16px;
+            padding: 1 0 0 16px;
         }
         .features-section {
             background: #e0f7f5;
@@ -569,7 +572,7 @@
                         <li><a href="about.html" class="active" data-i18n="about">من نحن</a></li>
                         <li><a href="causes.html" data-i18n="causes">قضايانا</a></li>
                         <li><a href="#" data-i18n="pages">صفحات</a></li>
-                        <li><a href="blog.html" data-i18n="blogs">المدونة</a></li>
+                        <li><a href="blog.html" data-i18n="blogs">المدونات</a></li>
                     </ul>
                 </nav>
                 <div class="header-right">
@@ -587,30 +590,34 @@
                 </div>
             </div>
             <div class="hero-section">
-                <h1 data-i18n="aboutTitle">من نحن</h1>
-                <p data-i18n="heroSubheading">الصفحة الرئيسية / من نحن</p>
+                <h1 class="animate__animated animate__fadeInDown" data-i18n="aboutTitle">من نحن</h1>
+                <p class="animate__animated animate__fadeInUp" data-i18n="heroSubheading">الصفحة الرئيسية / من نحن</p>
             </div>
         </header>
     </div>
-    <div class="about-images-row">
-        <img src="assets/images/Frame 5.png" alt="Together we build a better future" class="about-img-main">
-        <img src="assets/images/Frame 6.png" alt="Children group" class="about-img-overlap">
-    </div>
-    <div class="about-support-box">
-        <div>
-            <h2>دعمك قوي حقاً.</h2>
-            <p>سر السعادة يكمن في مساعدة الغير. لا تستهين أبداً بالدعم الذي يمكنك أن تحدثه في حياة الفقراء والمحتاجين. العطاء يعلم ويغير الآخرين.</p>
+    <div class="about-hero-section">
+        <div class="about-content-wrapper">
+            <div class="about-images-container" data-aos="fade-right">
+                <img src="assets/images/Frame 5.png" alt="Together we build a better future" class="about-img-main">
+                <img src="assets/images/Frame 6.png" alt="Children group" class="about-img-secondary">
+            </div>
+            <div class="about-text-box" data-aos="fade-left">
+                <h2>من نحن</h2>
+                <p>نحن دار رعاية تحتضن الأيتام بحب، نوفر لهم الأمان والتعليم والدعم لبناء مستقبل مشرق. نؤمن أن كل طفل يستحق بداية جديدة وفرصة للحياة بكرامة وأمل.</p>
+                <button class="read-more-btn">اقرأ أكثر</button>
+            </div>
         </div>
-        <a href="#" class="about-support-btn">اقرأ أكثر</a>
     </div>
+   
     <div class="about-main-content">
         <div class="about-main-left">
-            <div class="about-main-title">لنتآث معاً لجعل الحياة أفضل.</div>
-            <div class="about-main-desc">نحن هنا لتقديم الدعم والرعاية والخدمات المجتمعية في مختلف أنحاء العالم. من خلال التبرعات، التطوع، ونشر الوعي، نعمل معاً لبناء مستقبل أفضل للأطفال والعائلات المحتاجة. رؤيتنا هي عالم ينعم فيه الجميع بالعدالة والكرامة. مهمتنا هي تحقيق العدالة الاجتماعية وتوفير الدعم الأساسي للجميع.</div>
+            <div class="about-main-title">مرحبا بكم في جمعية الخير.</div>
+            <div class="about-main-desc">لنأت معاً لنجعل الحياة أفضل.</div>
+            <div class="about-text">نحن هنا في تقديم الدعم والرعاية والخدمات المجتمعية في مختلف أنحاء العالم. من خلال التبرعات، التطوع، ونشر الوعي، نعمل معاً لبناء مستقبل أفضل للأطفال والعائلات المحتاجة. نحن نؤمن بحق هذا المستقبل، نحن نؤمن بحق هذا المستقبل.</div>
             <div class="about-mv-boxes">
                 <div class="about-mv-box">
                     <div class="about-mv-title">مهمتنا</div>
-                    <div class="about-mv-desc">مهمتنا هي تحقيق العدالة الاجتماعية من خلال توفير الدعم الأساسي للأطفال والعائلات المحتاجة، ونؤمن بحقهم في عيش حياتهم بكرامة وتلبية احتياجاتهم الأساسية.</div>
+                    <div class="about-mv-desc">مهمتنا في تحقيق العدالة الاجتماعية من خلال توفير الدعم الأساسي للأطفال والعائلات المحتاجة، ونؤمن بحقهم في عيش حياتهم بكرامة وتلبية احتياجاتهم الأساسية.</div>
                 </div>
                 <div class="about-mv-box">
                     <div class="about-mv-title">رؤيتنا</div>
@@ -618,74 +625,86 @@
                 </div>
             </div>
             <div class="about-progress">
-                <div class="about-progress-label">المساعدات الطبية</div>
-                <div class="about-progress-bar"><div class="about-progress-bar-inner" style="width: 90%"></div></div>
-                <div class="about-progress-label">التبرعات</div>
-                <div class="about-progress-bar"><div class="about-progress-bar-inner" style="width: 75%"></div></div>
+                <div class="progress-item">
+                    <div class="progress-label">المساعدة الطبية</div>
+                    <div class="progress-bar">
+                        <div class="progress-bar-inner" style="width: 90%">
+                            <span class="progress-number">90%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="progress-item">
+                    <div class="progress-label">التبرعات</div>
+                    <div class="progress-bar">
+                        <div class="progress-bar-inner" style="width: 75%">
+                            <span class="progress-number">75%</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="about-main-right">
-            <img src="assets/images/Frame 5.png" alt="Group photo">
+            <img src="assets/images/Frame 5.png" alt="Group photo" class="main-image">
             <div class="about-card">
                 <div class="about-card-title">معاً نصنع المستقبل</div>
                 <ul class="about-card-list">
-                    <li>الأطفال بيتك يكونون تدريب على صناعة كل خير</li>
-                    <li>نستطيع المخاطب مع متبرعين من العالم الكل</li>
+                    <li>الأطفال حيث نكون قادرين على تحقيق كل خير</li>
+                    <li>مطالبتنا للحفاظ على مساهمتهم في العالم الكبير</li>
                     <li>نحن نرحب بالجميع ونعمل إلى نشر الأمل</li>
-                    <li>مساهمون في تربية وتوعية</li>
+                    <li>مساهمون في تربية والتوعية</li>
                 </ul>
             </div>
         </div>
     </div>
     <div class="features-section">
-        <div class="features-title">مميزاتنا</div>
+        <div class="features-title" data-aos="fade-up">مميزاتنا</div>
         <div class="features-row">
-            <div class="feature-box">
+            <div class="feature-box" data-aos="fade-up" data-aos-delay="100">
                 <div class="feature-icon">🏠</div>
                 <div class="feature-title">جمعية الغذاء والمشردين</div>
                 <div class="feature-desc">جمعيتنا تهدف لتقديم الغذاء والمأوى للمحتاجين في مختلف أنحاء العالم. نؤمن أن لكل إنسان الحق في حياة كريمة.</div>
             </div>
-            <div class="feature-box">
+            <div class="feature-box" data-aos="fade-up" data-aos-delay="200">
                 <div class="feature-icon">💵</div>
                 <div class="feature-title">قدّم تبرعك</div>
                 <div class="feature-desc">ساهم في دعم الأطفال والعائلات المحتاجة من خلال التبرع. تبرعك يمكن أن يصنع فرقاً كبيراً في حياة الآخرين.</div>
             </div>
-            <div class="feature-box">
+            <div class="feature-box" data-aos="fade-up" data-aos-delay="300">
                 <div class="feature-icon">🤝</div>
                 <div class="feature-title">منظمة غير ربحية</div>
                 <div class="feature-desc">نحن منظمة غير ربحية تهدف لتحقيق العدالة الاجتماعية وتوفير الدعم الأساسي للجميع.</div>
             </div>
         </div>
         <div class="stats-row">
-            <div class="stat-box">
+            <div class="stat-box" data-aos="zoom-in" data-aos-delay="100">
                 <div class="stat-number">4597+</div>
                 <div class="stat-label">أشخاص تغيرت حياتهم</div>
             </div>
-            <div class="stat-box">
+            <div class="stat-box" data-aos="zoom-in" data-aos-delay="200">
                 <div class="stat-number">8945+</div>
                 <div class="stat-label">تطوع</div>
             </div>
-            <div class="stat-box">
+            <div class="stat-box" data-aos="zoom-in" data-aos-delay="300">
                 <div class="stat-number">10M+</div>
                 <div class="stat-label">فقراء تم إنقاذهم</div>
             </div>
-            <div class="stat-box">
+            <div class="stat-box" data-aos="zoom-in" data-aos-delay="400">
                 <div class="stat-number">100+</div>
                 <div class="stat-label">الدول المشاركة</div>
             </div>
         </div>
     </div>
     <div class="gallery-section">
-        <div class="gallery-title">معرضنا</div>
+        <div class="gallery-title" data-aos="fade-right">معرضنا</div>
         <div class="gallery-grid">
-            <img src="assets/images/Frame 8.png" alt="Gallery 1">
-            <img src="assets/images/Frame 7.png" alt="Gallery 2">
-            <img src="assets/images/Bitmap.png" alt="Gallery 3">
-            <img src="assets/images/news.png" alt="Gallery 4">
-            <img src="assets/images/charity01.png" alt="Gallery 5">
-            <img src="assets/images/Lorem ipsum2.png" alt="Gallery 6">
-            <img src="assets/images/ChatGPT Image.png" alt="Gallery 7">
-            <img src="assets/images/ChatGPT Image Apr 18, 2025, 06_24_31 PM.png" alt="Gallery 8">
+            <img src="assets/images/Frame 8.png" alt="Gallery 1" data-aos="zoom-in" data-aos-delay="100">
+            <img src="assets/images/Frame 7.png" alt="Gallery 2" data-aos="zoom-in" data-aos-delay="200">
+            <img src="assets/images/Bitmap.png" alt="Gallery 3" data-aos="zoom-in" data-aos-delay="300">
+            <img src="assets/images/news.png" alt="Gallery 4" data-aos="zoom-in" data-aos-delay="400">
+            <img src="assets/images/charity01.png" alt="Gallery 5" data-aos="zoom-in" data-aos-delay="500">
+            <img src="assets/images/Lorem ipsum2.png" alt="Gallery 6" data-aos="zoom-in" data-aos-delay="600">
+            <img src="assets/images/ChatGPT Image.png" alt="Gallery 7" data-aos="zoom-in" data-aos-delay="700">
+            <img src="assets/images/ChatGPT Image Apr 18, 2025, 06_24_31 PM.png" alt="Gallery 8" data-aos="zoom-in" data-aos-delay="800">
         </div>
     </div>
     <footer class="site-footer">
@@ -729,7 +748,14 @@
     </footer>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <script src="translations.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+        
         document.addEventListener('DOMContentLoaded', function() {
             const searchContainer = document.getElementById('search-container');
             const searchIcon = document.getElementById('search-icon');
@@ -786,6 +812,56 @@
                     });
                 });
             });
+
+            // Add smooth scroll behavior
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // Add hover effect to feature boxes
+            const featureBoxes = document.querySelectorAll('.feature-box');
+            featureBoxes.forEach(box => {
+                box.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-10px)';
+                });
+                box.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+
+            // Add counter animation to stats
+            const stats = document.querySelectorAll('.stat-number');
+            const observerOptions = {
+                threshold: 0.5
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const target = entry.target;
+                        const value = parseInt(target.textContent);
+                        let current = 0;
+                        const increment = value / 50;
+                        const timer = setInterval(() => {
+                            current += increment;
+                            if (current >= value) {
+                                target.textContent = value + '+';
+                                clearInterval(timer);
+                            } else {
+                                target.textContent = Math.floor(current) + '+';
+                            }
+                        }, 40);
+                        observer.unobserve(target);
+                    }
+                });
+            }, observerOptions);
+
+            stats.forEach(stat => observer.observe(stat));
         });
     </script>
 </body>
