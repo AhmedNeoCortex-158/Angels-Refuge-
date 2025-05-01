@@ -61,8 +61,8 @@ const translations = {
         // Contact Page
         home: "الرئيسية",
         about: "من نحن",
-        causes: "الأسباب",
-        pages: "الصفحات",
+        causes: "قضايانا",
+        pages: "صفحات",
         blogs: "المدونات",
         contactUs: "تواصل معنا",
         

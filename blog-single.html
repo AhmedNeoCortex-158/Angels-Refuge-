@@ -49,6 +49,12 @@
             margin-bottom: 80px;
         }
 
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
         .logo {
             width: 120px;
             height: auto;
@@ -57,6 +63,7 @@
         .main-nav {
             display: flex;
             align-items: center;
+            margin: 0 auto;
         }
 
         .main-nav ul {
@@ -108,19 +115,20 @@
         }
 
         .contact-header-btn {
-            background: #00a69c;
+            background: #19c49c;
             color: #fff;
-            padding: 12px 28px;
+            padding: 8px 22px;
             border-radius: 66px;
             font-size: 1.1em;
             font-weight: 600;
             text-decoration: none;
             transition: all 0.3s ease;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            white-space: nowrap;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
         }
 
         .contact-header-btn:hover {
-            background: #188c65;
+            background: #0e9c7b;
             transform: translateY(-2px);
         }
 
@@ -587,16 +595,19 @@
         <div class="main-container">
             <header>
                 <div class="header-top">
-                    <a href="index.html">
-                        <img src="assets/images/Logo_2.png" alt="Angels" class="logo">
-                    </a>
+                    <div class="logo-container">
+                        <a href="index.html">
+                            <img src="assets/images/Logo_2.png" alt="Angels" class="logo">
+                        </a>
+                        <a href="contact.html" class="contact-header-btn" data-i18n="contactUs">تواصل معنا</a>
+                    </div>
                     <nav class="main-nav">
                         <ul>
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="about.html">About</a></li>
-                            <li><a href="causes.html">Causes</a></li>
-                            <li><a href="#pages">Pages</a></li>
-                            <li><a href="blogs.html">Blogs</a></li>
+                            <li><a href="index.html" data-i18n="home">Home</a></li>
+                            <li><a href="about.html" data-i18n="about">About</a></li>
+                            <li><a href="causes.html" data-i18n="causes">Causes</a></li>
+                            <li><a href="#pages" data-i18n="pages">Pages</a></li>
+                            <li><a href="blogs.html" data-i18n="blogs">Blogs</a></li>
                         </ul>
                     </nav>
                     <div class="header-right">
@@ -604,7 +615,6 @@
                             <a href="#" class="lang-btn" data-lang="en">EN</a> |
                             <a href="#" class="lang-btn active" data-lang="ar">AR</a>
                         </div>
-                        <a href="contact.html" class="contact-header-btn" data-i18n="contactUs">تواصل معنا</a>
                         <div class="search-container" id="search-container">
                             <input type="text" class="search-input" placeholder="ابحث هنا..." data-i18n="searchPlaceholder">
                             <span class="search-icon" id="search-icon" tabindex="0" aria-label="Search">
