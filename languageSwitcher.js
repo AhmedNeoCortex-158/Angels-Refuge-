@@ -59,6 +59,16 @@ class LanguageSwitcher {
         this.updateFooter();
         this.updateSearch();
         this.updateSocialMedia(); // Make sure social media is updated
+        this.updateFAQ(); // Update FAQ page content
+    }
+
+    updateFAQ() {
+        // Check if we're on the FAQ page by looking for FAQ-specific elements
+        const faqTitle = document.querySelector('.faq-accordion-title');
+        if (!faqTitle) return; // Not on the FAQ page
+
+        // All FAQ elements should already have data-i18n attributes
+        // and be handled by the main translatePage method
     }
 
     updateNavigation() {
@@ -203,4 +213,4 @@ class LanguageSwitcher {
             });
         });
     }
-} 
+}
