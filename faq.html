@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الأسئلة الشائعة - Angels'</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="assets/images/Logo.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assets/css/about.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: #f0faf8;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        .main-bg {
+            background: linear-gradient(120deg, #219a8a 48%, #63666a 0%);
+            border-radius: 0 0 32px 32px;
+            overflow: hidden;
+            padding-bottom: 40px;
+        }
+        .main-header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 24px 5% 0 5%;
+            position: relative;
+        }
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            order: 3;
+            position: absolute;
+            right: 5%;
+            left: auto;
+        }
+        .main-nav {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            order: 2;
+        }
+        .main-nav ul {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            order: 1;
+            position: absolute;
+            left: 5%;
+            right: auto;
+        }
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .main-nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1em;
+            transition: color 0.2s;
+        }
+        .main-nav a.active, .main-nav a:hover {
+            color: #b2e4e0;
+        }
+        .contact-header-btn {
+            background: #2ed8b6d4;
+            color: #fff;
+            border-radius: 66px;
+            padding: 8px 24px;
+            font-weight: 700;
+            text-decoration: none;
+            margin-right: 12px;
+            transition: background 0.2s;
+        }
+        .contact-header-btn:hover {
+            background: #219a8a;
+        }
+        .lang-btn {
+            color: #fff;
+            font-weight: 600;
+            text-decoration: none;
+            margin: 0 4px;
+            cursor: pointer;
+        }
+        .lang-btn.active {
+            color: #2ed8b6;
+        }
+        .search-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+        .search-input {
+            display: none;
+            border: none;
+            border-radius: 6px;
+            padding: 6px 12px;
+            font-size: 1em;
+            margin-left: 8px;
+            outline: none;
+        }
+        .search-container.expanded .search-input {
+            display: block;
+            background: #fff;
+            color: #333;
+        }
+        .search-icon {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            color: #fff;
+        }
+        .faq-hero-section {
+           
+            padding: 48px 0 24px 0;
+            text-align: center;
+        }
+        .faq-hero-section h1 {
+            font-size: 2.5em;
+            color: #eee6e6;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+        .faq-hero-section p {
+            color: #eae3e3;
+            font-size: 1.1em;
+        }
+        .faq-main-content {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 48px;
+            margin: 40px auto 0 auto;
+            max-width: 1100px;
+        }
+        .faq-img-box {
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 2px 16px rgba(33,154,138,0.08);
+            padding: 24px;
+            width: 340px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .faq-img-box img {
+            width: 100%;
+            max-width: 260px;
+        }
+        .faq-accordion-box {
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 2px 16px rgba(33,154,138,0.08);
+            padding: 24px 0 24px 0;
+            width: 520px;
+        }
+        .faq-accordion-title {
+            font-size: 1.5em;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 16px;
+        }
+        .faq-accordion {
+            border-top: 1px solid #e0f7f5;
+        }
+        .faq-item {
+            border-bottom: 1px solid #e0f7f5;
+        }
+        .faq-question {
+            background: none;
+            border: none;
+            width: 100%;
+            text-align: right;
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #219a8a;
+            padding: 18px 24px;
+            cursor: pointer;
+            outline: none;
+            transition: background 0.2s;
+        }
+        .faq-question.active, .faq-question:hover {
+            background: #e8f7f4;
+        }
+        .faq-answer {
+            display: none;
+            padding: 0 24px 18px 24px;
+            color: #555;
+            font-size: 1em;
+            line-height: 1.7;
+        }
+        .faq-answer.active {
+            display: block;
+        }
+        .faq-support-section {
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 2px 16px rgba(33,154,138,0.08);
+            margin: 48px auto 0 auto;
+            max-width: 1100px;
+            padding: 40px 0 32px 0;
+            text-align: center;
+        }
+        .faq-support-title {
+            font-size: 1.6em;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 12px;
+        }
+        .faq-support-desc {
+            color: #888;
+            font-size: 1.1em;
+            margin-bottom: 32px;
+        }
+        .faq-support-grid {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+        }
+        .faq-support-card {
+            background: #e8f7f4;
+            border-radius: 12px;
+            padding: 32px 24px;
+            width: 260px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 0 2px 8px rgba(33,154,138,0.04);
+        }
+        .faq-support-icon {
+            font-size: 2.2em;
+            color: #219a8a;
+            margin-bottom: 12px;
+        }
+        .faq-support-title-card {
+            font-weight: 700;
+            color: #219a8a;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+        .faq-support-desc-card {
+            color: #555;
+            font-size: 1em;
+        }
+        /* Footer styles */
+        .footer {
+            background: #22292f;
+            color: #b2e4e0;
+            padding: 48px 0 0 0;
+            margin-top: 64px;
+        }
+        .footer-grid {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 48px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .footer-brand img {
+            width: 60px;
+            margin-bottom: 8px;
+        }
+        .footer-brand p {
+            color: #fff;
+            font-size: 1.1em;
+            margin: 0;
+        }
+        .footer-links-section h3 {
+            color: #fff;
+            font-size: 1.1em;
+            margin-bottom: 12px;
+        }
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .footer-links li {
+            margin-bottom: 8px;
+        }
+        .footer-links a {
+            color: #b2e4e0;
+            text-decoration: none;
+            font-size: 1em;
+            transition: color 0.2s;
+        }
+        .footer-links a:hover {
+            color: #2ed8b6;
+        }
+        .footer-newsletter {
+            margin-top: 16px;
+        }
+        .newsletter-form {
+            display: flex;
+            gap: 8px;
+        }
+        .newsletter-form input[type="email"] {
+            border: none;
+            border-radius: 6px;
+            padding: 8px 12px;
+            font-size: 1em;
+            outline: none;
+        }
+        .newsletter-form button {
+            background: #2ed8b6;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            padding: 8px 18px;
+            font-size: 1em;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .newsletter-form button:hover {
+            background: #219a8a;
+        }
+        .footer-bottom {
+            text-align: center;
+            color: #b2e4e0;
+            margin-top: 24px;
+            font-size: 0.95em;
+        }
+        .footer-social {
+            margin-top: 16px;
+        }
+        .footer-social a {
+            color: #b2e4e0;
+            margin: 0 6px;
+            font-size: 1.2em;
+            transition: color 0.2s;
+        }
+        .footer-social a:hover {
+            color: #2ed8b6;
+        }
+        @media (max-width: 900px) {
+            .faq-main-content, .footer-grid, .faq-support-grid {
+                flex-direction: column;
+                align-items: center;
+                gap: 24px;
+            }
+            .faq-img-box, .faq-accordion-box, .faq-support-card {
+                width: 100%;
+                max-width: 400px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-bg">
+        <header>
+            <div class="main-header">
+                <div class="header-left">
+                    <img src="assets/images/Logo_2.png" alt="Logo" class="logo">
+                    <a href="contact.html" class="contact-header-btn" data-i18n="contactUs">تواصل معنا</a>
+                </div>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="index.html" data-i18n="home">الرئيسية</a></li>
+                        <li><a href="about.html" data-i18n="about">من نحن</a></li>
+                        <li><a href="causes.html" data-i18n="causes">قضايانا</a></li>
+                        <li><a href="#pages" data-i18n="pages">صفحات</a></li>
+                        <li><a href="faq.html" class="active" data-i18n="blogs">المدونات</a></li>
+                    </ul>
+                </nav>
+                <div class="header-right">
+                    <a href="#" class="lang-btn" data-lang="en">EN</a> |
+                    <a href="#" class="lang-btn active" data-lang="ar">AR</a>
+                    <div class="search-container" id="search-container">
+                        <input type="text" class="search-input" placeholder="ابحث هنا..." data-i18n="searchPlaceholder">
+                        <span class="search-icon" id="search-icon" tabindex="0" aria-label="بحث">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <circle cx="11" cy="11" r="7" stroke="#fff" stroke-width="2"/>
+                                <line x1="16.4142" y1="16" x2="21" y2="20.5858" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="faq-hero-section">
+                <h1 class="animate__animated animate__fadeInDown">الأسئلة الشائعة</h1>
+                <p class="animate__animated animate__fadeInUp">الرئيسية / الأسئلة الشائعة</p>
+            </div>
+        </header>
+    </div>
+    <div class="faq-main-content">
+        <div class="faq-img-box">
+            <img src="assets/images/ChatGPT Image.png" alt="FAQ">
+        </div>
+        <div class="faq-accordion-box">
+            <div style="text-align: center;" class="faq-accordion-title">الأسئلة الشائعة</div>
+            <div class="faq-accordion">
+                <div class="faq-item">
+                    <button class="faq-question">اصنع فرقاً في حياة طفل</button>
+                    <div class="faq-answer">يمكنك المساهمة في تغيير حياة الأطفال من خلال التبرع أو التطوع. تبرعك أو وقتك يمكن أن يحدث فرقاً كبيراً في مستقبلهم.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">لتقم بالشيء الصحيح الآن</button>
+                    <div class="faq-answer">ابدأ اليوم في دعم الأطفال المحتاجين، كل مساهمة تحدث فرقاً.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">نعم، يمكنك التبرع بشكل مجهول؟</button>
+                    <div class="faq-answer">نعم، يمكنك التبرع دون الكشف عن هويتك إذا رغبت بذلك.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">القيم بيدك من أجل حياة أفضل؟</button>
+                    <div class="faq-answer">كل تبرع أو دعم تقدمه يساهم في تحسين حياة الأطفال والعائلات.</div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">لإلغاء تبرعاتك المتكررة، يمكنك اتباع الخطوات التالية؟</button>
+                    <div class="faq-answer">يمكنك إلغاء التبرعات المتكررة من خلال حسابك أو التواصل مع الدعم الفني.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="faq-support-section">
+        <div class="faq-support-title">إذا كنت لا تزال بحاجة إلى المساعدة</div>
+        <div class="faq-support-desc">يمكنك الاتصال بنا مباشرة عبر البريد الإلكتروني أو الهاتف، فريقنا دائماً جاهز لمساعدتك والإجابة على استفساراتك.</div>
+        <div class="faq-support-grid">
+            <div class="faq-support-card">
+                <div class="faq-support-icon">📞</div>
+                <div class="faq-support-title-card">اتصل بالدعم</div>
+                <div class="faq-support-desc-card">نقوم بتحليل شكل رسائل بريدك الإلكتروني، وإجابة فورية من العناصر الأساسية.</div>
+            </div>
+            <div class="faq-support-card">
+                <div class="faq-support-icon">💬</div>
+                <div class="faq-support-title-card">الدردشة معنا</div>
+                <div class="faq-support-desc-card">نحن متواجدون على مدار الساعة لحل جميع المشاكل التقنية الفعلية.</div>
+            </div>
+            <div class="faq-support-card">
+                <div class="faq-support-icon">📍</div>
+                <div class="faq-support-title-card">العنوان</div>
+                <div class="faq-support-desc-card">4577 Washington Ave. Manchester Kentucky 39435</div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="assets/images/Logo_2.png" alt="Angels">
+                <p>10k<br>Worldwide Client<br>Already Connected</p>
+            </div>
+            <div class="footer-links-section">
+                <h3>Quick Link</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="blogs.html">Blog Post</a></li>
+                    <li><a href="#gallery">Photo Gallery</a></li>
+                </ul>
+            </div>
+            <div class="footer-links-section">
+                <h3>Get In Touch</h3>
+                <ul class="footer-links">
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="#services">Our Services</a></li>
+                </ul>
+            </div>
+            <div class="footer-newsletter">
+                <h3>Newsletter</h3>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Enter Your Email">
+                    <button type="submit">Subscribe</button>
+                </form>
+                <p style="color:#e0f7f5; font-size:0.95em; margin-top:8px;">Your email is safe with us, we don't spam.</p>
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            Designed By Ahmed Kamal Developed By Ibrahim Mohamed
+        </div>
+    </footer>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="translations.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchContainer = document.getElementById('search-container');
+            const searchIcon = document.getElementById('search-icon');
+            const searchInput = searchContainer.querySelector('.search-input');
+            searchIcon.addEventListener('click', () => {
+                searchContainer.classList.toggle('expanded');
+                if (searchContainer.classList.contains('expanded')) {
+                    searchInput.focus();
+                }
+            });
+            document.addEventListener('click', (e) => {
+                if (!searchContainer.contains(e.target)) {
+                    searchContainer.classList.remove('expanded');
+                }
+            });
+            // FAQ accordion
+            document.querySelectorAll('.faq-question').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const answer = this.nextElementSibling;
+                    const isActive = this.classList.contains('active');
+                    document.querySelectorAll('.faq-question').forEach(q => q.classList.remove('active'));
+                    document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('active'));
+                    if (!isActive) {
+                        this.classList.add('active');
+                        answer.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html> 
