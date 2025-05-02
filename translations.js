@@ -63,7 +63,7 @@ const translations = {
         about: "من نحن",
         causes: "قضايانا",
         pages: "صفحات",
-        blogs: "المدونات",
+        blogs: "الاسئلة الشائعة",
         contactUs: "تواصل معنا",
         
         // Hero Section
@@ -218,7 +218,7 @@ const translations = {
         about: "About",
         causes: "Causes",
         pages: "Pages",
-        blogs: "Blogs",
+        blogs: "Frequently questions",
         contactUs: "Contact Us",
         
         // Hero Section
