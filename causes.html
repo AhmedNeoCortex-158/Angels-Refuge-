@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>الأسئلة الشائعة - Angels'</title>
+    <title>Our Goals- Angels'</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="assets/images/Logo.png">
     <link rel="stylesheet" href="style.css">
@@ -125,144 +125,126 @@
             align-items: center;
             color: #fff;
         }
-        .faq-hero-section {
-
+        .causes-hero-section {
             padding: 48px 0 24px 0;
             text-align: center;
         }
-        .faq-hero-section h1 {
+        .causes-hero-section h1 {
             font-size: 2.5em;
             color: #eee6e6;
             margin-bottom: 8px;
             font-weight: 700;
         }
-        .faq-hero-section p {
+        .causes-hero-section p {
             color: #eae3e3;
             font-size: 1.1em;
         }
-        .faq-main-content {
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            gap: 48px;
-            margin: 40px auto 0 auto;
+
+        /* Causes section styles */
+        .causes-main-content {
             max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
         }
-        .faq-img-box {
-            background: #fff;
-            border-radius: 16px;
-            box-shadow: 0 2px 16px rgba(33,154,138,0.08);
-            padding: 24px;
-            width: 340px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .faq-img-box img {
-            width: 100%;
-            max-width: 260px;
-        }
-        .faq-accordion-box {
-            background: #fff;
-            border-radius: 16px;
-            box-shadow: 0 2px 16px rgba(33,154,138,0.08);
-            padding: 24px 0 24px 0;
-            width: 520px;
-        }
-        .faq-accordion-title {
-            font-size: 1.5em;
-            font-weight: 700;
-            color: #333;
-            margin-bottom: 16px;
-        }
-        .faq-accordion {
-            border-top: 1px solid #e0f7f5;
-        }
-        .faq-item {
-            border-bottom: 1px solid #e0f7f5;
-        }
-        .faq-question {
-            background: none;
-            border: none;
-            width: 100%;
+
+        .causes-title {
             text-align: right;
-            font-size: 1.1em;
-            font-weight: 600;
+            margin-bottom: 30px;
+        }
+
+        .causes-title h2 {
+            font-size: 1.8em;
             color: #219a8a;
-            padding: 18px 24px;
-            cursor: pointer;
-            outline: none;
+            margin-bottom: 10px;
+        }
+
+        .causes-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .cause-card {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .cause-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .cause-img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+        }
+
+        .cause-content {
+            padding: 15px;
+        }
+
+        .cause-title {
+            font-size: 1.1em;
+            font-weight: 700;
+            color: #219a8a;
+            margin-bottom: 10px;
+        }
+
+        .cause-desc {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .cause-progress {
+            height: 8px;
+            background: #e0f7f5;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: #2ed8b6;
+            border-radius: 4px;
+        }
+
+        .cause-stats {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85em;
+            color: #888;
+            margin-bottom: 15px;
+        }
+
+        .donate-btn {
+            display: block;
+            background: #2ed8b6;
+            color: #fff;
+            text-align: center;
+            padding: 8px 0;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
             transition: background 0.2s;
         }
-        .faq-question.active, .faq-question:hover {
-            background: #e8f7f4;
+
+        .donate-btn:hover {
+            background: #219a8a;
         }
-        .faq-answer {
-            display: none;
-            padding: 0 24px 18px 24px;
-            color: #555;
-            font-size: 1em;
-            line-height: 1.7;
-        }
-        .faq-answer.active {
-            display: block;
-        }
-        .faq-support-section {
-            background: #fff;
-            border-radius: 16px;
-            box-shadow: 0 2px 16px rgba(33,154,138,0.08);
-            margin: 48px auto 0 auto;
-            max-width: 1100px;
-            padding: 40px 0 32px 0;
-            text-align: center;
-        }
-        .faq-support-title {
-            font-size: 1.6em;
-            font-weight: 700;
-            color: #333;
-            margin-bottom: 12px;
-        }
-        .faq-support-desc {
-            color: #888;
-            font-size: 1.1em;
-            margin-bottom: 32px;
-        }
-        .faq-support-grid {
-            display: flex;
-            justify-content: center;
-            gap: 32px;
-        }
-        .faq-support-card {
-            background: #e8f7f4;
-            border-radius: 12px;
-            padding: 32px 24px;
-            width: 260px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            box-shadow: 0 2px 8px rgba(33,154,138,0.04);
-        }
-        .faq-support-icon {
-            font-size: 2.2em;
-            color: #219a8a;
-            margin-bottom: 12px;
-        }
-        .faq-support-title-card {
-            font-weight: 700;
-            color: #219a8a;
-            margin-bottom: 8px;
-            font-size: 1.1em;
-        }
-        .faq-support-desc-card {
-            color: #555;
-            font-size: 1em;
-        }
+
         /* Footer styles */
         .footer {
             background: #22292f;
             color: #b2e4e0;
             padding: 48px 0 0 0;
-            margin-top: 64px;
         }
         .footer-grid {
             display: flex;
@@ -404,15 +386,21 @@
                 justify-content: center;
             }
         }
+
         @media (max-width: 900px) {
-            .faq-main-content, .footer-grid, .faq-support-grid {
+            .causes-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .footer-grid {
                 flex-direction: column;
                 align-items: center;
                 gap: 24px;
             }
-            .faq-img-box, .faq-accordion-box, .faq-support-card {
-                width: 100%;
-                max-width: 400px;
+        }
+
+        @media (max-width: 600px) {
+            .causes-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -429,9 +417,9 @@
                     <ul>
                         <li><a href="index.html" data-i18n="home">الرئيسية</a></li>
                         <li><a href="about.html" data-i18n="about">من نحن</a></li>
-                        <li><a href="causes.html" data-i18n="causes">قضايانا</a></li>
+                        <li><a href="causes.html" class="active" data-i18n="causes">قضايانا</a></li>
                         <li><a href="#pages" data-i18n="pages">صفحات</a></li>
-                        <li><a href="faq.html" class="active" data-i18n="blogs">الاسئلة الشائعة</a></li>
+                        <li><a href="faq.html" data-i18n="blogs">الاسئلة الشائعة</a></li>
                     </ul>
                 </nav>
                 <div class="header-right">
@@ -448,63 +436,85 @@
                     </div>
                 </div>
             </div>
-            <div class="faq-hero-section">
-                <h1 class="animate__animated animate__fadeInDown" data-i18n="faqTitle">الأسئلة الشائعة</h1>
-                <p class="animate__animated animate__fadeInUp" data-i18n="faqBreadcrumb">الرئيسية / الأسئلة الشائعة</p>
+            <div class="causes-hero-section">
+                <h1 class="animate__animated animate__fadeInDown" data-i18n="causesHeroTitle">أهدافنا</h1>
+                <p class="animate__animated animate__fadeInUp" data-i18n="causesHeroBreadcrumb">الرئيسية / قضايانا</p>
             </div>
         </header>
     </div>
-    <div class="faq-main-content">
-        <div class="faq-img-box">
-            <img src="assets/images/ChatGPT Image.png" alt="FAQ">
+
+    <div class="causes-main-content">
+        <div class="causes-title">
+            <h2 data-i18n="causesMainTitle">اكتشف القضايا الأكثر شهرة وتبرع لدعمها</h2>
         </div>
-        <div class="faq-accordion-box">
-            <div style="text-align: center;" class="faq-accordion-title" data-i18n="faqAccordionTitle">الأسئلة الشائعة</div>
-            <div class="faq-accordion">
-                <div class="faq-item">
-                    <button class="faq-question" data-i18n="faqQuestion1">اصنع فرقاً في حياة طفل</button>
-                    <div class="faq-answer" data-i18n="faqAnswer1">يمكنك المساهمة في تغيير حياة الأطفال من خلال التبرع أو التطوع. تبرعك أو وقتك يمكن أن يحدث فرقاً كبيراً في مستقبلهم.</div>
+
+        <div class="causes-grid">
+            <div class="cause-card" data-aos="fade-up" data-aos-delay="100">
+                <img src="assets/images/cause1.jpg" alt="Medical Aid" class="cause-img">
+                <div class="cause-content">
+                    <div class="cause-title" data-i18n="cause1Title">تبرع لعلاج الفقراء ودعمهم</div>
+                    <div class="cause-desc" data-i18n="cause1Desc">في كل يوم هناك من يحتاج للعلاج والدعم، ساهم في رسم بسمة على وجه المحتاجين.</div>
+                    <div class="cause-progress">
+                        <div class="progress-bar" style="width: 75%;"></div>
+                    </div>
+                    <div class="cause-stats">
+                        <span>75% تم جمعه</span>
+                        <span>15,000 / 20,000 ريال</span>
+                    </div>
+                    <a href="#" class="donate-btn" data-i18n="donateBtn">تبرع الآن</a>
                 </div>
-                <div class="faq-item">
-                    <button class="faq-question" data-i18n="faqQuestion2">لتقم بالشيء الصحيح الآن</button>
-                    <div class="faq-answer" data-i18n="faqAnswer2">ابدأ اليوم في دعم الأطفال المحتاجين، كل مساهمة تحدث فرقاً.</div>
+            </div>
+
+            <div class="cause-card" data-aos="fade-up" data-aos-delay="200">
+                <img src="assets/images/cause2.jpg" alt="Children Support" class="cause-img">
+                <div class="cause-content">
+                    <div class="cause-title" data-i18n="cause2Title">الأطفال الذين نعمل معهم</div>
+                    <div class="cause-desc" data-i18n="cause2Desc">نعمل يومياً مع أطفال حرموا من أبسط حقوقهم في العلاج والغذاء والتعليم.</div>
+                    <div class="cause-progress">
+                        <div class="progress-bar" style="width: 60%;"></div>
+                    </div>
+                    <div class="cause-stats">
+                        <span>60% تم جمعه</span>
+                        <span>12,000 / 20,000 ريال</span>
+                    </div>
+                    <a href="#" class="donate-btn" data-i18n="donateBtn">تبرع الآن</a>
                 </div>
-                <div class="faq-item">
-                    <button class="faq-question" data-i18n="faqQuestion3">نعم، يمكنك التبرع بشكل مجهول؟</button>
-                    <div class="faq-answer" data-i18n="faqAnswer3">نعم، يمكنك التبرع دون الكشف عن هويتك إذا رغبت بذلك.</div>
+            </div>
+
+            <div class="cause-card" data-aos="fade-up" data-aos-delay="300">
+                <img src="assets/images/cause3.jpg" alt="Education Support" class="cause-img">
+                <div class="cause-content">
+                    <div class="cause-title" data-i18n="cause3Title">مساعدة للتعليم</div>
+                    <div class="cause-desc" data-i18n="cause3Desc">من بين الأطفال الذين نعمل معهم، كثيرون حرموا من فرصة الذهاب إلى المدرسة بسبب الفقر.</div>
+                    <div class="cause-progress">
+                        <div class="progress-bar" style="width: 45%;"></div>
+                    </div>
+                    <div class="cause-stats">
+                        <span>45% تم جمعه</span>
+                        <span>9,000 / 20,000 ريال</span>
+                    </div>
+                    <a href="#" class="donate-btn" data-i18n="donateBtn">تبرع الآن</a>
                 </div>
-                <div class="faq-item">
-                    <button class="faq-question" data-i18n="faqQuestion4">القيم بيدك من أجل حياة أفضل؟</button>
-                    <div class="faq-answer" data-i18n="faqAnswer4">كل تبرع أو دعم تقدمه يساهم في تحسين حياة الأطفال والعائلات.</div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question" data-i18n="faqQuestion5">لإلغاء تبرعاتك المتكررة، يمكنك اتباع الخطوات التالية؟</button>
-                    <div class="faq-answer" data-i18n="faqAnswer5">يمكنك إلغاء التبرعات المتكررة من خلال حسابك أو التواصل مع الدعم الفني.</div>
+            </div>
+
+            <div class="cause-card" data-aos="fade-up" data-aos-delay="400">
+                <img src="assets/images/cause4.jpg" alt="Food Support" class="cause-img">
+                <div class="cause-content">
+                    <div class="cause-title" data-i18n="cause4Title">مساعدة للغذاء</div>
+                    <div class="cause-desc" data-i18n="cause4Desc">العديد من الأسر يعانون من نقص الغذاء ولا يستطيعون توفير وجبات كافية لأطفالهم.</div>
+                    <div class="cause-progress">
+                        <div class="progress-bar" style="width: 85%;"></div>
+                    </div>
+                    <div class="cause-stats">
+                        <span>85% تم جمعه</span>
+                        <span>17,000 / 20,000 ريال</span>
+                    </div>
+                    <a href="#" class="donate-btn" data-i18n="donateBtn">تبرع الآن</a>
                 </div>
             </div>
         </div>
     </div>
-    <div class="faq-support-section">
-        <div class="faq-support-title" data-i18n="faqSupportTitle">إذا كنت لا تزال بحاجة إلى المساعدة</div>
-        <div class="faq-support-desc" data-i18n="faqSupportDesc">يمكنك الاتصال بنا مباشرة عبر البريد الإلكتروني أو الهاتف، فريقنا دائماً جاهز لمساعدتك والإجابة على استفساراتك.</div>
-        <div class="faq-support-grid">
-            <div class="faq-support-card">
-                <div class="faq-support-icon">📞</div>
-                <div class="faq-support-title-card" data-i18n="faqSupportCard1Title">اتصل بالدعم</div>
-                <div class="faq-support-desc-card" data-i18n="faqSupportCard1Desc">نقوم بتحليل شكل رسائل بريدك الإلكتروني، وإجابة فورية من العناصر الأساسية.</div>
-            </div>
-            <div class="faq-support-card">
-                <div class="faq-support-icon">💬</div>
-                <div class="faq-support-title-card" data-i18n="faqSupportCard2Title">الدردشة معنا</div>
-                <div class="faq-support-desc-card" data-i18n="faqSupportCard2Desc">نحن متواجدون على مدار الساعة لحل جميع المشاكل التقنية الفعلية.</div>
-            </div>
-            <div class="faq-support-card">
-                <div class="faq-support-icon">📍</div>
-                <div class="faq-support-title-card" data-i18n="faqSupportCard3Title">العنوان</div>
-                <div class="faq-support-desc-card" data-i18n="faqSupportCard3Desc">4577 Washington Ave. Manchester Kentucky 39435</div>
-            </div>
-        </div>
-    </div>
+
     <footer class="footer">
         <div class="footer-grid">
             <div class="footer-brand">
@@ -512,28 +522,28 @@
                 <p>10k<br>Worldwide Client<br>Already Connected</p>
             </div>
             <div class="footer-links-section">
-                <h3>Quick Link</h3>
+                <h3 data-i18n="quickLink">روابط سريعة</h3>
                 <ul class="footer-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="blogs.html">Blog Post</a></li>
-                    <li><a href="#gallery">Photo Gallery</a></li>
+                    <li><a href="index.html" data-i18n="home">الرئيسية</a></li>
+                    <li><a href="about.html" data-i18n="about">من نحن</a></li>
+                    <li><a href="faq.html" data-i18n="blogs">الاسئلة الشائعة</a></li>
+                    <li><a href="#gallery">معرض الصور</a></li>
                 </ul>
             </div>
             <div class="footer-links-section">
-                <h3>Get In Touch</h3>
+                <h3 data-i18n="getInTouch">تواصل معنا</h3>
                 <ul class="footer-links">
-                    <li><a href="contact.html">Contact Us</a></li>
-                    <li><a href="#services">Our Services</a></li>
+                    <li><a href="contact.html" data-i18n="contactUs">تواصل معنا</a></li>
+                    <li><a href="#services">خدماتنا</a></li>
                 </ul>
             </div>
             <div class="footer-newsletter">
-                <h3>Newsletter</h3>
+                <h3 data-i18n="newsletter">النشرة الإخبارية</h3>
                 <form class="newsletter-form">
-                    <input type="email" placeholder="Enter Your Email">
-                    <button type="submit">Subscribe</button>
+                    <input type="email" placeholder="أدخل بريدك الإلكتروني" data-i18n="enterEmail">
+                    <button type="submit" data-i18n="subscribe">اشترك</button>
                 </form>
-                <p style="color:#e0f7f5; font-size:0.95em; margin-top:8px;">Your email is safe with us, we don't spam.</p>
+                <p style="color:#e0f7f5; font-size:0.95em; margin-top:8px;" data-i18n="emailSafe">بريدك الإلكتروني آمن معنا، نحن لا نرسل رسائل مزعجة.</p>
                 <div class="social-links">
                     <h3 class="social-title" data-i18n="followUs">تابعنا</h3>
                     <div class="social-icons">
@@ -565,6 +575,7 @@
             Designed By Ahmed Kamal Developed By Ibrahim Mohamed
         </div>
     </footer>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <script src="translations.js"></script>
     <script src="languageSwitcher.js"></script>
@@ -589,19 +600,6 @@
                 if (!searchContainer.contains(e.target)) {
                     searchContainer.classList.remove('expanded');
                 }
-            });
-            // FAQ accordion
-            document.querySelectorAll('.faq-question').forEach(btn => {
-                btn.addEventListener('click', function() {
-                    const answer = this.nextElementSibling;
-                    const isActive = this.classList.contains('active');
-                    document.querySelectorAll('.faq-question').forEach(q => q.classList.remove('active'));
-                    document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('active'));
-                    if (!isActive) {
-                        this.classList.add('active');
-                        answer.classList.add('active');
-                    }
-                });
             });
 
             // Initialize language switcher

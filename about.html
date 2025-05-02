@@ -17,7 +17,7 @@
             margin: 0;
             padding: 0;
             color: #333;
-           
+
         }
 
         .container {
@@ -34,7 +34,7 @@
             overflow: hidden;
             padding-bottom: 40px;
         }
-        
+
         .main-header {
             display: flex;
             justify-content: space-between;
@@ -637,7 +637,7 @@
                     <ul>
                         <li><a href="index.html" data-i18n="home">الرئيسية</a></li>
                         <li><a href="about.html" class="active" data-i18n="about">من نحن</a></li>
-                        <li><a href="causes.html" data-i18n="causes">قضايانا</a></li>
+                        <li><a href="causes.html" data-i18n="causes">أهدافنا</a></li>
                         <li><a href="#" data-i18n="pages">صفحات</a></li>
                         <li><a href="faq.html" data-i18n="blogs">الاسئلة الشائعة</a></li>
                     </ul>
@@ -675,7 +675,7 @@
             </div>
         </div>
     </div>
-   
+
     <div class="about-main-content">
         <div class="about-main-left">
             <div class="about-main-title">مرحبا بكم في جمعية الخير.</div>
@@ -832,7 +832,7 @@
                 <p style="color:#e0f7f5; font-size:0.95em; margin-top:8px;">Your email is safe with us, we don't spam.</p>
             </div>
         </div>
-        <div style="text-align:center; color:#b2e4e0; margin-top:24px;">Designed By Ahmed Kamal Developed By Ibrahim Mohamed</div>
+        <div style="text-align:center; color:#b2e4e0; margin-top:24px;" data-i18n="copyright">تم التصميم بواسطة احمد كمال وتم التطوير بواسطة ابراهيم محمد</div>
     </footer>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <script src="translations.js"></script>
@@ -843,7 +843,7 @@
             once: true,
             offset: 100
         });
-        
+
         document.addEventListener('DOMContentLoaded', function() {
             const searchContainer = document.getElementById('search-container');
             const searchIcon = document.getElementById('search-icon');
@@ -877,7 +877,7 @@
                 btn.addEventListener('click', (e) => {
                     e.preventDefault();
                     const lang = btn.dataset.lang;
-                    
+
                     // Update active state
                     langButtons.forEach(b => b.classList.remove('active'));
                     btn.classList.add('active');
@@ -953,4 +953,4 @@
         });
     </script>
 </body>
-</html> 
+</html>

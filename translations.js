@@ -61,7 +61,7 @@ const translations = {
         // Contact Page
         home: "الرئيسية",
         about: "من نحن",
-        causes: "قضايانا",
+        causes: "أهدافنا",
         pages: "صفحات",
         blogs: "الاسئلة الشائعة",
         contactUs: "تواصل معنا",
@@ -176,6 +176,20 @@ const translations = {
         faqSupportCard2Desc: "نحن متواجدون على مدار الساعة لحل جميع المشاكل التقنية الفعلية.",
         faqSupportCard3Title: "العنوان",
         faqSupportCard3Desc: "4577 Washington Ave. Manchester Kentucky 39435",
+
+        // Causes Page
+        causesHeroTitle: "أهدافنا",
+        causesHeroBreadcrumb: "الرئيسية / قضايانا",
+        causesMainTitle: "اكتشف القضايا الأكثر شهرة وتبرع لدعمها",
+        cause1Title: "تبرع لعلاج الفقراء ودعمهم",
+        cause1Desc: "في كل يوم هناك من يحتاج للعلاج والدعم، ساهم في رسم بسمة على وجه المحتاجين.",
+        cause2Title: "الأطفال الذين نعمل معهم",
+        cause2Desc: "نعمل يومياً مع أطفال حرموا من أبسط حقوقهم في العلاج والغذاء والتعليم.",
+        cause3Title: "مساعدة للتعليم",
+        cause3Desc: "من بين الأطفال الذين نعمل معهم، كثيرون حرموا من فرصة الذهاب إلى المدرسة بسبب الفقر.",
+        cause4Title: "مساعدة للغذاء",
+        cause4Desc: "العديد من الأسر يعانون من نقص الغذاء ولا يستطيعون توفير وجبات كافية لأطفالهم.",
+        donateBtn: "تبرع الآن",
     },
     en: {
         // Navigation
@@ -239,7 +253,7 @@ const translations = {
         // Contact Page
         home: "Home",
         about: "About",
-        causes: "Causes",
+        causes: "Our Goals",
         pages: "Pages",
         blogs: "Frequently questions",
         contactUs: "Contact Us",
@@ -354,5 +368,19 @@ We believe that charitable work goes beyond just providing material assistance. 
         faqSupportCard2Desc: "We are available 24/7 to solve all actual technical problems.",
         faqSupportCard3Title: "Address",
         faqSupportCard3Desc: "4577 Washington Ave. Manchester Kentucky 39435",
+
+        // Causes Page
+        causesHeroTitle: "Our Goals",
+        causesHeroBreadcrumb: "Home / Our Causes",
+        causesMainTitle: "Discover the most popular causes and donate to support them",
+        cause1Title: "Donate for Medical Treatment",
+        cause1Desc: "Every day someone needs treatment and support. Help put a smile on the faces of those in need.",
+        cause2Title: "Children We Work With",
+        cause2Desc: "We work daily with children deprived of basic rights in treatment, food, and education.",
+        cause3Title: "Help for Education",
+        cause3Desc: "Among the children we work with, many have been deprived of the opportunity to go to school due to poverty.",
+        cause4Title: "Help with Food",
+        cause4Desc: "Many families suffer from food shortages and cannot provide adequate meals for their children.",
+        donateBtn: "Donate Now",
     }
 };

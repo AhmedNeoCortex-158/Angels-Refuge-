@@ -60,6 +60,7 @@ class LanguageSwitcher {
         this.updateSearch();
         this.updateSocialMedia(); // Make sure social media is updated
         this.updateFAQ(); // Update FAQ page content
+        this.updateCauses(); // Update Causes page content
     }
 
     updateFAQ() {
@@ -68,6 +69,15 @@ class LanguageSwitcher {
         if (!faqTitle) return; // Not on the FAQ page
 
         // All FAQ elements should already have data-i18n attributes
+        // and be handled by the main translatePage method
+    }
+
+    updateCauses() {
+        // Check if we're on the Causes page by looking for causes-specific elements
+        const causesTitle = document.querySelector('.causes-title h2');
+        if (!causesTitle) return; // Not on the Causes page
+
+        // All Causes elements should already have data-i18n attributes
         // and be handled by the main translatePage method
     }
 
