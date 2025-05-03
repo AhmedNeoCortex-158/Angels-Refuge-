@@ -1444,6 +1444,52 @@
             .modern-fade-in { transition-delay: 0.1s; }
         }
     </style>
+    <!-- Payment Modal -->
+    <div id="payment-modal" style="display:none;position:fixed;z-index:9999;top:0;left:0;width:100vw;height:100vh;background:rgba(33,154,138,0.18);backdrop-filter:blur(2px);align-items:center;justify-content:center;">
+      <div style="background:#fff;border-radius:18px;box-shadow:0 8px 32px rgba(33,154,138,0.18);max-width:420px;width:95vw;padding:32px 24px;position:relative;animation:modalIn 0.4s cubic-bezier(.4,0,.2,1);">
+        <button id="close-payment-modal" aria-label="إغلاق" style="position:absolute;top:18px;left:18px;background:none;border:none;font-size:1.7em;color:#219a8a;cursor:pointer;">&times;</button>
+        <h2 style="text-align:center;color:#219a8a;font-weight:700;margin-bottom:18px;">إتمام التبرع</h2>
+        <form id="payment-form" autocomplete="off" style="display:flex;flex-direction:column;gap:16px;">
+          <input type="text" name="name" placeholder="الاسم الكامل" required style="padding:10px 14px;border-radius:7px;border:1.5px solid #e0f7f5;font-size:1em;">
+          <input type="email" name="email" placeholder="البريد الإلكتروني" required style="padding:10px 14px;border-radius:7px;border:1.5px solid #e0f7f5;font-size:1em;">
+          <textarea name="message" placeholder="رسالة (اختياري)" rows="2" style="padding:10px 14px;border-radius:7px;border:1.5px solid #e0f7f5;font-size:1em;"></textarea>
+          <input type="number" name="amount" placeholder="المبلغ (USD)" min="1" required style="padding:10px 14px;border-radius:7px;border:1.5px solid #e0f7f5;font-size:1em;">
+          <div style="margin-bottom:4px;color:#219a8a;font-weight:600;">اختر طريقة الدفع</div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;">
+            <label style="cursor:pointer;">
+              <input type="radio" name="paymethod" value="Visa" required style="accent-color:#219a8a;"> <img src="https://img.icons8.com/color/32/visa.png" alt="Visa" style="vertical-align:middle;"> Visa
+            </label>
+            <label style="cursor:pointer;">
+              <input type="radio" name="paymethod" value="MasterCard" style="accent-color:#219a8a;"> <img src="https://img.icons8.com/color/32/mastercard-logo.png" alt="MasterCard" style="vertical-align:middle;"> MasterCard
+            </label>
+            <label style="cursor:pointer;">
+              <input type="radio" name="paymethod" value="PayPal" style="accent-color:#219a8a;"> <img src="https://img.icons8.com/color/32/paypal.png" alt="PayPal" style="vertical-align:middle;"> PayPal
+            </label>
+            <label style="cursor:pointer;">
+              <input type="radio" name="paymethod" value="ApplePay" style="accent-color:#219a8a;"> <img src="https://img.icons8.com/ios-filled/32/000000/mac-os.png" alt="Apple Pay" style="vertical-align:middle;"> Apple Pay
+            </label>
+            <label style="cursor:pointer;">
+              <input type="radio" name="paymethod" value="GooglePay" style="accent-color:#219a8a;"> <img src="https://img.icons8.com/color/32/google-pay-india.png" alt="Google Pay" style="vertical-align:middle;"> Google Pay
+            </label>
+          </div>
+          <div style="background:#eaf7f5;border-radius:8px;padding:10px 12px;font-size:0.98em;color:#444;">
+            <strong>شروط وأحكام الدفع:</strong><br>
+            - جميع التبرعات غير قابلة للاسترداد بعد إتمام العملية.<br>
+            - يتم حماية بياناتك وفقًا لسياسة الخصوصية.<br>
+            - يجب أن يكون المبلغ المدفوع بالدولار الأمريكي.<br>
+            - باستخدامك هذه الخدمة، فإنك توافق على الشروط والأحكام.
+          </div>
+          <button type="submit" style="background:#219a8a;color:#fff;font-weight:700;font-size:1.1em;padding:12px 0;border:none;border-radius:7px;box-shadow:0 2px 8px #b2e4e0;transition:background 0.2s;cursor:pointer;">تأكيد الدفع</button>
+          <button type="button" id="complete-payment" style="background:#19c49c;color:#fff;font-weight:700;font-size:1.1em;padding:12px 0;border:none;border-radius:7px;box-shadow:0 2px 8px #b2e4e0;transition:background 0.2s;cursor:pointer;">إكمال العملية</button>
+        </form>
+      </div>
+    </div>
+    <style>
+    @keyframes modalIn { from { opacity:0; transform:scale(0.95) translateY(40px);} to { opacity:1; transform:none; } }
+    #payment-modal input:focus, #payment-modal textarea:focus { outline:2px solid #219a8a33; }
+    #payment-modal input:invalid, #payment-modal textarea:invalid { border-color:#f99a8a; }
+    #payment-modal input:valid, #payment-modal textarea:valid { border-color:#19c49c; }
+    </style>
 </head>
 <body class="rtl">
     <div class="main-bg">
@@ -1828,6 +1874,42 @@
         // Progress bar
         var bar = document.getElementById('modern-progress-bar');
         if(bar) setTimeout(function(){ bar.style.width = '60%'; }, 500);
+    });
+    </script>
+    <!-- Add a Donate Now button to open the modal -->
+    <script>
+    // ... existing code ...
+    // Payment Modal Logic
+    function openPaymentModal() {
+      document.getElementById('payment-modal').style.display = 'flex';
+      setTimeout(()=>{
+        document.getElementById('payment-modal').scrollIntoView({behavior:'smooth'});
+      }, 100);
+    }
+    function closePaymentModal() {
+      document.getElementById('payment-modal').style.display = 'none';
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+      // Add event to all donate buttons
+      document.querySelectorAll('.modern-donate-btn').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+          e.preventDefault();
+          openPaymentModal();
+        });
+      });
+      document.getElementById('close-payment-modal').onclick = closePaymentModal;
+      document.getElementById('payment-modal').onclick = function(e) {
+        if(e.target === this) closePaymentModal();
+      };
+      // Prevent form submit (demo)
+      document.getElementById('payment-form').onsubmit = function(e) {
+        e.preventDefault();
+        alert('تم تأكيد الدفع! (نموذج تجريبي)');
+      };
+      document.getElementById('complete-payment').onclick = function() {
+        alert('تم إكمال العملية! (نموذج تجريبي)');
+        closePaymentModal();
+      };
     });
     </script>
 </body>
