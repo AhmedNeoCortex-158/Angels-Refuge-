@@ -63,7 +63,7 @@ const translations = {
         home: "الرئيسية",
         about: "من نحن",
         causes: "أهدافنا",
-        pages: "صفحات",
+        pages: "للتبرعات",
         blogs: "الاسئلة الشائعة",
         contactUs: "تواصل معنا",
 
@@ -256,7 +256,7 @@ const translations = {
         home: "Home",
         about: "About",
         causes: "Our Goals",
-        pages: "Pages",
+        pages: "For donations",
         blogs: "Frequently questions",
         contactUs: "Contact Us",
 
