@@ -1449,7 +1449,7 @@
         <div class="payment-modal-content">
             <button id="close-payment-modal" class="close-modal" aria-label="إغلاق">&times;</button>
             <h2 class="modal-title">اختر طريقة الدفع</h2>
-            
+
             <div class="payment-methods">
                 <div class="payment-method-group">
                     <h3>التحويلات المحلية</h3>
@@ -1458,7 +1458,7 @@
                         <button class="method-btn" data-method="instapay">InstaPay</button>
                     </div>
                 </div>
-                
+
                 <div class="payment-method-group">
                     <h3>المحافظ الإلكترونية</h3>
                     <div class="method-buttons">
@@ -1468,7 +1468,7 @@
                         <button class="method-btn" data-method="we-pay">We Pay</button>
                     </div>
                 </div>
-                
+
                 <div class="payment-method-group">
                     <h3>التحويلات الدولية</h3>
                     <div class="method-buttons">
@@ -1846,7 +1846,7 @@
         function showPaymentDetails(method) {
             const details = paymentMethods[method];
             const detailsContainer = document.querySelector('.payment-details');
-            
+
             if (!detailsContainer) {
                 const newDetailsContainer = document.createElement('div');
                 newDetailsContainer.className = 'payment-details';
@@ -1922,10 +1922,10 @@
                 const selectedMethod = document.querySelector('.method-btn.active').dataset.method;
                 const formData = new FormData(form);
                 const data = Object.fromEntries(formData.entries());
-                
+
                 // Add payment method to form data
                 data.paymentMethod = selectedMethod;
-                
+
                 // Show success message
                 alert(`تم تأكيد الدفع باستخدام ${paymentMethods[selectedMethod].title}! (نموذج تجريبي)`);
                 closeModal();
@@ -2487,7 +2487,7 @@
         function showPaymentDetails(method) {
             const details = paymentMethods[method];
             let detailsContainer = document.querySelector('.payment-details');
-            
+
             if (!detailsContainer) {
                 detailsContainer = document.createElement('div');
                 detailsContainer.className = 'payment-details';
@@ -2568,7 +2568,7 @@
                 const formData = new FormData(form);
                 const data = Object.fromEntries(formData.entries());
                 data.paymentMethod = selectedMethod;
-                
+
                 // Show success message
                 alert(`تم تأكيد الدفع باستخدام ${paymentMethods[selectedMethod].title}! (نموذج تجريبي)`);
                 closeModal();
@@ -2828,6 +2828,9 @@
     </div>
     <script src="translations.js"></script>
     <script src="languageSwitcher.js"></script>
+    <script src="modal-scroll-fix.js"></script>
+    <script src="payment-method-fix.js"></script>
+    <script src="payment-method-selection-fix.js"></script>
     <script>
     // Fade-in on scroll
     function revealOnScroll() {
@@ -2982,12 +2985,16 @@
     // Payment Modal Logic
     function openPaymentModal() {
       document.getElementById('payment-modal').style.display = 'flex';
+      // Disable scrolling on the body when modal is open
+      document.body.style.overflow = 'hidden';
       setTimeout(()=>{
         document.getElementById('payment-modal').scrollIntoView({behavior:'smooth'});
       }, 100);
     }
     function closePaymentModal() {
       document.getElementById('payment-modal').style.display = 'none';
+      // Re-enable scrolling on the body when modal is closed
+      document.body.style.overflow = '';
     }
     document.addEventListener('DOMContentLoaded', function() {
       // Add event to all donate buttons
