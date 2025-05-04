@@ -1445,51 +1445,1151 @@
         }
     </style>
     <!-- Payment Modal -->
-    <div id="payment-modal" style="display:none;position:fixed;z-index:9999;top:0;left:0;width:100vw;height:100vh;background:rgba(33,154,138,0.18);backdrop-filter:blur(2px);align-items:center;justify-content:center;">
-      <div style="background:#fff;border-radius:18px;box-shadow:0 8px 32px rgba(33,154,138,0.18);max-width:420px;width:95vw;padding:32px 24px;position:relative;animation:modalIn 0.4s cubic-bezier(.4,0,.2,1);">
-        <button id="close-payment-modal" aria-label="إغلاق" style="position:absolute;top:18px;left:18px;background:none;border:none;font-size:1.7em;color:#219a8a;cursor:pointer;">&times;</button>
-        <h2 style="text-align:center;color:#219a8a;font-weight:700;margin-bottom:18px;">إتمام التبرع</h2>
-        <form id="payment-form" autocomplete="off" style="display:flex;flex-direction:column;gap:16px;">
-          <input type="text" name="name" placeholder="الاسم الكامل" required style="padding:10px 14px;border-radius:7px;border:1.5px solid #e0f7f5;font-size:1em;">
-          <input type="email" name="email" placeholder="البريد الإلكتروني" required style="padding:10px 14px;border-radius:7px;border:1.5px solid #e0f7f5;font-size:1em;">
-          <textarea name="message" placeholder="رسالة (اختياري)" rows="2" style="padding:10px 14px;border-radius:7px;border:1.5px solid #e0f7f5;font-size:1em;"></textarea>
-          <input type="number" name="amount" placeholder="المبلغ (USD)" min="1" required style="padding:10px 14px;border-radius:7px;border:1.5px solid #e0f7f5;font-size:1em;">
-          <div style="margin-bottom:4px;color:#219a8a;font-weight:600;">اختر طريقة الدفع</div>
-          <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;">
-            <label style="cursor:pointer;">
-              <input type="radio" name="paymethod" value="Visa" required style="accent-color:#219a8a;"> <img src="https://img.icons8.com/color/32/visa.png" alt="Visa" style="vertical-align:middle;"> Visa
-            </label>
-            <label style="cursor:pointer;">
-              <input type="radio" name="paymethod" value="MasterCard" style="accent-color:#219a8a;"> <img src="https://img.icons8.com/color/32/mastercard-logo.png" alt="MasterCard" style="vertical-align:middle;"> MasterCard
-            </label>
-            <label style="cursor:pointer;">
-              <input type="radio" name="paymethod" value="PayPal" style="accent-color:#219a8a;"> <img src="https://img.icons8.com/color/32/paypal.png" alt="PayPal" style="vertical-align:middle;"> PayPal
-            </label>
-            <label style="cursor:pointer;">
-              <input type="radio" name="paymethod" value="ApplePay" style="accent-color:#219a8a;"> <img src="https://img.icons8.com/ios-filled/32/000000/mac-os.png" alt="Apple Pay" style="vertical-align:middle;"> Apple Pay
-            </label>
-            <label style="cursor:pointer;">
-              <input type="radio" name="paymethod" value="GooglePay" style="accent-color:#219a8a;"> <img src="https://img.icons8.com/color/32/google-pay-india.png" alt="Google Pay" style="vertical-align:middle;"> Google Pay
+    <div id="payment-modal" class="payment-modal">
+        <div class="payment-modal-content">
+            <button id="close-payment-modal" class="close-modal" aria-label="إغلاق">&times;</button>
+            <h2 class="modal-title">اختر طريقة الدفع</h2>
+            
+            <div class="payment-methods">
+                <div class="payment-method-group">
+                    <h3>التحويلات المحلية</h3>
+                    <div class="method-buttons">
+                        <button class="method-btn" data-method="bank-transfer">تحويل بنكي</button>
+                        <button class="method-btn" data-method="instapay">InstaPay</button>
+                    </div>
+                </div>
+                
+                <div class="payment-method-group">
+                    <h3>المحافظ الإلكترونية</h3>
+                    <div class="method-buttons">
+                        <button class="method-btn" data-method="vodafone-cash">Vodafone Cash</button>
+                        <button class="method-btn" data-method="orange-cash">Orange Cash</button>
+                        <button class="method-btn" data-method="etisalat-cash">Etisalat Cash</button>
+                        <button class="method-btn" data-method="we-pay">We Pay</button>
+                    </div>
+                </div>
+                
+                <div class="payment-method-group">
+                    <h3>التحويلات الدولية</h3>
+                    <div class="method-buttons">
+                        <button class="method-btn" data-method="swift">SWIFT</button>
+                        <button class="method-btn" data-method="western-union">Western Union</button>
+                        <button class="method-btn" data-method="remitly">Remitly</button>
+                    </div>
+                </div>
+            </div>
+
+            <form id="payment-form" class="payment-form">
+                <div class="form-group">
+                    <label for="full-name">الاسم الكامل</label>
+                    <input type="text" id="full-name" name="full-name" required>
+                    <span class="tooltip">يجب أن يتطابق مع الاسم المسجل في الحساب</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="account-number">رقم الحساب/المحفظة</label>
+                    <input type="text" id="account-number" name="account-number" required>
+                    <span class="tooltip">أدخل رقم الحساب أو المحفظة بدقة</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="provider-name">اسم البنك/مقدم الخدمة</label>
+                    <input type="text" id="provider-name" name="provider-name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">رقم الهاتف</label>
+                    <input type="tel" id="phone" name="phone" required>
+                    <span class="tooltip">يجب أن يكون مرتبطاً بطريقة الدفع</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">البريد الإلكتروني</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group country-group">
+                    <label for="country">الدولة</label>
+                    <select id="country" name="country">
+                        <option value="EG">مصر</option>
+                        <option value="SA">السعودية</option>
+                        <option value="AE">الإمارات</option>
+                        <option value="KW">الكويت</option>
+                        <option value="QA">قطر</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="notes">ملاحظات (اختياري)</label>
+                    <textarea id="notes" name="notes" rows="2"></textarea>
+                </div>
+
+                <div class="terms-section">
+                    <h3>الشروط والأحكام</h3>
+                    <ul class="terms-list">
+                        <li>يجب أن يكون الحساب المستخدم مملوكاً لنفس المستخدم المسجل</li>
+                        <li>غير مسموح بالتحويلات من حسابات طرف ثالث</li>
+                        <li>وقت المعالجة: 1-3 أيام عمل للتحويلات المحلية، 3-5 أيام للتحويلات الدولية</li>
+                        <li>المستخدم مسؤول عن صحة المعلومات المقدمة</li>
+                        <li>سياسة الاسترداد: يمكن استرداد المبلغ في حالة عدم اكتمال العملية</li>
+                    </ul>
+                    <label class="terms-checkbox">
+                        <input type="checkbox" required>
+                        أوافق على الشروط والأحكام
             </label>
           </div>
-          <div style="background:#eaf7f5;border-radius:8px;padding:10px 12px;font-size:0.98em;color:#444;">
-            <strong>شروط وأحكام الدفع:</strong><br>
-            - جميع التبرعات غير قابلة للاسترداد بعد إتمام العملية.<br>
-            - يتم حماية بياناتك وفقًا لسياسة الخصوصية.<br>
-            - يجب أن يكون المبلغ المدفوع بالدولار الأمريكي.<br>
-            - باستخدامك هذه الخدمة، فإنك توافق على الشروط والأحكام.
+
+                <div class="form-actions">
+                    <button type="submit" class="submit-btn">تأكيد الدفع</button>
+                    <button type="button" class="cancel-btn">إلغاء</button>
           </div>
-          <button type="submit" style="background:#219a8a;color:#fff;font-weight:700;font-size:1.1em;padding:12px 0;border:none;border-radius:7px;box-shadow:0 2px 8px #b2e4e0;transition:background 0.2s;cursor:pointer;">تأكيد الدفع</button>
-          <button type="button" id="complete-payment" style="background:#19c49c;color:#fff;font-weight:700;font-size:1.1em;padding:12px 0;border:none;border-radius:7px;box-shadow:0 2px 8px #b2e4e0;transition:background 0.2s;cursor:pointer;">إكمال العملية</button>
         </form>
       </div>
     </div>
+
     <style>
-    @keyframes modalIn { from { opacity:0; transform:scale(0.95) translateY(40px);} to { opacity:1; transform:none; } }
-    #payment-modal input:focus, #payment-modal textarea:focus { outline:2px solid #219a8a33; }
-    #payment-modal input:invalid, #payment-modal textarea:invalid { border-color:#f99a8a; }
-    #payment-modal input:valid, #payment-modal textarea:valid { border-color:#19c49c; }
+    /* Payment Modal Styles */
+    .payment-modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(33, 154, 138, 0.18);
+        backdrop-filter: blur(2px);
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+    }
+
+    .payment-modal-content {
+        background: #fff;
+        border-radius: 18px;
+        box-shadow: 0 8px 32px rgba(33, 154, 138, 0.18);
+        max-width: 800px;
+        width: 95vw;
+        max-height: 90vh;
+        overflow-y: auto;
+        padding: 32px;
+        position: relative;
+        animation: modalIn 0.4s cubic-bezier(.4,0,.2,1);
+    }
+
+    .close-modal {
+        position: absolute;
+        top: 18px;
+        left: 18px;
+        background: none;
+        border: none;
+        font-size: 1.7em;
+        color: #219a8a;
+        cursor: pointer;
+    }
+
+    .modal-title {
+        text-align: center;
+        color: #219a8a;
+        font-weight: 700;
+        margin-bottom: 24px;
+        font-size: 1.8em;
+    }
+
+    .payment-methods {
+        display: grid;
+        gap: 24px;
+        margin-bottom: 32px;
+    }
+
+    .payment-method-group h3 {
+        color: #333;
+        font-size: 1.2em;
+        margin-bottom: 12px;
+    }
+
+    .method-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .method-btn {
+        background: #eaf7f5;
+        border: 1px solid #b2e4e0;
+        border-radius: 8px;
+        padding: 12px 20px;
+        color: #219a8a;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .method-btn:hover {
+        background: #b2e4e0;
+        transform: translateY(-2px);
+    }
+
+    .payment-form {
+        display: grid;
+        gap: 20px;
+    }
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .form-group label {
+        color: #333;
+        font-weight: 600;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: 12px;
+        border: 1px solid #e0f7f5;
+        border-radius: 8px;
+        font-size: 1em;
+        transition: border-color 0.3s ease;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+        outline: none;
+        border-color: #219a8a;
+    }
+
+    .tooltip {
+        font-size: 0.85em;
+        color: #666;
+    }
+
+    .terms-section {
+        background: #f8f9fa;
+        padding: 20px;
+        border-radius: 12px;
+        margin: 24px 0;
+    }
+
+    .terms-section h3 {
+        color: #333;
+        margin-bottom: 16px;
+    }
+
+    .terms-list {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 16px 0;
+    }
+
+    .terms-list li {
+        padding: 8px 0;
+        color: #666;
+        position: relative;
+        padding-right: 12px;
+    }
+
+    .terms-list li:before {
+        content: "•";
+        color: #219a8a;
+        position: absolute;
+        right: 0;
+    }
+
+    .terms-checkbox {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: #333;
+    }
+
+    .form-actions {
+        display: flex;
+        gap: 16px;
+        justify-content: flex-end;
+    }
+
+    .submit-btn,
+    .cancel-btn {
+        padding: 12px 32px;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .submit-btn {
+        background: #219a8a;
+        color: #fff;
+        border: none;
+    }
+
+    .submit-btn:hover {
+        background: #188c65;
+        transform: translateY(-2px);
+    }
+
+    .cancel-btn {
+        background: #f8f9fa;
+        color: #666;
+        border: 1px solid #ddd;
+    }
+
+    .cancel-btn:hover {
+        background: #e9ecef;
+        transform: translateY(-2px);
+    }
+
+    @media (max-width: 768px) {
+        .payment-modal-content {
+            padding: 24px;
+        }
+
+        .method-buttons {
+            flex-direction: column;
+        }
+
+        .method-btn {
+            width: 100%;
+        }
+
+        .form-actions {
+            flex-direction: column;
+        }
+
+        .submit-btn,
+        .cancel-btn {
+            width: 100%;
+        }
+    }
+
+    @keyframes modalIn {
+        from {
+            opacity: 0;
+            transform: scale(0.95) translateY(40px);
+        }
+        to {
+            opacity: 1;
+            transform: none;
+        }
+    }
     </style>
+
+    <script>
+    // Payment Modal Logic
+    document.addEventListener('DOMContentLoaded', function() {
+        const modal = document.getElementById('payment-modal');
+        const closeBtn = document.getElementById('close-payment-modal');
+        const cancelBtn = document.querySelector('.cancel-btn');
+        const methodButtons = document.querySelectorAll('.method-btn');
+        const form = document.getElementById('payment-form');
+        const formGroups = form.querySelectorAll('.form-group');
+
+        // Payment method configurations
+        const paymentMethods = {
+            'bank-transfer': {
+                title: 'التحويل البنكي',
+                requiredFields: ['full-name', 'account-number', 'provider-name', 'phone', 'email'],
+                bankDetails: {
+                    bankName: 'البنك الأهلي المصري',
+                    accountNumber: '12345678901234',
+                    swiftCode: 'NBEGEGCX',
+                    branch: 'فرع القاهرة',
+                    iban: 'EG3800190005000000000123456789012'
+                }
+            },
+            'instapay': {
+                title: 'InstaPay',
+                requiredFields: ['full-name', 'account-number', 'phone', 'email'],
+                instructions: 'قم بإدخال رقم المحفظة المرتبط برقم الهوية القومية'
+            },
+            'vodafone-cash': {
+                title: 'Vodafone Cash',
+                requiredFields: ['full-name', 'phone', 'email'],
+                instructions: 'قم بإدخال رقم الهاتف المرتبط بمحفظة Vodafone Cash'
+            },
+            'orange-cash': {
+                title: 'Orange Cash',
+                requiredFields: ['full-name', 'phone', 'email'],
+                instructions: 'قم بإدخال رقم الهاتف المرتبط بمحفظة Orange Cash'
+            },
+            'etisalat-cash': {
+                title: 'Etisalat Cash',
+                requiredFields: ['full-name', 'phone', 'email'],
+                instructions: 'قم بإدخال رقم الهاتف المرتبط بمحفظة Etisalat Cash'
+            },
+            'we-pay': {
+                title: 'We Pay',
+                requiredFields: ['full-name', 'account-number', 'phone', 'email'],
+                instructions: 'قم بإدخال رقم المحفظة المرتبط بحساب We Pay'
+            },
+            'swift': {
+                title: 'SWIFT',
+                requiredFields: ['full-name', 'account-number', 'provider-name', 'phone', 'email', 'country'],
+                instructions: 'يرجى التأكد من صحة معلومات التحويل الدولي'
+            },
+            'western-union': {
+                title: 'Western Union',
+                requiredFields: ['full-name', 'phone', 'email', 'country'],
+                instructions: 'سيتم إرسال تفاصيل التحويل عبر البريد الإلكتروني'
+            },
+            'remitly': {
+                title: 'Remitly',
+                requiredFields: ['full-name', 'email', 'country'],
+                instructions: 'قم بتسجيل الدخول إلى حساب Remitly الخاص بك'
+            }
+        };
+
+        function showPaymentDetails(method) {
+            const details = paymentMethods[method];
+            const detailsContainer = document.querySelector('.payment-details');
+            
+            if (!detailsContainer) {
+                const newDetailsContainer = document.createElement('div');
+                newDetailsContainer.className = 'payment-details';
+                form.insertBefore(newDetailsContainer, form.querySelector('.terms-section'));
+            }
+
+            let detailsHTML = `
+                <div class="payment-instructions">
+                    <h3>${details.title}</h3>
+                    ${details.instructions ? `<p>${details.instructions}</p>` : ''}
+            `;
+
+            if (details.bankDetails) {
+                detailsHTML += `
+                    <div class="bank-details">
+                        <h4>تفاصيل الحساب البنكي:</h4>
+                        <ul>
+                            <li>اسم البنك: ${details.bankDetails.bankName}</li>
+                            <li>رقم الحساب: ${details.bankDetails.accountNumber}</li>
+                            <li>رمز SWIFT: ${details.bankDetails.swiftCode}</li>
+                            <li>الفرع: ${details.bankDetails.branch}</li>
+                            <li>IBAN: ${details.bankDetails.iban}</li>
+                        </ul>
+                    </div>
+                `;
+            }
+
+            detailsHTML += '</div>';
+            document.querySelector('.payment-details').innerHTML = detailsHTML;
+            document.querySelector('.payment-details').style.display = 'block';
+
+            // Show/hide form fields based on required fields
+            formGroups.forEach(group => {
+                const input = group.querySelector('input, select, textarea');
+                if (input) {
+                    const isRequired = details.requiredFields.includes(input.id);
+                    group.style.display = isRequired ? 'flex' : 'none';
+                    input.required = isRequired;
+                }
+            });
+        }
+
+        // Add event to all donate buttons
+        document.querySelectorAll('.modern-donate-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                openModal();
+            });
+        });
+
+        // Close modal events
+        closeBtn.onclick = closeModal;
+        cancelBtn.onclick = closeModal;
+        modal.onclick = function(e) {
+            if (e.target === modal) closeModal();
+        };
+
+        // Method selection
+        methodButtons.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const method = this.dataset.method;
+                methodButtons.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                showPaymentDetails(method);
+            });
+        });
+
+        // Form validation
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            if (this.checkValidity()) {
+                // Here you would handle the form submission
+                const selectedMethod = document.querySelector('.method-btn.active').dataset.method;
+                const formData = new FormData(form);
+                const data = Object.fromEntries(formData.entries());
+                
+                // Add payment method to form data
+                data.paymentMethod = selectedMethod;
+                
+                // Show success message
+                alert(`تم تأكيد الدفع باستخدام ${paymentMethods[selectedMethod].title}! (نموذج تجريبي)`);
+                closeModal();
+            }
+        });
+
+        // Input validation
+        const inputs = form.querySelectorAll('input, select, textarea');
+        inputs.forEach(input => {
+            input.addEventListener('input', function() {
+                if (this.checkValidity()) {
+                    this.classList.remove('invalid');
+                    this.classList.add('valid');
+                } else {
+                    this.classList.remove('valid');
+                    this.classList.add('invalid');
+                }
+            });
+        });
+
+        // Add copy button functionality
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('copy-btn')) {
+                const btn = e.target;
+                const originalText = btn.textContent;
+                btn.textContent = 'تم النسخ!';
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                }, 2000);
+            }
+        });
+    });
+    </script>
+
+    <style>
+    /* Additional Payment Modal Styles */
+    .payment-details {
+        background: #f8f9fa;
+        border-radius: 12px;
+        padding: 20px;
+        margin: 24px 0;
+        display: none;
+    }
+
+    .payment-instructions h3 {
+        color: #219a8a;
+        margin-bottom: 12px;
+    }
+
+    .payment-instructions p {
+        color: #666;
+        margin-bottom: 16px;
+        line-height: 1.6;
+    }
+
+    .bank-details,
+    .crypto-details {
+        background: #fff;
+        border-radius: 8px;
+        padding: 16px;
+        margin-top: 16px;
+    }
+
+    .bank-details h4,
+    .crypto-details h4 {
+        color: #333;
+        margin-bottom: 12px;
+    }
+
+    .bank-details ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .bank-details li {
+        padding: 8px 0;
+        color: #666;
+        border-bottom: 1px solid #eee;
+    }
+
+    .bank-details li:last-child {
+        border-bottom: none;
+    }
+
+    .wallet-address {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        background: #f8f9fa;
+        padding: 12px;
+        border-radius: 6px;
+        margin-bottom: 12px;
+    }
+
+    .wallet-address code {
+        flex: 1;
+        font-family: monospace;
+        color: #219a8a;
+        word-break: break-all;
+    }
+
+    .copy-btn {
+        background: #219a8a;
+        color: #fff;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background 0.3s;
+    }
+
+    .copy-btn:hover {
+        background: #188c65;
+    }
+
+    .crypto-note {
+        color: #666;
+        font-size: 0.9em;
+        font-style: italic;
+    }
+
+    .form-group.valid input,
+    .form-group.valid select,
+    .form-group.valid textarea {
+        border-color: #19c49c;
+    }
+
+    .form-group.invalid input,
+    .form-group.invalid select,
+    .form-group.invalid textarea {
+        border-color: #f99a8a;
+    }
+
+    @media (max-width: 768px) {
+        .wallet-address {
+            flex-direction: column;
+        }
+
+        .copy-btn {
+            width: 100%;
+        }
+    }
+    </style>
+
+    <style>
+    /* Enhanced Payment Modal Styles */
+    .payment-modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(33, 154, 138, 0.12);
+        backdrop-filter: blur(8px);
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        animation: fadeIn 0.3s ease;
+    }
+
+    .payment-modal-content {
+        background: #fff;
+        border-radius: 24px;
+        box-shadow: 0 12px 40px rgba(33, 154, 138, 0.15);
+        max-width: 900px;
+        width: 95vw;
+        max-height: 90vh;
+        overflow-y: auto;
+        padding: 40px;
+        position: relative;
+        animation: slideIn 0.4s cubic-bezier(.4,0,.2,1);
+    }
+
+    .close-modal {
+        position: absolute;
+        top: 24px;
+        left: 24px;
+        background: #f8f9fa;
+        border: none;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        font-size: 1.5em;
+        color: #219a8a;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .close-modal:hover {
+        background: #e0f7f5;
+        transform: rotate(90deg);
+    }
+
+    .modal-title {
+        text-align: center;
+        color: #219a8a;
+        font-weight: 700;
+        margin-bottom: 32px;
+        font-size: 2em;
+        position: relative;
+        padding-bottom: 16px;
+    }
+
+    .modal-title:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 3px;
+        background: #219a8a;
+        border-radius: 2px;
+    }
+
+    .payment-methods {
+        display: grid;
+        gap: 32px;
+        margin-bottom: 40px;
+    }
+
+    .payment-method-group {
+        background: #f8f9fa;
+        border-radius: 16px;
+        padding: 24px;
+        transition: all 0.3s ease;
+    }
+
+    .payment-method-group:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(33, 154, 138, 0.1);
+    }
+
+    .payment-method-group h3 {
+        color: #333;
+        font-size: 1.3em;
+        margin-bottom: 20px;
+        padding-bottom: 12px;
+        border-bottom: 2px solid #e0f7f5;
+    }
+
+    .method-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+    }
+
+    .method-btn {
+        background: #fff;
+        border: 2px solid #e0f7f5;
+        border-radius: 12px;
+        padding: 16px 24px;
+        color: #219a8a;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        flex: 1;
+        min-width: 160px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+    }
+
+    .method-btn:hover {
+        background: #e0f7f5;
+        transform: translateY(-2px);
+    }
+
+    .method-btn.active {
+        background: #219a8a;
+        color: #fff;
+        border-color: #219a8a;
+    }
+
+    .payment-form {
+        display: grid;
+        gap: 24px;
+        background: #f8f9fa;
+        border-radius: 16px;
+        padding: 32px;
+    }
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .form-group label {
+        color: #333;
+        font-weight: 600;
+        font-size: 1.1em;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: 14px;
+        border: 2px solid #e0f7f5;
+        border-radius: 12px;
+        font-size: 1em;
+        transition: all 0.3s ease;
+        background: #fff;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+        outline: none;
+        border-color: #219a8a;
+        box-shadow: 0 0 0 3px rgba(33, 154, 138, 0.1);
+    }
+
+    .tooltip {
+        font-size: 0.9em;
+        color: #666;
+        margin-top: 4px;
+    }
+
+    .payment-details {
+        background: #fff;
+        border-radius: 16px;
+        padding: 24px;
+        margin: 24px 0;
+        box-shadow: 0 4px 16px rgba(33, 154, 138, 0.08);
+        animation: fadeIn 0.3s ease;
+    }
+
+    .payment-instructions h3 {
+        color: #219a8a;
+        margin-bottom: 16px;
+        font-size: 1.4em;
+    }
+
+    .payment-instructions p {
+        color: #666;
+        margin-bottom: 20px;
+        line-height: 1.6;
+    }
+
+    .bank-details {
+        background: #f8f9fa;
+        border-radius: 12px;
+        padding: 20px;
+        margin-top: 20px;
+    }
+
+    .bank-details h4 {
+        color: #333;
+        margin-bottom: 16px;
+        font-size: 1.2em;
+    }
+
+    .bank-details ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .bank-details li {
+        padding: 12px 0;
+        color: #666;
+        border-bottom: 1px solid #e0f7f5;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .bank-details li:last-child {
+        border-bottom: none;
+    }
+
+    .bank-details li span:first-child {
+        font-weight: 600;
+        color: #333;
+    }
+
+    .form-actions {
+        display: flex;
+        gap: 16px;
+        justify-content: flex-end;
+        margin-top: 24px;
+    }
+
+    .submit-btn,
+    .cancel-btn {
+        padding: 16px 32px;
+        border-radius: 12px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-size: 1.1em;
+    }
+
+    .submit-btn {
+        background: #219a8a;
+        color: #fff;
+        border: none;
+    }
+
+    .submit-btn:hover {
+        background: #188c65;
+        transform: translateY(-2px);
+    }
+
+    .cancel-btn {
+        background: #f8f9fa;
+        color: #666;
+        border: 2px solid #e0f7f5;
+    }
+
+    .cancel-btn:hover {
+        background: #e9ecef;
+        transform: translateY(-2px);
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    @keyframes slideIn {
+        from {
+            opacity: 0;
+            transform: translateY(40px);
+        }
+        to {
+            opacity: 1;
+            transform: none;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .payment-modal-content {
+            padding: 24px;
+        }
+
+        .method-buttons {
+            flex-direction: column;
+        }
+
+        .method-btn {
+            width: 100%;
+        }
+
+        .form-actions {
+            flex-direction: column;
+        }
+
+        .submit-btn,
+        .cancel-btn {
+            width: 100%;
+        }
+    }
+    </style>
+
+    <script>
+    // Enhanced Payment Modal Logic
+    document.addEventListener('DOMContentLoaded', function() {
+        const modal = document.getElementById('payment-modal');
+        const closeBtn = document.getElementById('close-payment-modal');
+        const cancelBtn = document.querySelector('.cancel-btn');
+        const methodButtons = document.querySelectorAll('.method-btn');
+        const form = document.getElementById('payment-form');
+        const formGroups = form.querySelectorAll('.form-group');
+
+        // Payment method configurations
+        const paymentMethods = {
+            'bank-transfer': {
+                title: 'التحويل البنكي',
+                requiredFields: ['full-name', 'account-number', 'provider-name', 'phone', 'email'],
+                bankDetails: {
+                    bankName: 'البنك الأهلي المصري',
+                    accountNumber: '12345678901234',
+                    swiftCode: 'NBEGEGCX',
+                    branch: 'فرع القاهرة',
+                    iban: 'EG3800190005000000000123456789012'
+                },
+                instructions: 'يرجى التأكد من صحة معلومات الحساب البنكي قبل إجراء التحويل'
+            },
+            'instapay': {
+                title: 'InstaPay',
+                requiredFields: ['full-name', 'account-number', 'phone', 'email'],
+                instructions: 'قم بإدخال رقم المحفظة المرتبط برقم الهوية القومية'
+            },
+            'vodafone-cash': {
+                title: 'Vodafone Cash',
+                requiredFields: ['full-name', 'phone', 'email'],
+                instructions: 'قم بإدخال رقم الهاتف المرتبط بمحفظة Vodafone Cash'
+            },
+            'orange-cash': {
+                title: 'Orange Cash',
+                requiredFields: ['full-name', 'phone', 'email'],
+                instructions: 'قم بإدخال رقم الهاتف المرتبط بمحفظة Orange Cash'
+            },
+            'etisalat-cash': {
+                title: 'Etisalat Cash',
+                requiredFields: ['full-name', 'phone', 'email'],
+                instructions: 'قم بإدخال رقم الهاتف المرتبط بمحفظة Etisalat Cash'
+            },
+            'we-pay': {
+                title: 'We Pay',
+                requiredFields: ['full-name', 'account-number', 'phone', 'email'],
+                instructions: 'قم بإدخال رقم المحفظة المرتبط بحساب We Pay'
+            },
+            'swift': {
+                title: 'SWIFT',
+                requiredFields: ['full-name', 'account-number', 'provider-name', 'phone', 'email', 'country'],
+                instructions: 'يرجى التأكد من صحة معلومات التحويل الدولي'
+            },
+            'western-union': {
+                title: 'Western Union',
+                requiredFields: ['full-name', 'phone', 'email', 'country'],
+                instructions: 'سيتم إرسال تفاصيل التحويل عبر البريد الإلكتروني'
+            },
+            'remitly': {
+                title: 'Remitly',
+                requiredFields: ['full-name', 'email', 'country'],
+                instructions: 'قم بتسجيل الدخول إلى حساب Remitly الخاص بك'
+            }
+        };
+
+        function openModal() {
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+            setTimeout(() => {
+                modal.scrollIntoView({ behavior: 'smooth' });
+            }, 100);
+        }
+
+        function closeModal() {
+            modal.style.display = 'none';
+            document.body.style.overflow = '';
+            resetForm();
+        }
+
+        function resetForm() {
+            form.reset();
+            methodButtons.forEach(btn => btn.classList.remove('active'));
+            formGroups.forEach(group => {
+                group.style.display = 'none';
+                const input = group.querySelector('input, select, textarea');
+                if (input) {
+                    input.classList.remove('valid', 'invalid');
+                }
+            });
+            const detailsContainer = document.querySelector('.payment-details');
+            if (detailsContainer) {
+                detailsContainer.style.display = 'none';
+            }
+        }
+
+        function showPaymentDetails(method) {
+            const details = paymentMethods[method];
+            let detailsContainer = document.querySelector('.payment-details');
+            
+            if (!detailsContainer) {
+                detailsContainer = document.createElement('div');
+                detailsContainer.className = 'payment-details';
+                form.insertBefore(detailsContainer, form.querySelector('.terms-section'));
+            }
+
+            let detailsHTML = `
+                <div class="payment-instructions">
+                    <h3>${details.title}</h3>
+                    <p>${details.instructions}</p>
+            `;
+
+            if (details.bankDetails) {
+                detailsHTML += `
+                    <div class="bank-details">
+                        <h4>تفاصيل الحساب البنكي:</h4>
+                        <ul>
+                            <li><span>اسم البنك:</span> ${details.bankDetails.bankName}</li>
+                            <li><span>رقم الحساب:</span> ${details.bankDetails.accountNumber}</li>
+                            <li><span>رمز SWIFT:</span> ${details.bankDetails.swiftCode}</li>
+                            <li><span>الفرع:</span> ${details.bankDetails.branch}</li>
+                            <li><span>IBAN:</span> ${details.bankDetails.iban}</li>
+                        </ul>
+                    </div>
+                `;
+            }
+
+            detailsHTML += '</div>';
+            detailsContainer.innerHTML = detailsHTML;
+            detailsContainer.style.display = 'block';
+
+            // Show/hide form fields based on required fields
+            formGroups.forEach(group => {
+                const input = group.querySelector('input, select, textarea');
+                if (input) {
+                    const isRequired = details.requiredFields.includes(input.id);
+                    group.style.display = isRequired ? 'flex' : 'none';
+                    input.required = isRequired;
+                }
+            });
+
+            // Scroll to the form
+            setTimeout(() => {
+                form.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 300);
+        }
+
+        // Add event to all donate buttons
+        document.querySelectorAll('.modern-donate-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                openModal();
+            });
+        });
+
+        // Close modal events
+        closeBtn.onclick = closeModal;
+        cancelBtn.onclick = closeModal;
+        modal.onclick = function(e) {
+            if (e.target === modal) closeModal();
+        };
+
+        // Method selection
+        methodButtons.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const method = this.dataset.method;
+                methodButtons.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                showPaymentDetails(method);
+            });
+        });
+
+        // Form validation
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            if (this.checkValidity()) {
+                const selectedMethod = document.querySelector('.method-btn.active').dataset.method;
+                const formData = new FormData(form);
+                const data = Object.fromEntries(formData.entries());
+                data.paymentMethod = selectedMethod;
+                
+                // Show success message
+                alert(`تم تأكيد الدفع باستخدام ${paymentMethods[selectedMethod].title}! (نموذج تجريبي)`);
+                closeModal();
+            }
+        });
+
+        // Input validation with visual feedback
+        const inputs = form.querySelectorAll('input, select, textarea');
+        inputs.forEach(input => {
+            input.addEventListener('input', function() {
+                if (this.checkValidity()) {
+                    this.classList.remove('invalid');
+                    this.classList.add('valid');
+                } else {
+                    this.classList.remove('valid');
+                    this.classList.add('invalid');
+                }
+            });
+        });
+    });
+    </script>
 </head>
 <body class="rtl">
     <div class="main-bg">
