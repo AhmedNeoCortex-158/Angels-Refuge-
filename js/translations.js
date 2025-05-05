@@ -4,7 +4,7 @@ const translations = {
         home: "الرئيسية",
         about: "من نحن",
         causes: "المبادرات",
-        pages: "الصفحات",
+        pages: "التبرعات",
         blogs: "المدونة",
         contact: "تواصل معنا",
         
