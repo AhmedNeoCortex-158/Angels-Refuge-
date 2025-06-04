@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>التبرعات-Angels'</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="assets/images/Logo.png">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="../assets/images/Logo.png">
+    <link rel="stylesheet" href="../assets/css/styles.css">
     <style>
         /* Global Styles */
         body {
@@ -42,7 +42,8 @@
 
         .logo {
             width: 120px;
-            filter: drop-shadow(0 0 4px rgba(0,0,0,0.15));
+            height: auto;
+            display: block;
         }
 
         .main-nav {
@@ -250,19 +251,31 @@
         }
 
         .cause-card {
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-            background: #fff;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
         }
 
-        .cause-card img {
+        .cause-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .cause-image {
             width: 100%;
             height: 200px;
             object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .hero-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
         }
 
         .cause-card h3 {
@@ -450,7 +463,7 @@
         .logo-title-flex {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 20px;
         }
         .site-title {
             color: #fff;
@@ -467,8 +480,6 @@
             font-size: 1.1em;
             font-weight: 600;
             text-decoration: none;
-            margin-right: 0;
-            margin-left: 0;
             transition: background 0.2s, color 0.2s;
             box-shadow: 0 2px 8px rgba(0,0,0,0.08);
         }
@@ -2600,8 +2611,10 @@
                     <div class="container hero-content">
                         <div class="header-top">
                             <div class="logo-title-flex">
-                                <img src="assets/images/Logo_2.png" alt="Logo" class="logo">
-                                <a href="contact.html" class="contact-header-btn class="contactUs" data-i18n="contactUs"">تواصل معنا</a>
+                                <a href="Donate.html" class="logo-link">
+                                    <img src="../assets/images/Logo_2.png" alt="Logo" class="logo">
+                                </a>
+                                <a href="contact.html" class="contact-header-btn" data-i18n="contactUs">تواصل معنا</a>
                             </div>
                             <nav class="main-nav">
                                 <ul>
@@ -2659,7 +2672,7 @@
                                     <div style="display:flex;flex-direction:column;gap:16px;">
                                         <div class="modern-card" style="display:flex;align-items:center;gap:12px;background:transparent;box-shadow:none;">
                                             <div style="width:48px;height:48px;background:#d9e9e6;border-radius:8px;overflow:hidden;display:flex;align-items:center;justify-content:center;">
-                                                <img src="assets/images/Frame 9.png" alt="جمعية خيرية" style="width:100%;height:100%;object-fit:cover;">
+                                                <img src="../assets/images/Frame 9.png" alt="جمعية خيرية" style="width:100%;height:100%;object-fit:cover;">
                                             </div>
                                             <div>
                                                 <div style="color:#333;font-weight:600;font-size:1em;">جمعية خيرية</div>
@@ -2668,7 +2681,7 @@
                                         </div>
                                         <div class="modern-card" style="display:flex;align-items:center;gap:12px;background:transparent;box-shadow:none;">
                                             <div style="width:48px;height:48px;background:#d9e9e6;border-radius:8px;overflow:hidden;display:flex;align-items:center;justify-content:center;">
-                                                <img src="assets/images/support.png" alt="أهم القصص هذا الأسبوع عن..." style="width:100%;height:100%;object-fit:cover;">
+                                                <img src="../assets/images/support.png" alt="أهم القصص هذا الأسبوع عن..." style="width:100%;height:100%;object-fit:cover;">
                                             </div>
                                             <div>
                                                 <div style="color:#333;font-weight:600;font-size:1em;">أهم القصص هذا الأسبوع عن...</div>
@@ -2677,7 +2690,7 @@
                                         </div>
                                         <div class="modern-card" style="display:flex;align-items:center;gap:12px;background:transparent;box-shadow:none;">
                                             <div style="width:48px;height:48px;background:#d9e9e6;border-radius:8px;overflow:hidden;display:flex;align-items:center;justify-content:center;">
-                                                <img src="assets/images/ChatGPT Image.png" alt="لماذا يجب أن تركز على العمل الخيري" style="width:100%;height:100%;object-fit:cover;">
+                                                <img src="../assets/images/ChatGPT Image.png" alt="لماذا يجب أن تركز على العمل الخيري" style="width:100%;height:100%;object-fit:cover;">
                                             </div>
                                             <div>
                                                 <div style="color:#333;font-weight:600;font-size:1em;">لماذا يجب أن تركز على العمل الخيري</div>
@@ -2703,7 +2716,7 @@
                                 <div class="modern-card" style="background:#fff;border-radius:12px;padding:32px 32px 24px 32px;box-shadow:0 2px 16px rgba(33,154,138,0.08);margin-bottom:32px;">
                                     <div style="font-size:1.7em;font-weight:700;color:#222;margin-bottom:18px;text-align:right;">التبرع للفقراء</div>
                                     <div style="width:100%;border-radius:12px;overflow:hidden;margin-bottom:18px;">
-                                        <img src="assets/images/Frame 9.png" alt="تبرع للفقراء" style="width:100%;max-height:260px;object-fit:cover;">
+                                        <img src="../assets/images/Frame 9.png" alt="تبرع للفقراء" style="width:100%;max-height:260px;object-fit:cover;">
                                     </div>
                                     <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
                                         <span style="color:#219a8a;font-weight:600;">تبرع</span>
@@ -2721,7 +2734,7 @@
                                     <div style="color:#444;font-size:1.1em;line-height:1.8;text-align:right;margin-bottom:18px;">نؤمن أن التعليم، الغذاء، والرعاية الصحية حق لكل إنسان، ونسعى لأن يكون لنا دور في المجتمع ومستقبل أفضل. مهمتنا هي تحقيق العدالة الاجتماعية من خلال توفير الدعم الأساسي للأطفال والعائلات المحتاجة.</div>
                                     <div style="color:#444;font-size:1.1em;line-height:1.8;text-align:right;margin-bottom:18px;">نعمل يومياً مع أطفال حرموا من أبسط حقوقهم في العلاج والغذاء والتعليم. بعضهم يعاني من أمراض مزمنة ولا يستطيع الحصول على الدواء. ساعدنا في توفير الدعم اللازم لهم.</div>
                                     <div style="margin:48px 0 0 0;padding:40px 24px;background:#f8f9fa;border-radius:18px;box-shadow:0 2px 16px rgba(33,154,138,0.10);display:flex;align-items:center;gap:40px;flex-wrap:wrap;justify-content:center;">
-                                        <img src="assets/images/support.png" alt="Your Support Makes a Difference" style="max-width:420px;width:100%;border-radius:16px;box-shadow:0 4px 24px rgba(33,154,138,0.10);flex:0 0 340px;">
+                                        <img src="../assets/images/support.png" alt="Your Support Makes a Difference" style="max-width:420px;width:100%;border-radius:16px;box-shadow:0 4px 24px rgba(33,154,138,0.10);flex:0 0 340px;">
                                         <div style="flex:1;min-width:260px;">
                                             <div style="font-size:1.7em;font-weight:700;color:#222;margin-bottom:18px;text-align:right;">التحدي</div>
                                             <div style="color:#444;font-size:1.1em;line-height:1.8;text-align:right;margin-bottom:18px;">نحن نواجه تحديات كبيرة في مساعدة الفقراء والمحتاجين. علينا من خلال تبرعاتكم، يمكننا مواجهة هذه التحديات وتقديم الدعم اللازم للمحتاجين في المجتمع.</div>
@@ -2743,7 +2756,7 @@
                         <!-- Logo and Stats Section -->
                         <div class="footer-brand">
                             <a href="/" class="footer-logo">
-                                <img src="assets/images/Logo_2.png" style="width: 100px; height: auto;" alt="Angels">
+                                <img src="../assets/images/Logo_2.png" style="width: 100px; height: auto;" alt="Angels">
                             </a>
                             <!-- <div class="stats">
                                 <div class="stat-number">10k</div>
@@ -2826,11 +2839,11 @@
             </footer>
         </div>
     </div>
-    <script src="translations.js"></script>
-    <script src="languageSwitcher.js"></script>
-    <script src="modal-scroll-fix.js"></script>
-    <script src="payment-method-fix.js"></script>
-    <script src="payment-method-selection-fix.js"></script>
+    <script src="../assets/js/translations.js"></script>
+    <script src="../assets/js/languageSwitcher.js"></script>
+    <script src="../assets/js/modal-scroll-fix.js"></script>
+    <script src="../assets/js/payment-method-fix.js"></script>
+    <script src="../assets/js/payment-method-selection-fix.js"></script>
     <script>
     // Fade-in on scroll
     function revealOnScroll() {
@@ -3017,6 +3030,28 @@
         alert('تم إكمال العملية! (نموذج تجريبي)');
         closePaymentModal();
       };
+    });
+    </script>
+    <script>
+    // Add this to your existing scripts
+    document.addEventListener('DOMContentLoaded', function() {
+        // Remove any box effects from logo
+        const logo = document.querySelector('.logo');
+        if (logo) {
+            logo.style.boxShadow = 'none';
+            logo.style.border = 'none';
+            logo.style.background = 'none';
+            logo.style.padding = '0';
+            logo.style.margin = '0';
+        }
+
+        // Ensure logo container is clean
+        const logoContainer = document.querySelector('.logo-title-flex');
+        if (logoContainer) {
+            logoContainer.style.background = 'none';
+            logoContainer.style.border = 'none';
+            logoContainer.style.boxShadow = 'none';
+        }
     });
     </script>
 </body>
