@@ -623,6 +623,38 @@
                 justify-content: center;
             }
         }
+         .about-btn {
+            display: inline-block;
+            background: transparent;
+            color: #fff;
+            border: 2px solid #fff;
+            padding: 12px 32px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 30px;
+            margin-top: 10px;
+            margin-right: 16px;
+            font-size: 1.1em;
+            transition: background 0.3s, color 0.3s, border 0.3s, box-shadow 0.3s, transform 0.2s;
+            position: relative;
+            overflow: hidden;
+        }
+        .about-btn:hover, .about-btn.active {
+            background: #fff;
+            color: #00a69c;
+            border-color: #00a69c;
+            box-shadow: 0 4px 16px rgba(33,154,138,0.10);
+            transform: scale(1.05);
+        }
+        .about-btn:active {
+            transform: scale(0.98);
+        }
+        .hero-text {
+            text-align: center;
+            margin-top: 40px;
+            margin-bottom: 30px;
+        }
+
     </style>
 </head>
 <body>
@@ -660,7 +692,10 @@
             </div>
             <div class="hero-section">
                 <h1 class="animate__animated animate__fadeInDown" data-i18n="aboutTitle">من نحن</h1>
-                <p class="animate__animated animate__fadeInUp" data-i18n="aboutBreadcrumb">الصفحة الرئيسية / من نحن</p>
+                <br><p class="animate__animated animate__fadeInUp" data-i18n="aboutBreadcrumb">الصفحة الرئيسية / من نحن</p>
+                <div class="hero-text">
+                 <a href="contact.html" class="about-btn" id="contactUsBtn" data-i18n="aboutBtn">تواصل معنا</a> 
+                </div>
             </div>
         </header>
     </div>
@@ -954,6 +989,23 @@
             }, observerOptions);
 
             stats.forEach(stat => observer.observe(stat));
+
+            // Add dynamic effect to Contact Us button
+            const contactBtn = document.getElementById('contactUsBtn');
+            if (contactBtn) {
+                contactBtn.addEventListener('mouseenter', function() {
+                    this.classList.add('active');
+                });
+                contactBtn.addEventListener('mouseleave', function() {
+                    this.classList.remove('active');
+                });
+                contactBtn.addEventListener('mousedown', function() {
+                    this.classList.add('pressed');
+                });
+                contactBtn.addEventListener('mouseup', function() {
+                    this.classList.remove('pressed');
+                });
+            }
         });
     </script>
 </body>

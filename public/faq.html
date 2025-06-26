@@ -126,7 +126,6 @@
             color: #fff;
         }
         .faq-hero-section {
-
             padding: 48px 0 24px 0;
             text-align: center;
         }
@@ -415,6 +414,32 @@
                 max-width: 400px;
             }
         }
+        .about-btn {
+            display: inline-block;
+            background: transparent;
+            color: #fff;
+            border: 2px solid #fff;
+            padding: 12px 32px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 30px;
+            margin-top: 10px;
+            margin-right: 16px;
+            font-size: 1.1em;
+            transition: background 0.3s, color 0.3s, border 0.3s, box-shadow 0.3s, transform 0.2s;
+            position: relative;
+            overflow: hidden;
+        }
+        .about-btn:hover, .about-btn.active {
+            background: #fff;
+            color: #00a69c;
+            border-color: #00a69c;
+            box-shadow: 0 4px 16px rgba(33,154,138,0.10);
+            transform: scale(1.05);
+        }
+        .about-btn:active {
+            transform: scale(0.98);
+        }
     </style>
 </head>
 <body>
@@ -453,6 +478,9 @@
             <div class="faq-hero-section">
                 <h1 class="animate__animated animate__fadeInDown" data-i18n="faqTitle">الأسئلة الشائعة</h1>
                 <p class="animate__animated animate__fadeInUp" data-i18n="faqBreadcrumb">الرئيسية / الأسئلة الشائعة</p>
+                <div class="hero-text">
+                    <a href="contact.html" class="about-btn" id="contactUsBtnFaq" data-i18n="aboutBtn">تواصل معنا</a>
+                </div>
             </div>
         </header>
     </div>
@@ -610,6 +638,23 @@
 
             // Initialize language switcher
             const langSwitcher = new LanguageSwitcher();
+
+            // Add dynamic effect to Contact Us button
+            const contactBtnFaq = document.getElementById('contactUsBtnFaq');
+            if (contactBtnFaq) {
+                contactBtnFaq.addEventListener('mouseenter', function() {
+                    this.classList.add('active');
+                });
+                contactBtnFaq.addEventListener('mouseleave', function() {
+                    this.classList.remove('active');
+                });
+                contactBtnFaq.addEventListener('mousedown', function() {
+                    this.classList.add('pressed');
+                });
+                contactBtnFaq.addEventListener('mouseup', function() {
+                    this.classList.remove('pressed');
+                });
+            }
         });
     </script>
 </body>

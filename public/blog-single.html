@@ -209,13 +209,21 @@
             font-weight: bold;
             border-radius: 30px;
             font-size: 1.1em;
-            transition: all 0.3s ease;
+            transition: background 0.3s, color 0.3s, border 0.3s, box-shadow 0.3s, transform 0.2s;
+            position: relative;
+            overflow: hidden;
         }
         
-        .about-btn:hover {
+        .about-btn:hover, .about-btn.active {
             background: #fff;
             color: #00a69c;
-            transform: translateY(-3px);
+            border-color: #00a69c;
+            box-shadow: 0 4px 16px rgba(33,154,138,0.10);
+            transform: scale(1.05);
+        }
+        
+        .about-btn:active {
+            transform: scale(0.98);
         }
 
         /* Blog Single Page Specific Styles */
@@ -1075,6 +1083,7 @@
                 <div class="hero-content">
                     <h1 class="main-heading" data-i18n="heroTitle">الإحسان والتوقعات مقابل</h1>
                     <div class="hero-buttons">
+                        <a href="contact.html" class="about-btn" id="contactUsBtnBlog" data-i18n="aboutBtn">تواصل معنا</a>
                     </div>
                 </div>
             </header>
@@ -1355,6 +1364,23 @@
 
             // Initialize language switcher
             const langSwitcher = new LanguageSwitcher();
+
+            // Add dynamic effect to Contact Us button
+            const contactBtnBlog = document.getElementById('contactUsBtnBlog');
+            if (contactBtnBlog) {
+                contactBtnBlog.addEventListener('mouseenter', function() {
+                    this.classList.add('active');
+                });
+                contactBtnBlog.addEventListener('mouseleave', function() {
+                    this.classList.remove('active');
+                });
+                contactBtnBlog.addEventListener('mousedown', function() {
+                    this.classList.add('pressed');
+                });
+                contactBtnBlog.addEventListener('mouseup', function() {
+                    this.classList.remove('pressed');
+                });
+            }
         });
 
         function handleNewsletterSubmit(event) {
