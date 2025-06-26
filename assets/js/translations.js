@@ -28,6 +28,25 @@ const translations = {
         impactTitle: "دعونا نجتمع معاً لإحداث فرق",
         impactDesc: "في هذا العالم، كل واحد منا لديه القدرة على إحداث التغيير، سواء من خلال التبرع أو التطوع أو حتى مجرد نشر الوعي. دعونا نعمل معاً من أجل مستقبل أفضل للأطفال والعائلات المحتاجة.",
 
+        //impact-vision
+        impactOurvision: "رؤيتنا",
+        impactbelieve: "نؤمن أن التعليم، الغذاء، والرعاية الصحية حق لكل إنسان، ونسعى لأن يكون لنا دور في المجتمع ومستقبل أفضل.",   
+  
+        //impact-mission
+        impactOurmission: "مهمتنا",
+        impactsocialachieve: "مهمتنا هي تحقيق العدالة الاجتماعية من خلال توفير الدعم الأساسي للأطفال والعائلات المحتاجة، ونؤمن بحقهم في عيش حياتهم بكرامة وتلبية احتياجاتهم الأساسية.",
+        
+        //Medical assistance
+        Medicalassistance: "المساعدة الطبية", 
+
+        //Together we create
+        Together: "معاً نصنع المستقبل",
+        Unitedbyhope: "متحدون بالأمل والعمل الإنساني، يقف متطوعونا والأطفال معاً لبناء غدٍ أفضل.",
+        Communitysupport: "دعم المجتمع والعمل الجماعي",
+        Building: "بناء مستقبل أفضل",
+        Protecting: "حماية الأطفال من الحرب والعنف",
+        Hope: "الأمل والعمل الإنساني",
+
         // Causes Section
         causesSubtitle: "أحدث الأسباب",
         causesTitle: "ابحث عن القضية الشعبية وتبرع لهم.",
@@ -55,6 +74,12 @@ const translations = {
         statVolunteers: "متطوع",
         statProjects: "مشروع",
         statPartners: "شريك",
+        statsTitle: "حقائقنا المجتمعة",
+        statsSubtitle: "نعتقد أنه يمكننا إنقاذ المزيد من الأرواح معك.",
+        samepeople: "نفس الأشخاص تغيرت حياتهم",
+        Volunteering: "التطوع",
+        Poorpeoplesaved: "فقراء تم انقاذهم",
+        Participatingcountries: "الدول المشاركة",
 
         // Footer
         footerText: "جميع الحقوق محفوظة 2025 منصة الخير",
@@ -220,6 +245,25 @@ const translations = {
         impactWelcome: "Welcome to Charity Work",
         impactTitle: "Let's come together to make a difference",
         impactDesc: "In this world, each of us has the power to make a change, whether by donating, volunteering, or simply spreading awareness. Let's work together for a better future for children and families in need.",
+ 
+        //impact-vision
+        impactOurvision: "Our vision",
+        impactbelieve: "We believe that education, food, and healthcare are a right for every human being, and we strive to have a role in society and a better future.", 
+
+         //impact-mission
+        impactOurmission: "Our mission",
+        impactsocialachieve: "Our mission is to achieve social justice by providing essential support to children and families in need. We believe in their right to live their lives with dignity and have their basic needs met.",
+
+        //Medical assistance
+        Medicalassistance: "Medical assistance",
+
+        //Together we create
+        Together: "Together we create the future",
+        Unitedbyhope: "United by hope and humanitarian action, our volunteers and children stand together to build a better tomorrow.",
+        Communitysupport: "Community support and teamwork",
+        Building: "Building a better future",
+        Protecting: "Protecting children from war and violence",
+        Hope: "Hope and humanitarian work",
 
         // Causes Section
         causesSubtitle: "Latest Causes",
@@ -231,7 +275,7 @@ const translations = {
         cardEducation: "Education",
         cardFood: "Food",
 
-        cardTitle1: "Donate for Medical Treatment",
+        cardTitle1: "Donate to treat the poor and their valleys.",
         cardDesc1: "Every day someone needs treatment and support. Help put a smile on the faces of those in need.",
 
         cardTitle2: "Children We Work With",
@@ -248,6 +292,12 @@ const translations = {
         statVolunteers: "Volunteers",
         statProjects: "Projects",
         statPartners: "Partners",
+        statsTitle: "Our collective facts",
+        statsSubtitle: "We believe we can save more lives with you.",
+        samepeople: "The same people changed their lives",
+        Volunteering: "Volunteering",
+        Poorpeoplesaved: "Poor people saved",
+        Participatingcountries: "Participating countries",
 
         // Footer
         footerText: "All rights reserved 2025 Alkhair Platform",
@@ -256,7 +306,7 @@ const translations = {
         home: "Home",
         about: "About",
         causes: "Our Goals",
-        pages: "For donations",
+        pages: " donations",
         blogs: "Frequently questions",
         contactUs: "Contact Us",
 
