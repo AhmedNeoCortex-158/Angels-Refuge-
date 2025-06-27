@@ -83,7 +83,10 @@ const translations = {
         cardShelter: "مشرد",
         cardEducation: "تعليم",
         cardFood: "طعام",
-
+        cardhouse: "منزل",
+        cardwater: "ماء",
+        Starofgoodness: "نجمة الخير",
+        
         cardTitle1: "تبرع لعلاج الفقراء وأوديتهم.",
         cardDesc1: "في كل يوم هناك من يحتاج للعلاج والدعم، ساهم في رسم بسمة على وجه المحتاجين.",
 
@@ -243,6 +246,27 @@ const translations = {
         cause4Title: "مساعدة للغذاء",
         cause4Desc: "العديد من الأسر يعانون من نقص الغذاء ولا يستطيعون توفير وجبات كافية لأطفالهم.",
         donateBtn: "تبرع الآن",
+
+        //Donate page
+        classification: "تصنيف",
+        Recentposts: "المشاركات الأخيرة",
+        Charityposts: "جمعية خيرية",
+        storiesareabout: "أهم القصص هذا الأسبوع عن...",
+        focusoncharity: "لماذا يجب أن تركز على العمل الخيري", 
+        Populartags: "الوسوم الشائعة",
+        Donatetoorphans: "التبرع للايتام",
+        donationer: "تبرع",
+        collected: "600$ تم جمعه",
+        goals: "1,000$ هدف",
+        Donatetotreatthepoor: "تبرع لعلاج الفقراء وتوفير الأدوية لهم بمساعدتك",
+        Inthisworld: "في هذا العالم، كل واحد منا لديه القدرة على إحداث التغيير، سواء من خلال التبرع أو التطوع أو حتى مجرد نشر الوعي. دعونا نعمل معاً من أجل مستقبل أفضل للأطفال والعائلات المحتاجة.",
+        Webelievethat: "نؤمن أن التعليم، الغذاء، والرعاية الصحية حق لكل إنسان، ونسعى لأن يكون لنا دور في المجتمع ومستقبل أفضل. مهمتنا هي تحقيق العدالة الاجتماعية من خلال توفير الدعم الأساسي للأطفال والعائلات المحتاجة.",
+        Weworkdaily: "نعمل يومياً مع أطفال حرموا من أبسط حقوقهم في العلاج والغذاء والتعليم. بعضهم يعاني من أمراض مزمنة ولا يستطيع الحصول على الدواء. ساعدنا في توفير الدعم اللازم لهم.",
+        Challenge: "التحدي",
+        Wefacesignificant: "نحن نواجه تحديات كبيرة في مساعدة الفقراء والمحتاجين. علينا من خلال تبرعاتكم، يمكننا مواجهة هذه التحديات وتقديم الدعم اللازم للمحتاجين في المجتمع.", 
+        Weareconstantly:"نحن نعمل باستمرار لتوفير الأدوية والعلاج للمرضى، والغذاء للجائعين، والتعليم للأطفال المحرومين. كل مساهمة، مهما كانت صغيرة، تساعد في تحسين حياة شخص ما.",
+        withfacesignificant: "الأطفال الذين نعمل معهم يواجهون تحديات كبيرة بسبب الفقر والمرض. تبرعك يمكن أن يوفر لهم فرصة لحياة أفضل. نحن نؤمن أن كل طفل يستحق فرصة للنجاح والسعادة. ساعدنا في تحقيق ذلك من خلال تبرعك اليوم.", 
+
     },
     en: {
         // Navigation
@@ -328,6 +352,9 @@ const translations = {
         cardShelter: "Shelter",
         cardEducation: "Education",
         cardFood: "Food",
+        cardhouse: "house",
+        cardwater: "water",
+        Starofgoodness: "Star of goodness",
 
         cardTitle1: "Donate to treat the poor and their valleys.",
         cardDesc1: "Every day someone needs treatment and support. Help put a smile on the faces of those in need.",
@@ -488,5 +515,26 @@ We believe that charitable work goes beyond just providing material assistance. 
         cause4Title: "Help with Food",
         cause4Desc: "Many families suffer from food shortages and cannot provide adequate meals for their children.",
         donateBtn: "Donate Now",
+
+         //Donate page
+        classification: "classification",
+        Recentposts: "Recent posts",
+        Charityposts: "Charity",
+        storiesareabout: "This week's top stories are about...",
+        focusoncharity: "Why should you focus on charity work?",
+        Populartags: "Popular tags",
+        Donatetoorphans: "Donate to orphans",
+        donationer: "donation",
+        collected: "It has been collected 600$",
+        goals: "goal 1,000$",
+        Donatetotreatthepoor: "Donate to treat the poor and provide them with medicine with your help",
+        Inthisworld: "In this world, each of us has the power to make a difference, whether through donating, volunteering, or simply spreading awareness. Let's work together for a better future for children and families in need.",
+        Webelievethat: "We believe that education, food, and healthcare are a right for every human being, and we strive to play a role in society and achieve a better future. Our mission is to achieve social justice by providing essential support to children and families in need.",
+        Weworkdaily: "We work daily with children who are deprived of their most basic rights to treatment, food, and education. Some suffer from chronic illnesses and cannot access medication. Help us provide them with the support they need.",
+        Challenge: "Challenge",
+        Wefacesignificant: "We face significant challenges in helping the poor and needy. With your donations, we can address these challenges and provide the necessary support to those in need in the community.",
+        Weareconstantly: "We are constantly working to provide medicine and treatment for the sick, food for the hungry, and education for underprivileged children. Every contribution, no matter how small, helps improve someone's life.", 
+        withfacesignificant: "The children we work with face significant challenges due to poverty and disease. Your donation can provide them with a chance at a better life. We believe every child deserves a chance for success and happiness. Help us achieve this by donating today.",
+
     }
 };
