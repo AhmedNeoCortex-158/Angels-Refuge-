@@ -23,6 +23,33 @@ const translations = {
         aboutDesc: "يمكنك سر السعادة في مساعدة الآخرين، لا تقلل أبداً من قدر الطريق الذي يمكنك إحداثه في حياة الفقراء والمحتاجين، فالعطاء يعلم ويغير الآخرين.",
         aboutMoreBtn: "اقرأ أكثر",
 
+        //about we
+        aboutwe: "نحن دار رعاية تحتضن الأيتام بحب، نوفر لهم الأمان والتعليم والدعم لبناء مستقبل مشرق. نؤمن أن كل طفل يستحق بداية جديدة وفرصة للحياة بكرامة وأمل.",
+        Readmoreaboutwe: "اقرأ أكثر",
+
+        //Welcome to Charity
+        WelcometoCharity: "مرحبا بكم في جمعية الخير.",
+        Letscome: "لنأت معاً لنجعل الحياة أفضل.",
+        Wearehere: "نحن هنا في تقديم الدعم والرعاية والخدمات المجتمعية في مختلف أنحاء العالم. من خلال التبرعات، التطوع، ونشر الوعي، نعمل معاً لبناء مستقبل أفضل للأطفال والعائلات المحتاجة. نحن نؤمن بحق هذا المستقبل، نحن نؤمن بحق هذا المستقبل.",
+
+        //Together we create
+        Childrenarewhere: "الأطفال حيث نكون قادرين على تحقيق كل خير", 
+        Ourdemand: "مطالبتنا للحفاظ على مساهمتهم في العالم الكبير",
+        Wewelcomeeveryone: "نحن نرحب بالجميع ونعمل إلى نشر الأمل",
+        Contributorsto: "مساهمون في تربية والتوعية", 
+
+        //Our advantages
+        Ouradvantages: "مميزاتنا",
+        FoodandHomeless: "جمعية الغذاء والمشردين",
+        Ourorganizationaims:"جمعيتنا تهدف لتقديم الغذاء والمأوى للمحتاجين في مختلف أنحاء العالم. نؤمن أن لكل إنسان الحق في حياة كريمة.",
+        Makeyourdonation: "قدّم تبرعك",
+        Helpsupportchildrenandfamilies: "ساهم في دعم الأطفال والعائلات المحتاجة من خلال التبرع. تبرعك يمكن أن يصنع فرقاً كبيراً في حياة الآخرين.",
+        Nonprofitorganization: "منظمة غير ربحية",
+        Weareanonprofit: "نحن منظمة غير ربحية تهدف لتحقيق العدالة الاجتماعية وتوفير الدعم الأساسي للجميع.",
+
+        //Our showroom
+        Ourshowroom: "معرضنا",
+
         // Impact Section
         impactWelcome: "مرحباً بكم في الأعمال الخيرية",
         impactTitle: "دعونا نجتمع معاً لإحداث فرق",
@@ -240,6 +267,33 @@ const translations = {
         aboutHeading: "Your support is truly powerful.",
         aboutDesc: "The secret to happiness is helping others. Never underestimate the impact you can make in the lives of the poor and needy. Giving teaches and changes others.",
         aboutMoreBtn: "Read More",
+
+        //about we
+        aboutwe: "We are a loving home for orphans, providing them with safety, education, and support to build a bright future. We believe that every child deserves a new beginning and a chance to live with dignity and hope.",
+        Readmoreaboutwe: "Read more",
+
+        //Welcome to Charity
+        WelcometoCharity: "Welcome to the Charity Association.",
+        Letscome: "Let's come together to make life better.",
+        Wearehere: "We are here to provide support, care, and community services around the world. Through donations, volunteering, and awareness, we work together to build a better future for children and families in need. We believe in the right to this future.",
+  
+        //Together we create
+        Childrenarewhere: "Children are where we can do the best.",  
+        Ourdemand: "Our demand is to preserve their contribution to the greater world.",
+        Wewelcomeeveryone: "We welcome everyone and work to spread hope.",
+        Contributorsto: "Contributors to education and awareness",
+
+        //Our advantages
+        Ouradvantages: "Our advantages",
+        FoodandHomeless: "Food and Homeless Association",
+        Ourorganizationaims: "Our organization aims to provide food and shelter to those in need around the world. We believe that every human being has the right to a dignified life.",
+        Makeyourdonation: "Make your donation",
+        Helpsupportchildrenandfamilies: "Help support children and families in need by donating. Your donation can make a huge difference in the lives of others.", 
+        Nonprofitorganization: "Non-profit organization",
+        Weareanonprofit: "We are a non-profit organization that aims to achieve social justice and provide essential support for all.",
+        
+        //Our showroom
+        Ourshowroom: "Our showroom",
 
         // Impact Section
         impactWelcome: "Welcome to Charity Work",
