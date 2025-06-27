@@ -284,9 +284,10 @@ const translations = {
         Troublewiththelaw: "المشاكل مع القانون منذ ذلك اليوم",
         beenfacingongoing: "نواجه نحن الأيتام تحديات قانونية مستمرة منذ فترة، حيث تتعلق هذه المشاكل بمسائل تتعلق بالحضانة والحقوق القانونية للأطفال. وضمان حقوقهم بشكل كامل يتطلب الوقت نحو قانونا مستمرا لضمان توفير بيئة آمنة ومستقرة للأطفال.",
         Thesechallengesrange: "نواجه نحن في الأيتام مشاكل قانونية معقدة منذ فترة، حيث تمتد هذه التحديات بين قضايا تتعلق بحقوق الأطفال وحمايتهم من الأذى. لذا نسعى لقضية قانونية تتعلق بالرعاية والموارد المتاحة لهم في كثير من الأحوال. قد تؤدي هذه المشاكل إلى الإجراءات أو الإحالات القانونية أو إلى فقدان الدعم للأطفال. الوصول إلى الدعم والرعاية المناسبة. يتطلب الأمر تدخلات قانونية مستمرة لضمان أن الأطفال في هذه الدور يحصلون على الحماية الأبدية. مع الالتزام بكافة المعايير القانونية لضمان حمايتهم.",
-
-
-
+        signinTitle: "تسجيل الدخول",
+        signupTitle: "إنشاء حساب جديد",
+        confirmPassword: "تأكيد كلمة المرور",
+        passwordTooltip: "يجب أن تحتوي على 8 أحرف على الأقل مع حرف كبير ورقم ورمز خاص",
     },
     en: {
         // Navigation
@@ -573,8 +574,9 @@ We believe that charitable work goes beyond just providing material assistance. 
         Troublewiththelaw: "Trouble with the law since that day",
         beenfacingongoing: "We, orphans, have been facing ongoing legal challenges for some time, relating to custody and legal rights for children. Fully ensuring their rights requires time and a comprehensive law to ensure a safe and stable environment for children.", 
         Thesechallengesrange: "We, at the orphanage, have been facing complex legal issues for some time. These challenges range from matters related to children's rights to protecting them from harm. Therefore, we are pursuing a legal case concerning the care and resources available to them in many situations. These issues can lead to legal actions, referrals, or even the loss of support for the children. Accessing appropriate care and support requires ongoing legal interventions to ensure that children in these homes receive lasting protection, in full compliance with all legal standards to guarantee their safety.",
-        
-
-
+        signinTitle: "Sign In",
+        signupTitle: "Create New Account",
+        confirmPassword: "Confirm Password",
+        passwordTooltip: "Must be at least 8 characters with an uppercase letter, a number, and a special symbol.",
     }
 };
