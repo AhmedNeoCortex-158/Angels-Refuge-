@@ -1298,7 +1298,7 @@
                             <h1 class="main-heading" data-i18n="mainHeading">مساعدة بعضنا البعض يمكن أن تجعل العالم أفضل</h1>
                             <div class="hero-mini-title" data-i18n="heroMiniTitle">امنح الأمل للمشردين.</div>
                             <a  class="donate-btn" data-i18n="donateBtn">تبرع الآن</a>
-                            <a href="contact.html" class="about-btn" id=" data-i18n="aboutBtn> تواصل معنا</a>
+                            <a href="contact.html" class="about-btn" data-i18n="contactHeaderBtn"> تواصل معنا</a>
                         </div>
                     </div>
                 </div>
@@ -1743,74 +1743,63 @@
         const langSwitcher = new LanguageSwitcher();
     });
 
-    // تحسين شريط البحث العلوي
+    // Search Icon Popup (robust infinite open/close)
     document.addEventListener('DOMContentLoaded', function() {
         let searchOpen = false;
         const searchIcon = document.getElementById('search-icon');
         const searchPopup = document.getElementById('search-popup');
+        const searchClose = document.getElementById('search-close');
         const searchInputPopup = document.querySelector('.search-input-popup');
-        // أضف زر إغلاق واضح
-        let searchClose = document.getElementById('search-close');
-        if (!searchClose) {
-            searchClose = document.createElement('button');
-            searchClose.className = 'search-close';
-            searchClose.innerHTML = '&times;';
-            searchClose.setAttribute('aria-label', 'إغلاق البحث');
-            searchPopup.appendChild(searchClose);
-        } else {
-            searchClose.innerHTML = '&times;';
-            searchClose.style = '';
-        }
 
         function openSearchPopup() {
             searchOpen = true;
             searchPopup.classList.add('open');
             setTimeout(() => searchInputPopup.focus(), 100);
         }
+
         function closeSearchPopup() {
             searchOpen = false;
             searchPopup.classList.remove('open');
             searchInputPopup.value = '';
         }
-        // فتح الشريط
-        searchIcon.addEventListener('click', function(e) {
-            e.stopPropagation();
-            if (!searchOpen) openSearchPopup();
-        });
-        searchIcon.addEventListener('keydown', function(e) {
-            if ((e.key === 'Enter' || e.key === ' ') && !searchOpen) {
-                openSearchPopup();
-            }
-        });
-        // زر الإغلاق
-        searchClose.addEventListener('click', function(e) {
-            e.stopPropagation();
-            closeSearchPopup();
-        });
-        // إغلاق عند الضغط خارج الشريط
-        document.addEventListener('click', function(e) {
-            if (searchOpen && !searchPopup.contains(e.target) && e.target !== searchIcon) {
+
+        if (searchIcon && searchPopup && searchClose && searchInputPopup) {
+            searchIcon.addEventListener('click', function(e) {
+                e.stopPropagation();
+                if (!searchOpen) {
+                    openSearchPopup();
+                } else {
+                    closeSearchPopup();
+                }
+            });
+            searchIcon.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    if (!searchOpen) {
+                        openSearchPopup();
+                    } else {
+                        closeSearchPopup();
+                    }
+                }
+            });
+            searchClose.addEventListener('click', function(e) {
+                e.stopPropagation();
                 closeSearchPopup();
-            }
-        });
-        // إغلاق عند الضغط على Esc
-        searchInputPopup.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') closeSearchPopup();
-            if (e.key === 'Enter') {
-                e.preventDefault();
-                // هنا يمكنك ربط البحث الفعلي
-                alert('بحث: ' + searchInputPopup.value);
-                closeSearchPopup();
-            }
-        });
-        // إغلاق عند التمرير
-        window.addEventListener('scroll', function() {
-            if (searchOpen) closeSearchPopup();
-        });
-        // منع إغلاق عند الضغط داخل الشريط
-        searchPopup.addEventListener('click', function(e) {
-            e.stopPropagation();
-        });
+            });
+            document.addEventListener('click', function(e) {
+                if (searchOpen && !searchPopup.contains(e.target) && e.target !== searchIcon) {
+                    closeSearchPopup();
+                }
+            });
+            searchInputPopup.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') closeSearchPopup();
+            });
+            // Prevent click inside popup from closing it
+            searchPopup.addEventListener('click', function(e) {
+                e.stopPropagation();
+            });
+        } else {
+            console.error('Search elements not found!');
+        }
     });
 
     document.addEventListener('DOMContentLoaded', function() {
