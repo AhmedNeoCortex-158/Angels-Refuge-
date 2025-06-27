@@ -86,6 +86,7 @@ const translations = {
         cardhouse: "منزل",
         cardwater: "ماء",
         Starofgoodness: "نجمة الخير",
+        cardHomelesspeople: "مشردون",
         
         cardTitle1: "تبرع لعلاج الفقراء وأوديتهم.",
         cardDesc1: "في كل يوم هناك من يحتاج للعلاج والدعم، ساهم في رسم بسمة على وجه المحتاجين.",
@@ -267,6 +268,25 @@ const translations = {
         Weareconstantly:"نحن نعمل باستمرار لتوفير الأدوية والعلاج للمرضى، والغذاء للجائعين، والتعليم للأطفال المحرومين. كل مساهمة، مهما كانت صغيرة، تساعد في تحسين حياة شخص ما.",
         withfacesignificant: "الأطفال الذين نعمل معهم يواجهون تحديات كبيرة بسبب الفقر والمرض. تبرعك يمكن أن يوفر لهم فرصة لحياة أفضل. نحن نؤمن أن كل طفل يستحق فرصة للنجاح والسعادة. ساعدنا في تحقيق ذلك من خلال تبرعك اليوم.", 
 
+        // blog-single page
+        Helpingpoordonations: "مساعدة الفقراء بالتبرعات",
+        Productcategories: "فئات المنتجات",
+        BacktotheFuture: "العودة إلى المستقبل: التعليم الجيد من خلال الاحترام، الالتزام، والمساءلة",
+        Atthistime: "في هذا الوقت، يجب أن تكون المعلم أداة رئيسية لتمكين الأطفال ومنحهم الفرص لتحقيق أهدافهم نحو التعليم الجيد. لا يتحقق الأمر خلال يوم واحد بل على الاحترام المتبادل بين الأطفال والمعلمين، والالتزام بتوفير الأدوات والمعرفة التي يحتاجها الطلاب. في هذا المجال، سواء كانوا طلاباً أو معلمين، سيكونون جميعاً عنصراً أساسياً للمضي في تحقيق أهداف تعليمية وتأسيس مستقبل مشرق.",
+        Inthisdirection: "في هذا الاتجاه، التعليم ليس مجرد اكتساب معلومات، بل هو فهم حقيقة لتغيير المستقبل. عندما نؤمن بأهمية الاحترام بين المعلمين والأطفال، والالتزام بتقديم أفضل تجربة تعليمية والمساءلة لضمان تحقيق التطور والنمو، نكون بذلك قد وضعنا قاعدة صلبة للمستقبل. يجب أن نضع أنظمة لتعلم المواد الدراسية، ثم نقدمهم أيضاً ليصبحوا مسؤولين قادرين على بناء مجتمع أفضل.",      
+        Cleanwaterhelps: "الماء النظيف يساعد في إبقاء الأطفال في المدارس، خاصة الفتيات",
+        significantlytotheircontinued: "الماء النظيف لا يحمي صحة الأطفال فحسب، بل يساهم بشكل كبير في استمرارهم في التعليم، خاصة الفتيات. فغياب المرافق الصحية والمياه النظيفة يؤثر بشكل كبير على قدرة الفتيات على المداومة في المدارس، خصوصاً في فترات معينة من الشهر. لذا فإن توفير مياة نظيفة ومرافق في الأقسام والمدارس يعد خطوة أساسية نحو مستقبل أفضل للجميع.",
+        CharityWorkExpectations: "العمل الخيري التوقعات مقابل الواقع",
+        highlightsareabout: "أبرز أحداث هذا الأسبوع عن...",
+        importanceoffocusingon: "أهمية التركيز على العمل الخيري وأهمية يحتاجه العالم اليوم", 
+        institution: "مؤسسة",
+        Angels: "ملائكة",
+        Troublewiththelaw: "المشاكل مع القانون منذ ذلك اليوم",
+        beenfacingongoing: "نواجه نحن الأيتام تحديات قانونية مستمرة منذ فترة، حيث تتعلق هذه المشاكل بمسائل تتعلق بالحضانة والحقوق القانونية للأطفال. وضمان حقوقهم بشكل كامل يتطلب الوقت نحو قانونا مستمرا لضمان توفير بيئة آمنة ومستقرة للأطفال.",
+        Thesechallengesrange: "نواجه نحن في الأيتام مشاكل قانونية معقدة منذ فترة، حيث تمتد هذه التحديات بين قضايا تتعلق بحقوق الأطفال وحمايتهم من الأذى. لذا نسعى لقضية قانونية تتعلق بالرعاية والموارد المتاحة لهم في كثير من الأحوال. قد تؤدي هذه المشاكل إلى الإجراءات أو الإحالات القانونية أو إلى فقدان الدعم للأطفال. الوصول إلى الدعم والرعاية المناسبة. يتطلب الأمر تدخلات قانونية مستمرة لضمان أن الأطفال في هذه الدور يحصلون على الحماية الأبدية. مع الالتزام بكافة المعايير القانونية لضمان حمايتهم.",
+
+
+
     },
     en: {
         // Navigation
@@ -355,6 +375,7 @@ const translations = {
         cardhouse: "house",
         cardwater: "water",
         Starofgoodness: "Star of goodness",
+        cardHomelesspeople: "Homeless people",
 
         cardTitle1: "Donate to treat the poor and their valleys.",
         cardDesc1: "Every day someone needs treatment and support. Help put a smile on the faces of those in need.",
@@ -535,6 +556,25 @@ We believe that charitable work goes beyond just providing material assistance. 
         Wefacesignificant: "We face significant challenges in helping the poor and needy. With your donations, we can address these challenges and provide the necessary support to those in need in the community.",
         Weareconstantly: "We are constantly working to provide medicine and treatment for the sick, food for the hungry, and education for underprivileged children. Every contribution, no matter how small, helps improve someone's life.", 
         withfacesignificant: "The children we work with face significant challenges due to poverty and disease. Your donation can provide them with a chance at a better life. We believe every child deserves a chance for success and happiness. Help us achieve this by donating today.",
+
+        // blog-single page
+        Helpingpoordonations: "Helping the poor with donations",
+        Productcategories: "Product categories",
+        BacktotheFuture: "Back to the Future: Quality Education Through Respect, Commitment, and Accountability",
+        Atthistime: "At this time, teachers must be a key tool in empowering children and providing them with opportunities to achieve their goals toward a quality education. This cannot be achieved overnight, but rather through mutual respect between children and teachers, and a commitment to providing students with the tools and knowledge they need. In this regard, whether students or teachers, they will all be essential to achieving educational goals and establishing a bright future.",
+        Inthisdirection: "In this direction, education is not merely the acquisition of information, but rather an understanding of the truth that can change the future. When we believe in the importance of respect between teachers and children, a commitment to providing the best educational experience, and accountability to ensure development and growth, we will lay a solid foundation for the future. We must establish systems for learning academic subjects, and then also prepare them to become responsible citizens capable of building a better society.",
+        Cleanwaterhelps: "Clean water helps keep children in school, especially girls.", 
+        significantlytotheircontinued: "Clean water not only protects children's health, but it also contributes significantly to their continued education, especially for girls. The lack of sanitation facilities and clean water significantly impacts girls' ability to attend school, especially during certain times of the month. Providing clean water and facilities in classrooms and schools is an essential step toward a better future for all.",
+        CharityWorkExpectations: "Charity Work Expectations vs. Reality",
+        highlightsareabout: "This week's highlights are about...",
+        importanceoffocusingon: "The importance of focusing on charitable work and the importance the world needs today",
+        institution: "Refuge",
+        Angels: "Angels' ",
+        Troublewiththelaw: "Trouble with the law since that day",
+        beenfacingongoing: "We, orphans, have been facing ongoing legal challenges for some time, relating to custody and legal rights for children. Fully ensuring their rights requires time and a comprehensive law to ensure a safe and stable environment for children.", 
+        Thesechallengesrange: "We, at the orphanage, have been facing complex legal issues for some time. These challenges range from matters related to children's rights to protecting them from harm. Therefore, we are pursuing a legal case concerning the care and resources available to them in many situations. These issues can lead to legal actions, referrals, or even the loss of support for the children. Accessing appropriate care and support requires ongoing legal interventions to ensure that children in these homes receive lasting protection, in full compliance with all legal standards to guarantee their safety.",
+        
+
 
     }
 };
