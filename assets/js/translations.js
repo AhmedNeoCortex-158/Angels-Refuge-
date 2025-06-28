@@ -288,6 +288,12 @@ const translations = {
         signupTitle: "إنشاء حساب جديد",
         confirmPassword: "تأكيد كلمة المرور",
         passwordTooltip: "يجب أن تحتوي على 8 أحرف على الأقل مع حرف كبير ورقم ورمز خاص",
+        // Signin Page
+        forgotPassword: "نسيت كلمة المرور؟",
+        noAccount: "ليس لديك حساب؟",
+        createAccount: "إنشاء حساب جديد",
+        signinBtn: "تسجيل الدخول",
+        password: "كلمة المرور",
     },
     en: {
         // Navigation
@@ -578,5 +584,11 @@ We believe that charitable work goes beyond just providing material assistance. 
         signupTitle: "Create New Account",
         confirmPassword: "Confirm Password",
         passwordTooltip: "Must be at least 8 characters with an uppercase letter, a number, and a special symbol.",
+        // Signin Page
+        forgotPassword: "Forgot Password?",
+        noAccount: "Don't have an account?",
+        createAccount: "Create New Account",
+        signinBtn: "Sign In",
+        password: "Password",
     }
 };
