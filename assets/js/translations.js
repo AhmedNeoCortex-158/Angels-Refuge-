@@ -150,6 +150,8 @@ const translations = {
         forgotPassword:"نسيت كلمة المرور؟",
         noAccount: "ليس لديك حساب؟ ",
         createAccount: "إنشاء حساب جديد",
+        haveAccount: "لديك حساب بالفعل؟",
+        
 
         // Footer
         quickLink: "روابط سريعة",
@@ -450,6 +452,7 @@ const translations = {
         forgotPassword: "forgot Password",
         noAccount: "Don't have account?",
         createAccount: "Create new account",
+        haveAccount:"Already have an account?",
 
         // Footer
         quickLink: "Quick Link",
