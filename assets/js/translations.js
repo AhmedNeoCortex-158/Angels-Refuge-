@@ -151,7 +151,9 @@ const translations = {
         noAccount: "ليس لديك حساب؟ ",
         createAccount: "إنشاء حساب جديد",
         haveAccount: "لديك حساب بالفعل؟",
-        
+        Iagreeto:"أوافق على",
+        Terms: "الشروط والأحكام",
+        privacypolicy: "سياسة الخصوصية",
 
         // Footer
         quickLink: "روابط سريعة",
@@ -453,6 +455,9 @@ const translations = {
         noAccount: "Don't have account?",
         createAccount: "Create new account",
         haveAccount:"Already have an account?",
+        Iagreeto: "I agree to",
+        Terms: "Terms and Conditions",
+        privacypolicy: "privacy policy",
 
         // Footer
         quickLink: "Quick Link",
