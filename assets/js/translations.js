@@ -146,6 +146,10 @@ const translations = {
         emailAddress: "البريد الإلكتروني",
         message: "رسالة",
         sendNow: "إرسال الآن",
+        password: "كلمة المرور",
+        forgotPassword:"نسيت كلمة المرور؟",
+        noAccount: "ليس لديك حساب؟ ",
+        createAccount: "إنشاء حساب جديد",
 
         // Footer
         quickLink: "روابط سريعة",
@@ -436,6 +440,10 @@ const translations = {
         emailAddress: "Email Address",
         message: "Message",
         sendNow: "Send Now",
+        password: "password",
+        forgotPassword: "forgot Password",
+        noAccount: "Don't have account?",
+        createAccount: "Create new account",
 
         // Footer
         quickLink: "Quick Link",
