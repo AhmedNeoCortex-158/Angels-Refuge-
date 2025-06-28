@@ -202,12 +202,14 @@
             margin-top: 10px;
             font-size: 1.2em;
             box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-            transition: background 0.3s, color 0.3s;
+            transition: background 0.3s, color 0.3s, box-shadow 0.3s, transform 0.2s;
         }
 
         .donate-btn:hover {
             background: #00a69c;
             color: #fff;
+            box-shadow: 0 6px 24px rgba(36,155,142,0.18);
+            transform: translateY(-2px) scale(1.04);
         }
 
         .about-btn {
@@ -222,13 +224,15 @@
             margin-top: 10px;
             margin-right: 16px;
             font-size: 1.1em;
-            transition: background 0.3s, color 0.3s, border 0.3s;
+            transition: background 0.3s, color 0.3s, border 0.3s, box-shadow 0.3s, transform 0.2s;
         }
 
         .about-btn:hover {
             background: #fff;
             color: #00a69c;
             border-color: #e0f7f5;
+            box-shadow: 0 6px 24px rgba(36,155,142,0.18);
+            transform: translateY(-2px) scale(1.04);
         }
 
         /* Section Styles */
@@ -366,7 +370,7 @@
         }
         .fade-in {
             opacity: 0;
-            transform: translateY(40px);
+            transform: translateY(60px) scale(0.98);
             transition: opacity 0.8s cubic-bezier(.4,0,.2,1), transform 0.8s cubic-bezier(.4,0,.2,1);
         }
         .fade-in.visible {
@@ -469,12 +473,14 @@
             text-decoration: none;
             margin-right: 0;
             margin-left: 0;
-            transition: background 0.2s, color 0.2s;
+            transition: background 0.2s, color 0.2s, box-shadow 0.3s, transform 0.2s;
             box-shadow: 0 2px 8px rgba(0,0,0,0.08);
         }
         .contact-header-btn:hover {
             background: #0e9c7b;
             color: #fff;
+            box-shadow: 0 6px 24px rgba(36,155,142,0.18);
+            transform: translateY(-2px) scale(1.04);
         }
         /* Impact Section Styles */
         .impact-section {
@@ -692,8 +698,9 @@
             transition: box-shadow 0.2s, transform 0.2s;
         }
         .cause-card-new:hover {
-            box-shadow: 0 8px 24px rgba(36,155,142,0.13);
-            transform: translateY(-6px) scale(1.03);
+            box-shadow: 0 8px 32px rgba(36,155,142,0.16);
+            transform: translateY(-8px) scale(1.03);
+            z-index: 2;
         }
         .cause-card-img-wrap {
             width: 100%;
@@ -771,12 +778,14 @@
             text-align: center;
             text-decoration: none;
             margin-top: 4px;
-            transition: background 0.2s, color 0.2s, border 0.2s;
+            transition: background 0.2s, color 0.2s, border 0.2s, box-shadow 0.3s, transform 0.2s;
         }
         .cause-card-btn:hover {
             background: #249b8e;
             color: #fff;
             border-color: #1fa87a;
+            box-shadow: 0 6px 24px rgba(36,155,142,0.18);
+            transform: translateY(-2px) scale(1.04);
         }
         @media (max-width: 900px) {
             .causes-header-row { flex-direction: column-reverse; align-items: flex-end; }
@@ -1096,12 +1105,29 @@
         .footer-contact ul li a {
             color: #8b8e93;
             text-decoration: none;
-            transition: color 0.3s ease;
+            transition: color 0.2s;
         }
 
         .footer-links ul li a:hover,
         .footer-contact ul li a:hover {
-            color: #fff;
+            color: #00A8A8;
+        }
+
+        .footer-links ul li a::after,
+        .footer-contact ul li a::after {
+            content: '';
+            position: absolute;
+            left: 0; right: 0; bottom: -2px;
+            height: 2px;
+            background: #00A8A8;
+            opacity: 0;
+            transition: opacity 0.2s, transform 0.2s;
+            transform: scaleX(0.3);
+        }
+        .footer-links ul li a:hover::after,
+        .footer-contact ul li a:hover::after {
+            opacity: 1;
+            transform: scaleX(1);
         }
 
         /* Newsletter Section */
@@ -1172,7 +1198,7 @@
             align-items: center;
             justify-content: center;
             background: rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
+            transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
         }
 
         .social-icon svg {
@@ -1206,7 +1232,8 @@
 
         /* Hover animation */
         .social-icon:hover {
-            transform: translateY(-3px);
+            transform: scale(1.18) translateY(-4px);
+            box-shadow: 0 4px 16px rgba(36,155,142,0.18);
         }
 
         /* Responsive adjustments */
@@ -1251,6 +1278,213 @@
                 flex-direction: column;
             }
         }
+
+        /* --- INTERACTIVE ENHANCEMENTS START --- */
+        /* Buttons: Ripple/Color/Shadow on hover */
+        .donate-btn, .about-btn, .contact-header-btn, .cause-card-btn, .read-more, .newsletter-form button {
+            transition: background 0.3s, color 0.3s, box-shadow 0.3s, transform 0.2s;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .donate-btn:hover, .about-btn:hover, .contact-header-btn:hover, .cause-card-btn:hover, .read-more:hover, .newsletter-form button:hover {
+            box-shadow: 0 6px 24px rgba(36,155,142,0.18);
+            transform: translateY(-2px) scale(1.04);
+        }
+        /* Main nav links */
+        .main-nav ul li a {
+            position: relative;
+            transition: color 0.2s;
+        }
+        .main-nav ul li a::after {
+            content: '';
+            position: absolute;
+            right: 0; left: 0; bottom: -4px;
+            height: 2px;
+            background: #02c4bd;
+            opacity: 0;
+            transition: opacity 0.2s, transform 0.2s;
+            transform: scaleX(0.3);
+        }
+        .main-nav ul li a:hover::after, .main-nav ul li a.active::after {
+            opacity: 1;
+            transform: scaleX(1);
+        }
+        /* Card hover: cause, news, stat */
+        .cause-card-new, .news-card, .stat-item, .cause-card, .about-box {
+            transition: box-shadow 0.3s, transform 0.25s;
+        }
+        .cause-card-new:hover, .news-card:hover, .stat-item:hover, .cause-card:hover, .about-box:hover {
+            box-shadow: 0 8px 32px rgba(36,155,142,0.16);
+            transform: translateY(-8px) scale(1.03);
+            z-index: 2;
+        }
+        /* Image hover: zoom in */
+        .cause-card-img, .about-img, .impact-main-img, .news-image img, .footer-logo img, .stat-icon img {
+            transition: transform 0.35s cubic-bezier(.4,0,.2,1), box-shadow 0.3s;
+        }
+        .cause-card-img:hover, .about-img:hover, .impact-main-img:hover, .news-image img:hover, .footer-logo img:hover, .stat-icon img:hover {
+            transform: scale(1.07) rotate(-2deg);
+            box-shadow: 0 8px 32px rgba(36,155,142,0.13);
+        }
+        /* Social icons: lively scale and color */
+        .social-icon {
+            transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+        }
+        .social-icon:hover {
+            transform: scale(1.18) translateY(-4px);
+            box-shadow: 0 4px 16px rgba(36,155,142,0.18);
+        }
+        /* Newsletter input focus */
+        .newsletter-form input:focus {
+            outline: 2px solid #00A8A8;
+            box-shadow: 0 0 0 2px #b2e4e0;
+        }
+        /* Section fade-in: more dynamic */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(60px) scale(0.98);
+            transition: opacity 0.8s cubic-bezier(.4,0,.2,1), transform 0.8s cubic-bezier(.4,0,.2,1);
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: none;
+        }
+        /* Footer links: underline and color */
+        .footer-links ul li a, .footer-contact ul li a {
+            position: relative;
+            transition: color 0.2s;
+        }
+        .footer-links ul li a:hover, .footer-contact ul li a:hover {
+            color: #00A8A8;
+        }
+        .footer-links ul li a::after, .footer-contact ul li a::after {
+            content: '';
+            position: absolute;
+            left: 0; right: 0; bottom: -2px;
+            height: 2px;
+            background: #00A8A8;
+            opacity: 0;
+            transition: opacity 0.2s, transform 0.2s;
+            transform: scaleX(0.3);
+        }
+        .footer-links ul li a:hover::after, .footer-contact ul li a:hover::after {
+            opacity: 1;
+            transform: scaleX(1);
+        }
+        /* --- INTERACTIVE ENHANCEMENTS END --- */
+
+        /* --- INTERACTIVE ENHANCEMENTS: MIDDLE PART --- */
+        /* About Section: About Box and Images */
+        .about-box:hover {
+            box-shadow: 0 12px 36px rgba(36,155,142,0.18);
+            transform: translateY(-10px) scale(1.04);
+        }
+        .about-img {
+            transition: transform 0.35s cubic-bezier(.4,0,.2,1), box-shadow 0.3s;
+        }
+        .about-img:hover {
+            transform: scale(1.08) rotate(-2deg);
+            box-shadow: 0 8px 32px rgba(36,155,142,0.13);
+            z-index: 2;
+        }
+        .about-more-btn {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            transition: background 0.3s, color 0.3s, box-shadow 0.3s, transform 0.2s;
+        }
+        .about-more-btn:hover {
+            background: #fff;
+            color: #00a69c;
+            box-shadow: 0 6px 24px rgba(36,155,142,0.18);
+            transform: translateY(-2px) scale(1.04);
+        }
+        /* Impact Section: Vision/Mission Cards */
+        .impact-mv-card {
+            transition: box-shadow 0.3s, transform 0.25s, background 0.3s;
+        }
+        .impact-mv-card:hover {
+            box-shadow: 0 8px 32px rgba(36,155,142,0.16);
+            background: #d2f3ee;
+            transform: translateY(-8px) scale(1.03);
+            z-index: 2;
+        }
+        /* Impact Card on Image */
+        .impact-card-on-image {
+            transition: box-shadow 0.3s, transform 0.25s, background 0.3s;
+        }
+        .impact-card-on-image:hover {
+            box-shadow: 0 12px 36px rgba(36,155,142,0.18);
+            background: #e0f7f5;
+            transform: scale(1.03) translateY(-6px);
+        }
+        /* Causes Carousel: Card and Image */
+        .cause-card-new {
+            transition: box-shadow 0.3s, transform 0.25s, background 0.3s;
+        }
+        .cause-card-new:hover {
+            box-shadow: 0 12px 36px rgba(36,155,142,0.18);
+            background: #eaf7f5;
+            transform: translateY(-10px) scale(1.04);
+            z-index: 3;
+        }
+        .cause-card-img {
+            transition: transform 0.35s cubic-bezier(.4,0,.2,1), box-shadow 0.3s;
+        }
+        .cause-card-img:hover {
+            transform: scale(1.09) rotate(-2deg);
+            box-shadow: 0 8px 32px rgba(36,155,142,0.13);
+        }
+        .cause-card-btn {
+            transition: background 0.3s, color 0.3s, border 0.3s, box-shadow 0.3s, transform 0.2s;
+        }
+        .cause-card-btn:hover {
+            background: #249b8e;
+            color: #fff;
+            border-color: #1fa87a;
+            box-shadow: 0 6px 24px rgba(36,155,142,0.18);
+            transform: translateY(-2px) scale(1.04);
+        }
+        /* Stats Section: Stat Item and Icon */
+        .stat-item {
+            transition: box-shadow 0.3s, transform 0.25s, background 0.3s;
+        }
+        .stat-item:hover {
+            box-shadow: 0 12px 36px rgba(36,155,142,0.18);
+            background: #eaf7f5;
+            transform: translateY(-10px) scale(1.04);
+        }
+        .stat-icon img {
+            transition: transform 0.35s cubic-bezier(.4,0,.2,1), box-shadow 0.3s;
+        }
+        .stat-item:hover .stat-icon img {
+            transform: scale(1.13) rotate(-3deg);
+            box-shadow: 0 8px 32px rgba(36,155,142,0.13);
+        }
+        /* News Section: Card and Image */
+        .news-card {
+            transition: box-shadow 0.3s, transform 0.25s, background 0.3s;
+        }
+        .news-card:hover {
+            box-shadow: 0 12px 36px rgba(36,155,142,0.18);
+            background: #eaf7f5;
+            transform: translateY(-10px) scale(1.04);
+            z-index: 3;
+        }
+        .news-image img {
+            transition: transform 0.35s cubic-bezier(.4,0,.2,1), box-shadow 0.3s;
+        }
+        .news-card:hover .news-image img {
+            transform: scale(1.09) rotate(-2deg);
+            box-shadow: 0 8px 32px rgba(36,155,142,0.13);
+        }
+        .read-more {
+            transition: background 0.3s, color 0.3s, box-shadow 0.3s, transform 0.2s;
+        }
+        .read-more:hover {
+            background: #00A8A8;
+            color: #fff;
+            box-shadow: 0 6px 24px rgba(36,155,142,0.18);
+            transform: translateY(-2px) scale(1.04);
+        }
+        /* --- END INTERACTIVE ENHANCEMENTS: MIDDLE PART --- */
     </style>
 </head>
 <body class="rtl">
