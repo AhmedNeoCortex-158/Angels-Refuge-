@@ -728,23 +728,23 @@
                     <div class="about-mv-desc" data-i18n="impactbelieve">نؤمن أن التعليم، الغذاء، والرعاية الصحية حق لكل إنسان، ونسعى لأن يكون لنا دور في المجتمع ومستقبل أفضل.</div>
                 </div>
             </div>
-            <div class="about-progress">
+            <div class="about-progress" id="about-progress-section">
                 <div class="progress-item">
                     <div class="progress-label" data-i18n="Medicalassistance">
                         المساعدة الطبية
-                        <span class="progress-percentage">90%</span>
+                        <span class="progress-percentage" id="progress-percentage-medical" data-target="90">0%</span>
                     </div>
                     <div class="progress-bar">
-                        <div class="progress-bar-inner" style="width: 90%"></div>
+                        <div class="progress-bar-inner" id="progress-bar-medical" data-percentage="90" style="width: 0%"></div>
                     </div>
                 </div>
                 <div class="progress-item">
                     <div class="progress-label" data-i18n="pages">
                         التبرعات
-                        <span class="progress-percentage">75%</span>
+                        <span class="progress-percentage" id="progress-percentage-donation" data-target="75">0%</span>
                     </div>
                     <div class="progress-bar">
-                        <div class="progress-bar-inner" style="width: 75%"></div>
+                        <div class="progress-bar-inner" id="progress-bar-donation" data-percentage="75" style="width: 0%"></div>
                     </div>
                 </div>
             </div>
@@ -876,6 +876,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <script src="../assets/js/translations.js"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="js/about-progress-animate.js"></script>
     <script>
         AOS.init({
             duration: 800,

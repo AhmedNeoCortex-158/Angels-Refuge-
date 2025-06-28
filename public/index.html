@@ -1485,6 +1485,36 @@
             transform: translateY(-2px) scale(1.04);
         }
         /* --- END INTERACTIVE ENHANCEMENTS: MIDDLE PART --- */
+
+        /* --- Enhanced Progress Bar Styles --- */
+        .enhanced-progress-bar {
+            background: linear-gradient(90deg, #e0f7f5 60%, #b2e4e0 100%);
+            box-shadow: 0 2px 8px rgba(36,155,142,0.10);
+            position: relative;
+            overflow: visible;
+        }
+        .enhanced-progress-fill {
+            background: linear-gradient(90deg, #249b8e 80%, #02c4bd 100%);
+            box-shadow: 0 0 12px 2px #02c4bd44;
+            transition: width 1.2s cubic-bezier(.4,0,.2,1);
+            position: relative;
+        }
+        .progress-value {
+            font-size: 1.15em;
+            font-weight: bold;
+            color: #249b8e;
+            transition: color 0.3s;
+        }
+        .progress-value.animated {
+            color: #02c4bd;
+            animation: bounce 0.5s;
+        }
+        @keyframes bounce {
+            0% { transform: scale(1); }
+            40% { transform: scale(1.25); }
+            60% { transform: scale(0.95); }
+            100% { transform: scale(1); }
+        }
     </style>
 </head>
 <body class="rtl">
@@ -1575,20 +1605,20 @@
                         </div>
                         <div class="impact-progress-group">
                             <div class="impact-progress-labels" style="display: flex; justify-content: space-between; align-items: center;">
-                                <span class="progress-value">75%</span>
+                                <span class="progress-value" id="progress-donations-value">0%</span>
                                 <span class="progress-label" style="font-weight: bold;" data-i18n="pages">التبرعات</span>
                             </div>
-                            <div class="impact-progress-bar">
-                                <div class="impact-progress-fill" style="width:75%"></div>
+                            <div class="impact-progress-bar enhanced-progress-bar">
+                                <div class="impact-progress-fill enhanced-progress-fill" id="progress-donations-bar" style="width:0%"></div>
                             </div>
                         </div>
                         <div class="impact-progress-group">
                             <div class="impact-progress-labels" style="display: flex; justify-content: space-between; align-items: center;">
-                                <span class="progress-value">90%</span>
+                                <span class="progress-value" id="progress-medical-value">0%</span>
                                 <span class="progress-label" style="font-weight: bold;" data-i18n="Medicalassistance">المساعدة الطبية</span>
                             </div>
-                            <div class="impact-progress-bar">
-                                <div class="impact-progress-fill" style="width:90%"></div>
+                            <div class="impact-progress-bar enhanced-progress-bar">
+                                <div class="impact-progress-fill enhanced-progress-fill" id="progress-medical-bar" style="width:0%"></div>
                             </div>
                         </div>
                     </div>
@@ -1984,6 +2014,71 @@
 
         // Update on window resize
         window.addEventListener('resize', updateCarousel);
+    });
+
+    // --- Animated Progress Bars on Scroll ---
+    document.addEventListener('DOMContentLoaded', function() {
+        const progressBars = [
+            {
+                bar: document.getElementById('progress-donations-bar'),
+                value: document.getElementById('progress-donations-value'),
+                target: 75
+            },
+            {
+                bar: document.getElementById('progress-medical-bar'),
+                value: document.getElementById('progress-medical-value'),
+                target: 90
+            }
+        ];
+        let animated = false;
+        let observer;
+        function animateBar(barElem, valueElem, target) {
+            let current = 0;
+            const duration = 1200;
+            const stepTime = 16;
+            const steps = Math.ceil(duration / stepTime);
+            const increment = target / steps;
+            function step() {
+                current += increment;
+                if (current < target) {
+                    barElem.style.width = current + '%';
+                    valueElem.textContent = Math.round(current) + '%';
+                    requestAnimationFrame(step);
+                } else {
+                    barElem.style.width = target + '%';
+                    valueElem.textContent = target + '%';
+                    valueElem.classList.add('animated');
+                    setTimeout(() => valueElem.classList.remove('animated'), 600);
+                }
+            }
+            step();
+        }
+        function resetBars() {
+            progressBars.forEach(({bar, value}) => {
+                bar.style.width = '0%';
+                value.textContent = '0%';
+                value.classList.remove('animated');
+            });
+        }
+        function handleIntersect(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !animated) {
+                    animated = true;
+                    progressBars.forEach(({bar, value, target}) => animateBar(bar, value, target));
+                } else if (!entry.isIntersecting && animated) {
+                    animated = false;
+                    resetBars();
+                }
+            });
+        }
+        const impactSection = document.querySelector('.impact-section');
+        if ('IntersectionObserver' in window && impactSection) {
+            observer = new IntersectionObserver(handleIntersect, { threshold: 0.3 });
+            observer.observe(impactSection);
+        } else {
+            // fallback: animate on load
+            progressBars.forEach(({bar, value, target}) => animateBar(bar, value, target));
+        }
     });
     </script>
 </body>
