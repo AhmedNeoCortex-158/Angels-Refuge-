@@ -1,0 +1,269 @@
+     body {
+            font-family: 'Cairo', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f0faf8;
+        }
+
+        .main-bg {
+            background: linear-gradient(120deg, #219a8a 48%, #63666a 0%);
+            position: relative;
+            border-radius: 0 0 32px 32px;
+            overflow: hidden;
+            padding-bottom: 40px;
+        }
+
+        .main-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 24px 5% 0 5%;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-left: auto;
+            order: 1;
+        }
+
+        .logo {
+            width: 120px;
+            height: auto;
+        }
+
+        .contact-header-btn {
+            background: #00a69c;
+            color: #fff;
+            border: none;
+            border-radius: 66px;
+            padding: 12px 28px;
+            font-size: 1.1em;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background 0.2s;
+            order: 1;
+            white-space: nowrap;
+        }
+
+        .contact-header-btn:hover {
+            background: #188c65;
+        }
+
+        .main-nav {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            order: 2;
+        }
+
+        .main-nav ul {
+            list-style: none;
+            display: flex;
+            gap: 32px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .main-nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.1em;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+
+        .main-nav a.active,
+        .main-nav a:hover {
+            color: #00a69c;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            margin-right: auto;
+            order: 3;
+            gap: 8px;
+        }
+
+        .lang-btn {
+            color: #fff;
+            text-decoration: none;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+            font-size: 1.1em;
+            padding: 0 4px;
+        }
+
+        .lang-btn.active {
+            opacity: 1;
+        }
+
+        .lang-btn:hover {
+            opacity: 1;
+        }
+
+        /* Auth Form Styles */
+        .auth-container {
+            max-width: 500px;
+            margin: 60px auto;
+            padding: 30px;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .auth-title {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+            font-size: 1.8em;
+        }
+
+        .auth-form {
+            display: grid;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-group label {
+            color: #333;
+            font-weight: 600;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #e0f7f5;
+            border-radius: 8px;
+            font-size: 1em;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: #219a8a;
+        }
+
+        .form-control.valid {
+            border-color: #28a745;
+        }
+
+        .form-control.invalid {
+            border-color: #dc3545;
+        }
+
+        .form-actions {
+            margin-top: 10px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 12px 32px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            background: #219a8a;
+            color: #fff;
+            border: none;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background: #188c65;
+            transform: translateY(-2px);
+        }
+
+        .auth-links {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .auth-links a {
+            color: #219a8a;
+            text-decoration: none;
+        }
+
+        .auth-links a:hover {
+            text-decoration: underline;
+        }
+
+        .forgot-password {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .error-message {
+            color: #dc3545;
+            font-size: 0.9em;
+            margin-top: 5px;
+            display: none;
+        }
+
+        /* Footer Styles */
+        .site-footer {
+            background: #222;
+            color: #fff;
+            padding: 48px 0 24px 0;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            display: flex;
+            gap: 48px;
+            justify-content: space-between;
+            margin: 0 8%;
+        }
+
+        .footer-brand img {
+            width: 100px;
+        }
+
+        .footer-links, .footer-contact, .footer-newsletter {
+            flex: 1;
+        }
+
+        .footer-links h3, .footer-contact h3, .footer-newsletter h3 {
+            color: #00a69c;
+            margin-bottom: 12px;
+        }
+
+        .footer-links ul, .footer-contact ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links ul li, .footer-contact ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-links ul li a, .footer-contact ul li a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-links ul li a:hover, .footer-contact ul li a:hover {
+            color: #00a69c;
+        }
+
+        @media (max-width: 768px) {
+            .auth-container {
+                margin: 30px 15px;
+                padding: 20px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 32px;
+            }
+        }
