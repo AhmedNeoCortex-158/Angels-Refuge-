@@ -268,20 +268,28 @@ document.addEventListener('DOMContentLoaded', function() {
         donateButtons.forEach(btn => {
             btn.addEventListener('click', function(e) {
                 e.preventDefault();
+                console.log("donate button clicked");
 
-                // Check if the payment modal exists
+                // Check if user is signed in by looking for authToken in localStorage
+                const authToken = localStorage.getItem('authToken');
+                
+                if (!authToken) {
+                    // User is not signed in
+                    alert('يرجى تسجيل الدخول أولاً للتبرع');
+                    window.location.href = 'signin.html';
+                    return;
+                }
+
+                // User is signed in, proceed with donation modal
                 const paymentModal = document.getElementById('payment-modal');
                 if (paymentModal) {
-                    // Use the openPaymentModal function if it exists
                     if (typeof openPaymentModal === 'function') {
                         openPaymentModal();
                     } else {
-                        // Fallback to directly showing the modal
                         paymentModal.style.display = 'flex';
                     }
                 } else {
                     console.error('Payment modal not found');
-                    // Redirect to the Donate page as a fallback
                     window.location.href = 'Donate.html';
                 }
             });
