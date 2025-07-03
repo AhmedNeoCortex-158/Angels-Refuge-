@@ -27,6 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
             .then(result => {
                 if (result.success) {
                     alert('Sign up successful!');
+                    window.location.href = 'signin.html';
                     // Redirect or perform other actions
                 } else {
                     alert(result.message || 'Sign up failed.');
