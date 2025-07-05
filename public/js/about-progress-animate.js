@@ -37,6 +37,26 @@ document.addEventListener('DOMContentLoaded', function() {
         requestAnimationFrame(animate);
     }
 
+    // --- حماية أزرار التبرع والتواصل ---
+    function protectActionButton(selector, redirectUrl) {
+        document.querySelectorAll(selector).forEach(function(btn) {
+            btn.addEventListener('click', function(e) {
+                const authToken = localStorage.getItem('authToken');
+                if (!authToken) {
+                    e.preventDefault();
+                    localStorage.setItem('redirectAfterLogin', window.location.pathname);
+                    window.location.href = 'signin.html';
+                } else if (redirectUrl) {
+                    window.location.href = redirectUrl;
+                }
+            });
+        });
+    }
+    // حماية جميع أزرار تبرع الآن
+    protectActionButton('.donate-btn');
+    // حماية زر تواصل معنا إن وجد
+    protectActionButton('.about-btn', 'contact.html');
+
     // IntersectionObserver to trigger animation
     let hasAnimated = false;
     const observer = new window.IntersectionObserver((entries) => {

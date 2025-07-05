@@ -2,37 +2,59 @@
     document.addEventListener('DOMContentLoaded', function() {
     // Check authentication status and update button
     function updateAuthButton() {
-        const authButtonContainer = document.querySelector('logo-title-flex');
+        const authButtonContainer = document.querySelector('.logo-title-flex');
         const authToken = localStorage.getItem('authToken');
         
-        if (authToken) {
-            // User is signed in - show sign out button
-            authButtonContainer.innerHTML = `
-                <a href="index.html">
-                    <img src="../assets/images/Logo_2.png" alt="Logo" class="logo">
-                </a>
-                <a href="#" class="contact-header-btn" id="signOutBtn" data-i18n="">تسجيل خروج</a>
-            `;
-
-            // Add click event for sign out
-            document.getElementById('signOutBtn').addEventListener('click', function(e) {
-                e.preventDefault();
-                localStorage.removeItem('authToken');
-                window.location.reload();
-            });
-        } else {
-            // User is not signed in - show sign in button
-            authButtonContainer.innerHTML = `
-                <a href="index.html">
-                    <img src="../assets/images/Logo_2.png" alt="Logo" class="logo">
-                </a>
-                <a href="signin.html" class="contact-header-btn" data-i18n="">تسجيل دخول</a>
-            `;
+        if (authButtonContainer) {
+            if (authToken) {
+                // User is signed in - show sign out button
+                authButtonContainer.innerHTML = `
+                    <a href="index.html">
+                        <img src="../assets/images/Logo_2.png" alt="Logo" class="logo">
+                    </a>
+                    <a href="#" class="contact-header-btn" id="signOutBtn" data-i18n="">تسجيل خروج</a>
+                `;
+                // Add click event for sign out
+                document.getElementById('signOutBtn').addEventListener('click', function(e) {
+                    e.preventDefault();
+                    localStorage.removeItem('authToken');
+                    window.location.reload();
+                });
+            } else {
+                // User is not signed in - show sign in button
+                authButtonContainer.innerHTML = `
+                    <a href="index.html">
+                        <img src="../assets/images/Logo_2.png" alt="Logo" class="logo">
+                    </a>
+                    <a href="signin.html" class="contact-header-btn" data-i18n="">تسجيل الدخول</a>
+                `;
+            }
         }
     }
 
     // Call the function when the page loads
     updateAuthButton();
+
+    // --- حماية أزرار التبرع والتواصل ---
+    function protectDonateButton(selector) {
+        document.querySelectorAll(selector).forEach(function(btn) {
+            btn.addEventListener('click', function(e) {
+                const authToken = localStorage.getItem('authToken');
+                if (!authToken) {
+                    e.preventDefault();
+                    // رسالة مخصصة بدون زر Cancel
+                    alert('يجب تسجيل الدخول أولاً للتبرع');
+                    localStorage.setItem('redirectAfterLogin', window.location.pathname);
+                    window.location.href = 'signin.html';
+                }
+            });
+        });
+    }
+    // حماية جميع أزرار تبرع الآن
+    protectDonateButton('.donate-btn');
+    protectDonateButton('.modern-donate-btn');
+    // حماية زر تواصل معنا إن وجد
+    protectActionButton('.about-btn', 'contact.html');
 });
     // Fade-in on scroll
     function revealOnScroll() {
@@ -238,4 +260,5 @@
             logoContainer.style.border = 'none';
             logoContainer.style.boxShadow = 'none';
         }
+ 
     });

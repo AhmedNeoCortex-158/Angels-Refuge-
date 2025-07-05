@@ -1,4 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
+    
+
     // Check authentication status and update button
     function updateAuthButton() {
         const authButtonContainer = document.querySelector('.logo-title-flex');
@@ -32,7 +34,26 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Call the function when the page loads
     updateAuthButton();
-});
+
+    // --- حماية أزرار التبرع والتواصل ---
+    function protectActionButton(selector, redirectUrl) {
+        document.querySelectorAll(selector).forEach(function(btn) {
+            btn.addEventListener('click', function(e) {
+                const authToken = localStorage.getItem('authToken');
+                if (!authToken) {
+                    e.preventDefault();
+                    localStorage.setItem('redirectAfterLogin', window.location.pathname);
+                    window.location.href = 'signin.html';
+                } else if (redirectUrl) {
+                    window.location.href = redirectUrl;
+                }
+            });
+        });
+    }
+    // حماية أزرار التبرع والتواصل في الصفحة الرئيسية
+    protectActionButton('.donate-btn');
+    protectActionButton('.about-btn', 'contact.html');
+    protectActionButton('.cause-card-btn');
    
    
    
@@ -235,3 +256,11 @@ document.addEventListener('DOMContentLoaded', function() {
             progressBars.forEach(({bar, value, target}) => animateBar(bar, value, target));
         }
     });
+});
+
+
+
+
+
+
+
