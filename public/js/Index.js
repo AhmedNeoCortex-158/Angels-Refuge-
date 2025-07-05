@@ -30,6 +30,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 <a href="signin.html" class="contact-header-btn" data-i18n="">تسجيل دخول</a>
             `;
         }
+        // إعادة تفعيل زر الترجمة بعد تحديث الهيدر
+        if (typeof LanguageSwitcher === 'function') {
+            new LanguageSwitcher();
+        }
     }
 
     // Call the function when the page loads
