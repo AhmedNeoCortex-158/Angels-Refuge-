@@ -202,22 +202,22 @@ document.addEventListener('DOMContentLoaded', function() {
             {
                 bar: document.getElementById('progress-donations-bar'),
                 value: document.getElementById('progress-donations-value'),
-                target: 75
+                target: 90 // التبرعات
             },
             {
                 bar: document.getElementById('progress-medical-bar'),
                 value: document.getElementById('progress-medical-value'),
-                target: 90
+                target: 75 // المساعدة الطبية
             }
         ];
         let animated = false;
         let observer;
         function animateBar(barElem, valueElem, target) {
-            let current = 0;
+            let current = 1; // يبدأ من 1%
             const duration = 1200;
             const stepTime = 16;
             const steps = Math.ceil(duration / stepTime);
-            const increment = target / steps;
+            const increment = (target - 1) / steps;
             function step() {
                 current += increment;
                 if (current < target) {
@@ -231,12 +231,15 @@ document.addEventListener('DOMContentLoaded', function() {
                     setTimeout(() => valueElem.classList.remove('animated'), 600);
                 }
             }
+            // بدء من 1%
+            barElem.style.width = '1%';
+            valueElem.textContent = '1%';
             step();
         }
         function resetBars() {
             progressBars.forEach(({bar, value}) => {
-                bar.style.width = '0%';
-                value.textContent = '0%';
+                bar.style.width = '1%';
+                value.textContent = '1%';
                 value.classList.remove('animated');
             });
         }
