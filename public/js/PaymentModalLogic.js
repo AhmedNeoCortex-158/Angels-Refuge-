@@ -150,12 +150,28 @@ document.addEventListener('DOMContentLoaded', function() {
     form.addEventListener('submit', function(e) {
         e.preventDefault();
         if (this.checkValidity()) {
-            const selectedMethod = document.querySelector('.method-btn.active').dataset.method;
-            const formData = new FormData(form);
-            const data = Object.fromEntries(formData.entries());
+            const selectedMethod = document.querySelector('.method-btn.active');
+            if (!selectedMethod) {
+                alert('Please select a payment method');
+                return;
+            }
 
-            // Add payment method to form data
-            data.paymentMethod = selectedMethod;
+            // Get form data
+            const formData = new FormData(form);
+            
+            // Create request body with correct field names
+            const requestBody = {
+                paymentMethod: getPaymentMethodValue(selectedMethod.dataset.method),
+                fullName: formData.get('fullName'),
+                accountNumber: formData.get('accountNumber'),
+                providerName: formData.get('providerName'),
+                phone: formData.get('phone'),
+                email: formData.get('email'),
+                country: formData.get('country'),
+                notes: formData.get('notes'),
+                userId: formData.get('userId'),
+                amount: parseFloat(formData.get('amount'))
+            };
 
             // Get auth token
             const authToken = localStorage.getItem('authToken');
@@ -165,13 +181,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
 
-            // Make API call to your donation endpoint
+            // Make API call
             fetch('https://localhost:7250/api/Donations', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${authToken}`
                 },
-                body: JSON.stringify(data)
+                body: JSON.stringify(requestBody)
             })
             .then(response => {
                 if (!response.ok) {
@@ -189,6 +206,22 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
     });
+
+    // Helper function to convert payment method string to number
+    function getPaymentMethodValue(method) {
+        const methodMap = {
+            'bank-transfer': 0,
+            'instapay': 1,
+            'vodafone-cash': 2,
+            'orange-cash': 3,
+            'etisalat-cash': 4,
+            'we-pay': 5,
+            'swift': 6,
+            'western-union': 7,
+            'remitly': 8
+        };
+        return methodMap[method] || 0;
+    }
 
     // Call setUserIdFromStorage when opening the modal
     function openModal() {

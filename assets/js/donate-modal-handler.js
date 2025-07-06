@@ -64,12 +64,94 @@ document.addEventListener('DOMContentLoaded', function() {
                         cancelBtn.onclick = closePaymentModal;
                     }
 
+                        // Add function to set user ID from localStorage
+
                     // Add event listeners to the form elements
                     const form = document.getElementById('payment-form');
+                    var userData = '';
                     if (form) {
+                        const userDataString = localStorage.getItem('user');
+        if (userDataString) {
+             userData = JSON.parse(userDataString);
+
+        }
                         form.onsubmit = function(e) {
-                            e.preventDefault();
-                            alert('تم تأكيد الدفع! (نموذج تجريبي)');
+                               
+        e.preventDefault();
+        console.log("Abanoub Saleh is here ");
+        if (this.checkValidity()) {
+            const selectedMethod = document.querySelector('.method-btn.active');
+            if (!selectedMethod) {
+                alert('Please select a payment method');
+                return;
+            }
+
+            // Get form data
+            const formData = new FormData(form);
+                // Helper function to convert payment method string to number
+    function getPaymentMethodValue(method) {
+        const methodMap = {
+            'bank-transfer': 0,
+            'instapay': 1,
+            'vodafone-cash': 2,
+            'orange-cash': 3,
+            'etisalat-cash': 4,
+            'we-pay': 5,
+            'swift': 6,
+            'western-union': 7,
+            'remitly': 8
+        };
+        return methodMap[method] || 0;
+    }
+
+            // Create request body with correct field names
+            const requestBody = {
+                paymentMethod: getPaymentMethodValue(selectedMethod.dataset.method),
+                fullName: formData.get('fullName'),
+                accountNumber: formData.get('accountNumber'),
+                providerName: formData.get('providerName'),
+                phone: formData.get('phone'),
+                email: formData.get('email'),
+                country: formData.get('country'),
+                notes: formData.get('notes'),
+                userId: userData?.id,
+                amount: parseFloat(formData.get('amount'))
+            };
+
+            // Get auth token
+            const authToken = localStorage.getItem('authToken');
+            if (!authToken) {
+                alert('Please sign in to make a donation');
+                window.location.href = 'signin.html';
+                return;
+            }
+
+            // Make API call
+            fetch('https://localhost:7250/api/Donation', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${authToken}`
+                },
+                body: JSON.stringify(requestBody)
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(result => {
+                alert('تم تأكيد التبرع بنجاح!');
+                // create new page for confirm donation 
+                //thanksfordonation.html ==> message for thanks + button back to home 
+                location.reload();
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('حدث خطأ أثناء معالجة التبرع. يرجى المحاولة مرة أخرى.');
+            });
+        }
                         };
                     }
 
