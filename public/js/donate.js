@@ -231,10 +231,10 @@
         if(e.target === this) closePaymentModal();
       };
       // Prevent form submit (demo)
-      document.getElementById('payment-form').onsubmit = function(e) {
-        e.preventDefault();
-        alert('تم تأكيد الدفع! (نموذج تجريبي)');
-      };
+    //   document.getElementById('payment-form').onsubmit = function(e) {
+    //     e.preventDefault();
+    //     alert('تم تأكيد الدفع! (نموذج تجريبي)');
+    //   };
       document.getElementById('complete-payment').onclick = function() {
         alert('تم إكمال العملية! (نموذج تجريبي)');
         closePaymentModal();
