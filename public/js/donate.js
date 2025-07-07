@@ -4,33 +4,73 @@
     function updateAuthButton() {
         const authButtonContainer = document.querySelector('.logo-title-flex');
         const authToken = localStorage.getItem('authToken');
-        
-        if (authButtonContainer) {
-            if (authToken) {
-                // User is signed in - show sign out button
-                authButtonContainer.innerHTML = `
-                    <a href="index.html">
-                        <img src="../assets/images/Logo_2.png" alt="Logo" class="logo">
-                    </a>
-                    <a href="#" class="contact-header-btn" id="signOutBtn" data-i18n="">تسجيل خروج</a>
-                `;
-                // Add click event for sign out
-                document.getElementById('signOutBtn').addEventListener('click', function(e) {
-                    e.preventDefault();
-                    localStorage.removeItem('authToken');
-                    window.location.reload();
-                });
-            } else {
-                // User is not signed in - show sign in button
-                authButtonContainer.innerHTML = `
-                    <a href="index.html">
-                        <img src="../assets/images/Logo_2.png" alt="Logo" class="logo">
-                    </a>
-                    <a href="signin.html" class="contact-header-btn" data-i18n="">تسجيل الدخول</a>
-                `;
-            }
+    
+        if (authToken) {
+            // Fake username (replace with real one if available)
+            var userData = '';
+                const userDataString = localStorage.getItem('user');
+if (userDataString) {
+     userData = JSON.parse(userDataString);
+
+}
+console.log(userData);
+            const username = userData.firstName;
+    
+            authButtonContainer.innerHTML = `
+                <a href="index.html">
+                    <img src="../assets/images/Logo_2.png" alt="Logo" class="logo">
+                </a>
+                <div class="dropdown">
+                    <button class="contact-header-btn dropdown-toggle">${username}</button>
+                    <div class="dropdown-menu">
+                        <a href="profile.html" class="dropdown-item" data-i18n="">الملف الشخصي</a>
+                        <a href="#" class="dropdown-item" id="signOutBtn" data-i18n="">تسجيل خروج</a>
+                    </div>
+                </div>
+            `;
+    
+            // Add dropdown toggle functionality
+            const dropdownToggle = document.querySelector('.dropdown-toggle');
+            const dropdownMenu = document.querySelector('.dropdown-menu');
+            
+            dropdownToggle.addEventListener('click', function(e) {
+                e.stopPropagation();
+                dropdownMenu.classList.toggle('show');
+            });
+
+            // Close dropdown when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!e.target.matches('.dropdown-toggle')) {
+                    const dropdowns = document.getElementsByClassName('dropdown-menu');
+                    for (const dropdown of dropdowns) {
+                        if (dropdown.classList.contains('show')) {
+                            dropdown.classList.remove('show');
+                        }
+                    }
+                }
+            });
+
+            // Sign out action
+            document.getElementById('signOutBtn').addEventListener('click', function(e) {
+                e.preventDefault();
+                localStorage.removeItem('authToken');
+                window.location.reload();
+            });
+        } else {
+            authButtonContainer.innerHTML = `
+                <a href="index.html">
+                    <img src="../assets/images/Logo_2.png" alt="Logo" class="logo">
+                </a>
+                <a href="signin.html" class="contact-header-btn" data-i18n="">تسجيل دخول</a>
+            `;
+        }
+    
+        // إعادة تفعيل زر الترجمة بعد تحديث الهيدر
+        if (typeof LanguageSwitcher === 'function') {
+            new LanguageSwitcher();
         }
     }
+    
 
     // Call the function when the page loads
     updateAuthButton();
@@ -231,10 +271,92 @@
         if(e.target === this) closePaymentModal();
       };
       // Prevent form submit (demo)
-    //   document.getElementById('payment-form').onsubmit = function(e) {
-    //     e.preventDefault();
-    //     alert('تم تأكيد الدفع! (نموذج تجريبي)');
-    //   };
+      document.getElementById('payment-form').onsubmit = function(e) {
+                               
+        e.preventDefault();
+        console.log("Abanoub Saleh is here ");
+        if (this.checkValidity()) {
+            const selectedMethod = document.querySelector('.method-btn.active');
+            if (!selectedMethod) {
+                alert('Please select a payment method');
+                return;
+            }
+
+            // Get form data
+            const form = document.getElementById('payment-form');
+            const formData = new FormData(form);
+                    var userData = '';
+                    var userDataString = null;
+                    if (form) {
+                         userDataString = localStorage.getItem('user');
+                    }
+           if (userDataString) {
+             userData = JSON.parse(userDataString);
+
+        }
+                // Helper function to convert payment method string to number
+    function getPaymentMethodValue(method) {
+        const methodMap = {
+            'bank-transfer': 0,
+            'instapay': 1,
+            'vodafone-cash': 2,
+            'orange-cash': 3,
+            'etisalat-cash': 4,
+            'we-pay': 5,
+            'swift': 6,
+            'western-union': 7,
+            'remitly': 8
+        };
+        return methodMap[method] || 0;
+    }
+
+            // Create request body with correct field names
+            const requestBody = {
+                paymentMethod: getPaymentMethodValue(selectedMethod.dataset.method),
+                fullName: formData.get('fullName'),
+                accountNumber: formData.get('accountNumber'),
+                providerName: formData.get('providerName'),
+                phone: formData.get('phone'),
+                email: formData.get('email'),
+                country: formData.get('country'),
+                notes: formData.get('notes'),
+                userId: userData?.id,
+                amount: parseFloat(formData.get('amount'))
+            };
+
+            // Get auth token
+            const authToken = localStorage.getItem('authToken');
+            if (!authToken) {
+                alert('Please sign in to make a donation');
+                window.location.href = 'signin.html';
+                return;
+            }
+
+            // Make API call
+            fetch('https://localhost:7250/api/Donation', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${authToken}`
+                },
+                body: JSON.stringify(requestBody)
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(result => {
+
+                location.replace("thankyou.html");
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('حدث خطأ أثناء معالجة التبرع. يرجى المحاولة مرة أخرى.');
+            });
+        }
+                        };
       document.getElementById('complete-payment').onclick = function() {
         alert('تم إكمال العملية! (نموذج تجريبي)');
         closePaymentModal();

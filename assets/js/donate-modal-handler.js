@@ -142,10 +142,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 return response.json();
             })
             .then(result => {
-                alert('تم تأكيد التبرع بنجاح!');
-                // create new page for confirm donation 
-                //thanksfordonation.html ==> message for thanks + button back to home 
-                location.reload();
+                location.replace("thankyou.html");
+
             })
             .catch(error => {
                 console.error('Error:', error);

@@ -5,24 +5,59 @@ document.addEventListener('DOMContentLoaded', function() {
     function updateAuthButton() {
         const authButtonContainer = document.querySelector('.logo-title-flex');
         const authToken = localStorage.getItem('authToken');
-        
+    
         if (authToken) {
-            // User is signed in - show sign out button
+            // Fake username (replace with real one if available)
+            var userData = '';
+                const userDataString = localStorage.getItem('user');
+if (userDataString) {
+     userData = JSON.parse(userDataString);
+
+}
+console.log(userData);
+            const username = userData.firstName;
+    
             authButtonContainer.innerHTML = `
                 <a href="index.html">
                     <img src="../assets/images/Logo_2.png" alt="Logo" class="logo">
                 </a>
-                <a href="#" class="contact-header-btn" id="signOutBtn" data-i18n="">تسجيل خروج</a>
+                <div class="dropdown">
+                    <button class="contact-header-btn dropdown-toggle">${username}</button>
+                    <div class="dropdown-menu">
+                        <a href="profile.html" class="dropdown-item" data-i18n="">الملف الشخصي</a>
+                        <a href="#" class="dropdown-item" id="signOutBtn" data-i18n="">تسجيل خروج</a>
+                    </div>
+                </div>
             `;
+    
+            // Add dropdown toggle functionality
+            const dropdownToggle = document.querySelector('.dropdown-toggle');
+            const dropdownMenu = document.querySelector('.dropdown-menu');
+            
+            dropdownToggle.addEventListener('click', function(e) {
+                e.stopPropagation();
+                dropdownMenu.classList.toggle('show');
+            });
 
-            // Add click event for sign out
+            // Close dropdown when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!e.target.matches('.dropdown-toggle')) {
+                    const dropdowns = document.getElementsByClassName('dropdown-menu');
+                    for (const dropdown of dropdowns) {
+                        if (dropdown.classList.contains('show')) {
+                            dropdown.classList.remove('show');
+                        }
+                    }
+                }
+            });
+
+            // Sign out action
             document.getElementById('signOutBtn').addEventListener('click', function(e) {
                 e.preventDefault();
                 localStorage.removeItem('authToken');
                 window.location.reload();
             });
         } else {
-            // User is not signed in - show sign in button
             authButtonContainer.innerHTML = `
                 <a href="index.html">
                     <img src="../assets/images/Logo_2.png" alt="Logo" class="logo">
@@ -30,11 +65,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 <a href="signin.html" class="contact-header-btn" data-i18n="">تسجيل دخول</a>
             `;
         }
+    
         // إعادة تفعيل زر الترجمة بعد تحديث الهيدر
         if (typeof LanguageSwitcher === 'function') {
             new LanguageSwitcher();
         }
     }
+    
 
     // Call the function when the page loads
     updateAuthButton();
