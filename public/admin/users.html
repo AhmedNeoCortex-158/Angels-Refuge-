@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إدارة المستخدمين - Angels'</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="../../assets/images/Logo.png">
+    <link rel="stylesheet" href="../Style/admin.css">
+    <link rel="stylesheet" href="../Style/users.css">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="../../assets/images/Logo_2.png" alt="Logo" class="logo">
+            </div>
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item">
+                    <i class="fas fa-chart-line"></i>
+                    لوحة التحكم
+                </a>
+                <a href="donations.html" class="nav-item">
+                    <i class="fas fa-hand-holding-heart"></i>
+                    التبرعات
+                </a>
+                <a href="users.html" class="nav-item active">
+                    <i class="fas fa-users"></i>
+                    المستخدمين
+                </a>
+                <a href="messages.html" class="nav-item">
+                    <i class="fas fa-envelope"></i>
+                    الرسائل
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="content-header">
+                <h1>إدارة المستخدمين</h1>
+                <div class="user-menu">
+                    <span id="adminName">مدير النظام</span>
+                    <button id="logoutBtn" class="logout-btn">تسجيل خروج</button>
+                </div>
+            </header>
+
+            <!-- Search Section -->
+            <div class="search-section">
+                <div class="search-container">
+                    <input type="text" id="searchInput" class="search-input" placeholder="ابحث عن مستخدم...">
+                    <button id="searchBtn" class="search-btn">
+                        <i class="fas fa-search"></i>
+                        بحث
+                    </button>
+                </div>
+            </div>
+
+            <!-- Users Table -->
+            <div class="table-container">
+                <table class="users-table">
+                    <thead>
+                        <tr>
+                            <th>الاسم الأول</th>
+                            <th>اسم العائلة</th>
+                            <th>البريد الإلكتروني</th>
+                            <th>رقم الهاتف</th>
+                            <th>معرف المستخدم</th>
+                        </tr>
+                    </thead>
+                    <tbody id="usersTableBody">
+                        <!-- Will be populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <script src="../js/admin/users.js"></script>
+</body>
+</html>

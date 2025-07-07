@@ -1,0 +1,153 @@
+.messages-container {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.messages-header {
+    padding: 20px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.messages-header h2 {
+    margin: 0;
+    color: var(--text-color);
+}
+
+.messages-list {
+    padding: 0;
+}
+
+.message-item {
+    padding: 20px;
+    border-bottom: 1px solid var(--border-color);
+    transition: background-color 0.3s;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.message-item:hover {
+    background-color: #f8f9fa;
+}
+
+.message-content {
+    flex: 1;
+}
+
+.message-header {
+    margin-bottom: 10px;
+}
+
+.sender-name {
+    font-weight: bold;
+    color: var(--primary-color);
+    font-size: 1.1em;
+}
+
+.sender-contact {
+    color: var(--secondary-color);
+    font-size: 0.9em;
+    margin: 5px 0;
+}
+
+.message-text {
+    color: var(--text-color);
+    line-height: 1.5;
+}
+
+.message-actions {
+    margin-right: 20px;
+}
+
+.mark-read-btn {
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    cursor: pointer;
+    padding: 5px;
+    font-size: 1.2em;
+    transition: transform 0.2s;
+}
+
+.mark-read-btn:hover {
+    transform: scale(1.1);
+}
+
+.message-item.read {
+    opacity: 0.7;
+}
+
+.message-item.read .mark-read-btn {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .message-item {
+        flex-direction: column;
+    }
+
+    .message-actions {
+        margin: 10px 0 0;
+        align-self: flex-end;
+    }
+}
+
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.filter-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.filter-btn {
+    padding: 8px 16px;
+    border: 1px solid var(--primary-color);
+    background: none;
+    color: var(--primary-color);
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Cairo', sans-serif;
+    transition: all 0.3s;
+}
+
+.filter-btn.active {
+    background: var(--primary-color);
+    color: #fff;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--secondary-color);
+    font-size: 1.1em;
+}
+
+.loading {
+    text-align: center;
+    padding: 20px;
+    color: var(--primary-color);
+}
+
+.error-message {
+    text-align: center;
+    padding: 20px;
+    color: #dc3545;
+}
+
+.retry-btn {
+    margin-top: 10px;
+    padding: 8px 16px;
+    background: var(--primary-color);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Cairo', sans-serif;
+}

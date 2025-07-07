@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إدارة التبرعات - Angels'</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="../../assets/images/Logo.png">
+    <link rel="stylesheet" href="../Style/admin.css">
+    <link rel="stylesheet" href="../Style/donations.css">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="../../assets/images/Logo_2.png" alt="Logo" class="logo">
+            </div>
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item">
+                    <i class="fas fa-chart-line"></i>
+                    لوحة التحكم
+                </a>
+                <a href="donations.html" class="nav-item active">
+                    <i class="fas fa-hand-holding-heart"></i>
+                    التبرعات
+                </a>
+                <a href="users.html" class="nav-item">
+                    <i class="fas fa-users"></i>
+                    المستخدمين
+                </a>
+                <a href="messages.html" class="nav-item">
+                    <i class="fas fa-envelope"></i>
+                    الرسائل
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="content-header">
+                <h1>إدارة التبرعات</h1>
+                <div class="user-menu">
+                    <span id="adminName">مدير النظام</span>
+                    <button id="logoutBtn" class="logout-btn">تسجيل خروج</button>
+                </div>
+            </header>
+
+            <!-- Filters Section -->
+            <div class="filters-section">
+                <div class="date-filters">
+                    <div class="filter-group">
+                        <label for="startDate">من تاريخ:</label>
+                        <input type="date" id="startDate" class="date-input">
+                    </div>
+                    <div class="filter-group">
+                        <label for="endDate">إلى تاريخ:</label>
+                        <input type="date" id="endDate" class="date-input">
+                    </div>
+                    <button id="searchBtn" class="search-btn">
+                        <i class="fas fa-search"></i>
+                        بحث
+                    </button>
+                    <button id="exportBtn" class="export-btn">
+                        <i class="fas fa-file-export"></i>
+                        تصدير Excel
+                    </button>
+                </div>
+            </div>
+
+            <!-- Donations Table -->
+            <div class="table-container">
+                <table class="donations-table">
+                    <thead>
+                        <tr>
+                            <th>اسم المتبرع</th>
+                            <th>رقم الحساب</th>
+                            <th>البنك</th>
+                            <th>رقم الهاتف</th>
+                            <th>البريد الإلكتروني</th>
+                            <th>البلد</th>
+                            <th>المبلغ</th>
+                            <th>ملاحظات</th>
+                        </tr>
+                    </thead>
+                    <tbody id="donationsTableBody">
+                        <!-- Will be populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <script src="../js/admin/donations.js"></script>
+</body>
+</html>

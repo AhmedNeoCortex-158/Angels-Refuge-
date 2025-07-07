@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة التحكم - Angels'</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="../../assets/images/Logo.png">
+    <link rel="stylesheet" href="../Style/admin.css">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="../../assets/images/Logo_2.png" alt="Logo" class="logo">
+            </div>
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item active">
+                    <i class="fas fa-chart-line"></i>
+                    لوحة التحكم
+                </a>
+                <a href="donations.html" class="nav-item">
+                    <i class="fas fa-hand-holding-heart"></i>
+                    التبرعات
+                </a>
+                <a href="users.html" class="nav-item">
+                    <i class="fas fa-users"></i>
+                    المستخدمين
+                </a>
+                <a href="messages.html" class="nav-item">
+                    <i class="fas fa-envelope"></i>
+                    الرسائل
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="content-header">
+                <h1>لوحة التحكم</h1>
+                <div class="user-menu">
+                    <span id="adminName">مدير النظام</span>
+                    <button id="logoutBtn" class="logout-btn">تسجيل خروج</button>
+                </div>
+            </header>
+
+            <!-- Stats Cards -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>إجمالي المستخدمين</h3>
+                        <p id="totalUsers">0</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-hand-holding-heart"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>إجمالي التبرعات</h3>
+                        <p id="totalDonations">0</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>إجمالي مبالغ التبرعات</h3>
+                        <p id="totalAmount">0 جنيه</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>إجمالي الرسائل</h3>
+                        <p id="totalMessages">0</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Messages -->
+            <section class="recent-messages">
+                <h2>آخر الرسائل</h2>
+                <div class="messages-list" id="recentMessages">
+                    <!-- Messages will be populated by JavaScript -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="../js/admin/dashboard.js"></script>
+</body>
+</html>
