@@ -1,0 +1,125 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Cairo', sans-serif;
+    background: linear-gradient(135deg, #e0f7f5 0%, #f8fafc 100%);
+    min-height: 100vh;
+}
+
+.main-bg {
+    background: linear-gradient(120deg, #219a8a 48%, #63666a 0%);
+    padding: 20px 0;
+}
+
+.main-header {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.logo {
+    height: 80px;
+    width: auto;
+}
+
+.main-nav ul {
+    display: flex;
+    gap: 24px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.main-nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1em;
+    padding: 6px 16px;
+    border-radius: 18px;
+    transition: background 0.2s, color 0.2s;
+}
+
+.main-nav a:hover {
+    background: #e0f7f5;
+    color: #00C9A7;
+}
+
+.confirmation-content {
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.confirmation-container {
+    background: #fff;
+    border-radius: 24px;
+    box-shadow: 0 8px 32px rgba(0, 201, 167, 0.10);
+    padding: 48px 36px;
+    text-align: center;
+    max-width: 480px;
+    width: 100%;
+}
+
+.confirmation-icon {
+    margin-bottom: 24px;
+    animation: tada 1.2s;
+}
+
+.confirmation-title {
+    color: #00C9A7;
+    font-size: 2em;
+    margin-bottom: 16px;
+}
+
+.confirmation-desc {
+    color: #333;
+    font-size: 1.2em;
+    line-height: 1.6;
+    margin-bottom: 32px;
+}
+
+.home-btn {
+    display: inline-block;
+    background: linear-gradient(90deg, #00C9A7 0%, #92FE9D 100%);
+    color: #fff;
+    text-decoration: none;
+    padding: 12px 36px;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 1.1em;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.home-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0, 201, 167, 0.2);
+}
+
+@media (max-width: 768px) {
+    .main-nav ul {
+        gap: 12px;
+    }
+
+    .main-nav a {
+        font-size: 1em;
+        padding: 6px 12px;
+    }
+
+    .confirmation-container {
+        padding: 32px 24px;
+    }
+
+    .confirmation-title {
+        font-size: 1.6em;
+    }
+
+    .confirmation-desc {
+        font-size: 1.1em;
+    }
+}

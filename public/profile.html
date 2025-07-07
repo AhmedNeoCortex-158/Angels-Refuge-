@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="profileTitle">الملف الشخصي - Angels'</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../assets/images/Logo.png">
+    <link rel="stylesheet" href="./Style/index.css">
+    <link rel="stylesheet" href="./Style/profile.css">
+</head>
+<body class="rtl">
+    <div class="main-bg">
+        <div class="main-container">
+            <!-- Header Section -->
+            <header>
+                <div class="hero-bg">
+                    <div class="container hero-content">
+                        <div class="header-top">
+                            <div class="logo-container">
+                                <!-- Will be populated by JS -->
+                            </div>
+                            <nav class="main-nav">
+                                <ul>
+                                    <li><a href="index.html" data-i18n="home">الرئيسية</a></li>
+                                    <li><a href="about.html" data-i18n="about">من نحن</a></li>
+                                    <li><a href="causes.html" data-i18n="causes">أهدافنا</a></li>
+                                    <li><a href="Donate.html" data-i18n="pages">التبرعات</a></li>
+                                    <li><a href="faq.html" data-i18n="blogs">الاسئلة الشائعة</a></li>
+                                </ul>
+                            </nav>
+                            <div class="lang-switcher">
+                                <a href="#" class="lang-btn active" data-lang="ar" data-i18n="langAr">AR</a> |
+                                <a href="#" class="lang-btn" data-lang="en" data-i18n="langEn">EN</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Profile Content -->
+            <div class="profile-container">
+                <!-- Personal Information Section -->
+                <section class="profile-section personal-info">
+                    <h2 class="section-title" data-i18n="personalInfo">المعلومات الشخصية</h2>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <label data-i18n="firstName">الاسم الأول:</label>
+                            <span id="firstName"></span>
+                        </div>
+                        <div class="info-item">
+                            <label data-i18n="lastName">الاسم الأخير:</label>
+                            <span id="lastName"></span>
+                        </div>
+                        <div class="info-item">
+                            <label data-i18n="email">البريد الإلكتروني:</label>
+                            <span id="email"></span>
+                        </div>
+                        <div class="info-item">
+                            <label data-i18n="phone">رقم الهاتف:</label>
+                            <span id="phone"></span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Donations History Section -->
+                <section class="profile-section donations-history">
+                    <h2 class="section-title" data-i18n="donationsHistory">سجل التبرعات</h2>
+                    <div class="donations-grid" id="donationsGrid">
+                        <!-- Donations will be populated by JS -->
+                    </div>
+                </section>
+            </div>
+
+            <!-- Footer -->
+            <footer class="site-footer">
+                <div class="container">
+                    <div class="footer-content">
+                        <div class="footer-brand">
+                            <a href="index.html" class="footer-logo">
+                                <img src="../assets/images/Logo_2.png" alt="Angels">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <script src="./js/LanguageSwitcher.js"></script>
+    <script src="./js/profile.js"></script>
+</body>
+</html>

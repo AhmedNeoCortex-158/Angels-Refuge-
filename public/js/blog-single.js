@@ -1,7 +1,7 @@
  document.addEventListener('DOMContentLoaded', function() {
     // Check authentication status and update button
     function updateAuthButton() {
-        const authButtonContainer = document.querySelector('.header-left');
+        const authButtonContainer = document.querySelector('.logo-container');
         const authToken = localStorage.getItem('authToken');
     
         if (authToken) {
