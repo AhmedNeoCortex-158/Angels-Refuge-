@@ -186,6 +186,11 @@ const translations = {
 
 نؤمن بأن العمل الخيري يتجاوز مجرد تقديم المساعدات المادية. إنه يتعلق ببناء جسور التواصل والتعاون بين مختلف فئات المجتمع، وتعزيز قيم التضامن والتكافل الاجتماعي.`,
 
+        // Gratitude Page
+        gratitudeHeading: "شكرًا لدعمك!",
+        gratitudeMessage: "نحن ممتنون جدًا لمساهمتك الكريمة! لقد ساعدت في رسم البسمة على وجوه الأطفال والعائلات المحتاجة. دعمك يصنع فرقًا حقيقيًا في حياة الكثيرين.",
+        returnBtn: "العودة للصفحة السابقة",
+
         // Categories
         categories: "التصنيفات",
         charitableWork: "العمل الخيري",
@@ -484,11 +489,16 @@ const translations = {
         blogDate: "May 15, 2024",
         blogComments: "5 Comments",
         blogTitle: "We are looking for changemakers and influencers around the world",
-        blogContent: `We at the Charity Association believe that every person has the ability to make a positive change in the world. We are constantly looking for inspiring individuals who share our vision of building a better and more just society.
+        blogContent: `At Angels' Refuge, we believe that everyone has the power to make a positive change in the world. We are constantly searching for inspiring individuals who share our vision for a better and fairer society.
 
-Through our various programs, we work to empower volunteers and activists to achieve their goals in community service. We provide the training, resources, and support needed to transform their ideas into tangible projects that make a real difference in the lives of others.
+Through our diverse programs, we empower volunteers and activists to achieve their goals in serving the community. We provide the training, resources, and support needed to turn their ideas into tangible projects that make a real difference in the lives of others.
 
-We believe that charitable work goes beyond just providing material assistance. It's about building bridges of communication and cooperation between different segments of society, and promoting the values of solidarity and social solidarity.`,
+We believe that charity work goes beyond just providing material assistance. It's about building bridges of communication and cooperation between different segments of society, and promoting the values of solidarity and social cohesion.`,
+
+        // Gratitude Page
+        gratitudeHeading: "Thank You for Your Support!",
+        gratitudeMessage: "We are deeply grateful for your generous contribution! You have helped bring smiles to the faces of children and families in need. Your support makes a real difference in many lives.",
+        returnBtn: "Return to Previous Page",
 
         // Categories
         categories: "Categories",

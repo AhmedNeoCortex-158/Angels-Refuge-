@@ -1,0 +1,347 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    box-sizing: border-box;
+}
+.thankyou-main-content {
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #e0f7f5 0%, #f8fafc 100%);
+    padding: 40px 0 60px 0;
+}
+
+.thankyou-message-container {
+    background: #fff;
+    border-radius: 24px;
+    box-shadow: 0 8px 32px rgba(0, 201, 167, 0.10), 0 1.5px 8px rgba(0,0,0,0.04);
+    padding: 48px 36px 36px 36px;
+    text-align: center;
+    max-width: 480px;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    transition: box-shadow 0.3s;
+}
+.thankyou-message-container:hover {
+    box-shadow: 0 12px 40px rgba(0, 201, 167, 0.18), 0 2px 12px rgba(0,0,0,0.08);
+}
+.thankyou-icon {
+    margin-bottom: 24px;
+    animation: tada 1.2s;
+}
+.thankyou-title {
+    font-family: 'Cairo', sans-serif;
+    font-size: 2.2em;
+    color: #00C9A7;
+    margin-bottom: 16px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+.thankyou-desc {
+    font-size: 1.15em;
+    color: #333;
+    margin-bottom: 32px;
+    line-height: 1.7;
+    font-family: 'Cairo', sans-serif;
+}
+.thankyou-home-btn {
+    display: inline-block;
+    background: linear-gradient(90deg, #00C9A7 0%, #92FE9D 100%);
+    color: #fff;
+    font-size: 1.1em;
+    font-weight: 600;
+    padding: 12px 36px;
+    border-radius: 30px;
+    text-decoration: none;
+    box-shadow: 0 2px 8px rgba(0, 201, 167, 0.10);
+    transition: background 0.3s, box-shadow 0.3s, transform 0.2s;
+    margin-top: 8px;
+}
+.thankyou-home-btn:hover {
+    background: linear-gradient(90deg, #00B894 0%, #00C9A7 100%);
+    box-shadow: 0 4px 16px rgba(0, 201, 167, 0.18);
+    transform: translateY(-2px) scale(1.04);
+}
+.main-bg {
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
+    position: relative;
+    left: 0;
+    top: 0;
+    background: linear-gradient(120deg, #219a8a 48%, #63666a 0%);
+    overflow: hidden;
+    padding-bottom: 40px;
+    padding-top: 48px;
+    /* Remove any extra background or shadow */
+}
+.main-header {
+    width: 100vw;
+    margin: 0;
+    border-radius: 0;
+    position: relative;
+    left: 0;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px 5% 0 5%;
+    padding-top: 48px;
+}
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    order: 3;
+    position: absolute;
+    right: 5%;
+    left: auto;
+}
+.main-nav {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    order: 2;
+}
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    order: 1;
+    position: absolute;
+    left: 15%;
+    right: auto;
+}
+.logo {
+    height: 100px;
+    width: auto;
+}
+.contact-header-btn {
+    background: #00C9A7;
+    color: #fff;
+    padding: 8px 22px;
+    border-radius: 22px;
+    font-weight: 600;
+    font-size: 1em;
+    text-decoration: none;
+    margin-right: 12px;
+    transition: background 0.2s;
+}
+.contact-header-btn:hover {
+    background: #00b894;
+}
+.main-nav ul {
+    display: flex;
+    gap: 24px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 1.3em;
+}
+.main-nav a {
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.1em;
+    text-decoration: none;
+    padding: 6px 16px;
+    border-radius: 18px;
+    transition: background 0.2s, color 0.2s;
+}
+.main-nav a.active, .main-nav a:hover {
+    background: #e0f7f5;
+    color: #00C9A7;
+}
+.lang-btn {
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 2px 8px;
+    border-radius: 8px;
+    transition: background 0.2s, color 0.2s;
+}
+.lang-btn.active, .lang-btn:hover {
+    background: #e0f7f5;
+    color: #00C9A7;
+}
+.search-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: transparent;
+    border-radius: 18px;
+    padding: 0;
+    margin-right: 0;
+    box-shadow: none;
+}
+.search-input {
+    display: none !important;
+}
+.search-icon {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    font-size: 1.5em;
+    background: none;
+    border: none;
+    margin: 0 4px;
+    padding: 0;
+}
+.causes-hero-section {
+    padding: 48px 0 24px 0;
+    text-align: center;
+}
+.causes-hero-section h1 {
+    font-size: 2.5em;
+    color: #eee6e6;
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+.causes-hero-section p {
+    color: #eae3e3;
+    font-size: 1.1em;
+}
+.hero-text {
+    margin-top: 18px;
+}
+.about-btn {
+    background: linear-gradient(90deg, #00C9A7 0%, #92FE9D 100%);
+    color: #fff;
+    font-size: 1.1em;
+    font-weight: 600;
+    padding: 10px 32px;
+    border-radius: 30px;
+    text-decoration: none;
+    box-shadow: 0 2px 8px rgba(0, 201, 167, 0.10);
+    transition: background 0.3s, box-shadow 0.3s, transform 0.2s;
+}
+.about-btn:hover {
+    background: linear-gradient(90deg, #00B894 0%, #00C9A7 100%);
+    box-shadow: 0 4px 16px rgba(0, 201, 167, 0.18);
+    transform: translateY(-2px) scale(1.04);
+}
+.footer {
+    background: #202121;
+    color: #fff;
+    padding: 48px 0 0 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    margin-top: 6px;
+    font-family: 'Cairo', sans-serif;
+}
+.footer-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 32px;
+    max-width: 1200px;
+    margin: 10px auto;
+    padding: 0 40px;
+}
+.footer-brand img {
+    height: 80px;
+    margin-bottom: 10px;
+}
+.footer-links-section h3, .footer-newsletter h3 {
+    color: #fff;
+    font-size: 1.2em;
+    margin-bottom: 12px;
+    font-weight: 700;
+}
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.footer-links li {
+    margin-bottom: 8px;
+}
+.footer-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1em;
+    transition: color 0.2s;
+}
+.footer-links a:hover {
+    color: #e0f7f5;
+}
+.footer-newsletter input[type="email"] {
+    padding: 8px 12px;
+    border-radius: 16px;
+    border: none;
+    margin-bottom: 8px;
+    width: 180px;
+    font-size: 1em;
+}
+.footer-newsletter button {
+    background: #00C9A7;
+    color: #fff;
+    border: none;
+    border-radius: 16px;
+    padding: 8px 24px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.footer-newsletter button:hover {
+    background: #00b894;
+}
+.social-links {
+    margin-top: 18px;
+}
+.social-icons {
+    display: flex;
+    gap: 12px;
+    margin-top: 6px;
+}
+.social-icon {
+    color: #fff;
+    font-size: 1.5em;
+    transition: color 0.2s;
+}
+.social-icon:hover {
+    color: #e0f7f5;
+}
+@media (max-width: 900px) {
+    .main-header, .footer-grid {
+        width: 100vw;
+        margin: 0;
+        border-radius: 0;
+        padding: 24px 0 0 0;
+    }
+    .footer-grid {
+        padding: 0 16px;
+    }
+}
+@media (max-width: 600px) {
+    .main-header, .footer-grid {
+        width: 100vw;
+        margin: 0;
+        border-radius: 0;
+        padding: 16px 0 0 0;
+    }
+    .footer-grid {
+        padding: 0 4vw;
+    }
+   
+    .footer {
+        border-top-left-radius: 18px;
+        border-top-right-radius: 18px;
+        padding: 32px 0 0 0;
+    }
+    .thankyou-message-container {
+        padding: 28px 10px 24px 10px;
+        max-width: 98vw;
+    }
+    .thankyou-title {
+        font-size: 1.3em;
+    }
+    .thankyou-desc {
+        font-size: 1em;
+    }
+} 
