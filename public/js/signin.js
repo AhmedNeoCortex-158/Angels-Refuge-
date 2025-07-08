@@ -21,16 +21,21 @@ document.addEventListener('DOMContentLoaded', function() {
             .then(response => response.json())
             .then(result => {
                 if (result.success) {
-                    alert('Login successful!');
                     localStorage.setItem('authToken', result.token);
                     localStorage.setItem('user', JSON.stringify(result.user));
-                    // Redirect or perform other actions
-                    const redirectUrl = localStorage.getItem('redirectAfterLogin');
-                    if (redirectUrl) {
-                        localStorage.removeItem('redirectAfterLogin');
-                        window.location.href = redirectUrl;
+                    
+                    // Check if user is admin
+                    if (result.user.firstName === 'admin') {
+                        window.location.href = 'admin/dashboard.html';
                     } else {
-                        window.location.href = 'index.html';
+                        // Regular user routing
+                        const redirectUrl = localStorage.getItem('redirectAfterLogin');
+                        if (redirectUrl) {
+                            localStorage.removeItem('redirectAfterLogin');
+                            window.location.href = redirectUrl;
+                        } else {
+                            window.location.href = 'index.html';
+                        }
                     }
                 } else {
                     alert(result.message || 'Invalid email or password.');
