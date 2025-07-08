@@ -91,7 +91,7 @@
                 window.location.href = 'message-confirmation.html';
                 // Clear form and show success message
                 contactForm.reset();
-                alert('تم إرسال رسالتك بنجاح');
+                
 
             } catch (error) {
                 console.error('Error:', error);

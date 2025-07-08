@@ -140,7 +140,10 @@ document.addEventListener('DOMContentLoaded', function() {
             alert('حدث خطأ في تحديث حالة الرسالة. يرجى المحاولة مرة أخرى');
         }
     };
-
+    document.getElementById('logoutBtn').addEventListener('click', function() {
+        localStorage.removeItem('authToken');
+        window.location.href = '../signin.html';
+    });
     // Initial load
     fetchMessages(false);
 });
