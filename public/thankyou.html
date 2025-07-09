@@ -11,14 +11,6 @@
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="stylesheet" href="./Style/ThankYou.css" />
     <link rel="stylesheet" href="../public/Style/Enhanced Payment Modal Styles.css">
-    <style>
-        html, body {
-            margin: 0;
-            padding: 0;
-            width: 100vw;
-            box-sizing: border-box;
-        }
-    </style>
 </head>
 <body>
     <div class="main-bg">
@@ -42,14 +34,6 @@
                 <div class="header-right">
                     <a href="#" class="lang-btn" data-lang="en">EN</a> |
                     <a href="#" class="lang-btn active" data-lang="ar">AR</a>
-                    <div class="search-container" id="search-container">
-                        <span class="search-icon" id="search-icon" tabindex="0" aria-label="بحث">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                <circle cx="11" cy="11" r="7" stroke="#fff" stroke-width="2"/>
-                                <line x1="16.4142" y1="16" x2="21" y2="20.5858" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
-                            </svg>
-                        </span>
-                    </div>
                 </div>
             </div>
             <div class="causes-hero-section">
@@ -74,66 +58,7 @@
             <a href="index.html" class="thankyou-home-btn" data-i18n="backToHome">العودة إلى الرئيسية</a>
         </div>
     </div>
-    <footer class="footer">
-        <div class="footer-grid">
-            <div class="footer-brand">
-                <a href="thankyou.html">
-                    <img src="../assets/images/Logo_2.png" alt="Angels">
-                </a>
-                <p>10k<br>Worldwide Client<br>Already Connected</p>
-            </div>
-            <div class="footer-links-section">
-                <h3 data-i18n="quickLink">روابط سريعة</h3>
-                <ul class="footer-links">
-                    <li><a href="index.html" data-i18n="home">الرئيسية</a></li>
-                    <li><a href="about.html" data-i18n="about">من نحن</a></li>
-                    <li><a href="faq.html" data-i18n="blogs">الاسئلة الشائعة</a></li>
-                    <li><a href="#gallery">معرض الصور</a></li>
-                </ul>
-            </div>
-            <div class="footer-links-section">
-                <h3 data-i18n="getInTouch">تواصل معنا</h3>
-                <ul class="footer-links">
-                    <li><a href="contact.html" data-i18n="contactUs">تواصل معنا</a></li>
-                    <li><a href="#services">خدماتنا</a></li>
-                </ul>
-            </div>
-            <div class="footer-newsletter">
-                <h3 data-i18n="newsletter">النشرة الإخبارية</h3>
-                <form class="newsletter-form">
-                    <input type="email" placeholder="أدخل بريدك الإلكتروني" data-i18n="enterEmail">
-                    <button type="submit" data-i18n="subscribe">اشترك</button>
-                </form>
-                <p style="color:#e0f7f5; font-size:0.95em; margin-top:8px;" data-i18n="emailSafe">بريدك الإلكتروني آمن معنا، نحن لا نرسل رسائل مزعجة.</p>
-                <div class="social-links">
-                    <h3 class="social-title" data-i18n="followUs">تابعنا</h3>
-                    <div class="social-icons">
-                        <a href="#" class="social-icon twitter" aria-label="Twitter">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M23.643 4.937c-.835.37-1.732.62-2.675.733.962-.576 1.7-1.49 2.048-2.578-.9.534-1.897.922-2.958 1.13-.85-.904-2.06-1.47-3.4-1.47-2.572 0-4.658 2.086-4.658 4.66 0 .364.042.718.12 1.06-3.873-.195-7.304-2.05-9.602-4.868-.4.69-.63 1.49-.63 2.342 0 1.616.823 3.043 2.072 3.878-.764-.025-1.482-.234-2.11-.583v.06c0 2.257 1.605 4.14 3.737 4.568-.392.106-.803.162-1.227.162-.3 0-.593-.028-.877-.082.593 1.85 2.313 3.198 4.352 3.234-1.595 1.25-3.604 1.995-5.786 1.995-.376 0-.747-.022-1.112-.065 2.062 1.323 4.51 2.093 7.14 2.093 8.57 0 13.255-7.098 13.255-13.254 0-.2-.005-.402-.014-.602.91-.658 1.7-1.477 2.323-2.41z"/>
-                            </svg>
-                        </a>
-                        <a href="#" class="social-icon instagram" aria-label="Instagram">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                            </svg>
-                        </a>
-                        <a href="#" class="social-icon pinterest" aria-label="Pinterest">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.162-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.607 0 11.985-5.365 11.985-11.987C23.97 5.39 18.592.026 11.985.026L12.017 0z"/>
-                            </svg>
-                        </a>
-                        <a href="#" class="social-icon youtube" aria-label="YouTube">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <br>
-    </footer>
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <script src="../assets/js/translations.js"></script>
     <script src="../assets/js/languageSwitcher.js"></script>
