@@ -86,13 +86,10 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function updateAuthButton(userData) {
-        const authButtonContainer = document.querySelector('.logo-container');
+        const authButtonContainer = document.querySelector('.user-auth-container');
         
         if (authToken) {
             authButtonContainer.innerHTML = `
-                <a href="index.html">
-                    <img src="../assets/images/Logo_2.png" alt="Logo" class="logo">
-                </a>
                 <div class="dropdown">
                     <button class="contact-header-btn dropdown-toggle">${userData.firstName}</button>
                     <div class="dropdown-menu">
@@ -129,6 +126,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 localStorage.removeItem('user');
                 window.location.href = 'index.html';
             });
+        } else {
+            authButtonContainer.innerHTML = '';
         }
     }
 

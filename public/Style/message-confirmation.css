@@ -123,3 +123,11 @@ body {
         font-size: 1.1em;
     }
 }
+.lang-btn {
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 2px 8px;
+    border-radius: 8px;
+    transition: background 0.2s, color 0.2s;
+}

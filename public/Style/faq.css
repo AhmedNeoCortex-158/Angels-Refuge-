@@ -60,7 +60,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 24px 5% 0 5%;
+            padding: 55px 5% 0 5%;
             position: relative;
         }
         .header-left {
@@ -114,7 +114,7 @@
             color: #fff;
             border-radius: 66px;
             padding: 8px 24px;
-            font-weight: 700;
+            font-size: 1.2em;
             text-decoration: none;
             margin-right: 12px;
             transition: background 0.2s;

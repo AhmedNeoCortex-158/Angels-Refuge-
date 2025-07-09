@@ -169,10 +169,7 @@
     border-radius: 8px;
     transition: background 0.2s, color 0.2s;
 }
-.lang-btn.active, .lang-btn:hover {
-    background: #e0f7f5;
-    color: #00C9A7;
-}
+
 .search-container {
     position: relative;
     display: flex;

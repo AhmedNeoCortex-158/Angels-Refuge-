@@ -62,16 +62,16 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 24px 5% 0 5%;
+    padding: 55px 5% 0 5%; /* زيادة المسافة العلوية من 25px إلى 55px */
     position: relative;
 }
 .header-left {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 20px;
     order: 3;
     position: absolute;
-    right: 5%;
+    right: 10%;
     left: auto;
 }
 .main-nav {
@@ -115,11 +115,12 @@ body {
     background: #2ed8b6d4;
     color: #fff;
     border-radius: 66px;
-    padding: 8px 24px;
+    padding: 14px 38px; /* زيادة البادينج للطول والعرض */
+    font-size: 1.2em;   /* زيادة حجم الخط */
     font-weight: 700;
     text-decoration: none;
     margin-right: 12px;
-    transition: background 0.2s;
+    transition: background 0.2s, font-size 0.2s, padding 0.2s;
 }
 .contact-header-btn:hover {
     background: #219a8a;
