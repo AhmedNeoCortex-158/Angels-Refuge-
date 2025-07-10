@@ -234,72 +234,47 @@ console.log(userData);
     });
 
     // --- Animated Progress Bars on Scroll ---
-    document.addEventListener('DOMContentLoaded', function() {
-        const progressBars = [
-            {
-                bar: document.getElementById('progress-donations-bar'),
-                value: document.getElementById('progress-donations-value'),
-                target: 90 // التبرعات
-            },
-            {
-                bar: document.getElementById('progress-medical-bar'),
-                value: document.getElementById('progress-medical-value'),
-                target: 75 // المساعدة الطبية
+    const progressBars = [
+        {
+            bar: document.getElementById('progress-donations-bar'),
+            value: document.getElementById('progress-donations-value'),
+            target: 90 // التبرعات
+        },
+        {
+            bar: document.getElementById('progress-medical-bar'),
+            value: document.getElementById('progress-medical-value'),
+            target: 75 // المساعدة الطبية
+        }
+    ];
+    function animateBar(barElem, valueElem, target) {
+        if (!barElem || !valueElem) return; // حماية ضد null
+        let current = 1; // يبدأ من 1%
+        const duration = 1800; // مدة أطول لجاذبية أكثر
+        const stepTime = 16;
+        const steps = Math.ceil(duration / stepTime);
+        const increment = (target - 1) / steps;
+        function step() {
+            current += increment;
+            if (current < target) {
+                barElem.style.width = current + '%';
+                valueElem.textContent = Math.round(current) + '%';
+                requestAnimationFrame(step);
+            } else {
+                barElem.style.width = target + '%';
+                valueElem.textContent = target + '%';
+                valueElem.classList.add('animated');
+                setTimeout(() => valueElem.classList.remove('animated'), 600);
             }
-        ];
-        let animated = false;
-        let observer;
-        function animateBar(barElem, valueElem, target) {
-            let current = 1; // يبدأ من 1%
-            const duration = 1200;
-            const stepTime = 16;
-            const steps = Math.ceil(duration / stepTime);
-            const increment = (target - 1) / steps;
-            function step() {
-                current += increment;
-                if (current < target) {
-                    barElem.style.width = current + '%';
-                    valueElem.textContent = Math.round(current) + '%';
-                    requestAnimationFrame(step);
-                } else {
-                    barElem.style.width = target + '%';
-                    valueElem.textContent = target + '%';
-                    valueElem.classList.add('animated');
-                    setTimeout(() => valueElem.classList.remove('animated'), 600);
-                }
-            }
-            // بدء من 1%
-            barElem.style.width = '1%';
-            valueElem.textContent = '1%';
-            step();
         }
-        function resetBars() {
-            progressBars.forEach(({bar, value}) => {
-                bar.style.width = '1%';
-                value.textContent = '1%';
-                value.classList.remove('animated');
-            });
-        }
-        function handleIntersect(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting && !animated) {
-                    animated = true;
-                    progressBars.forEach(({bar, value, target}) => animateBar(bar, value, target));
-                } else if (!entry.isIntersecting && animated) {
-                    animated = false;
-                    resetBars();
-                }
-            });
-        }
-        const impactSection = document.querySelector('.impact-section');
-        if ('IntersectionObserver' in window && impactSection) {
-            observer = new IntersectionObserver(handleIntersect, { threshold: 0.3 });
-            observer.observe(impactSection);
-        } else {
-            // fallback: animate on load
-            progressBars.forEach(({bar, value, target}) => animateBar(bar, value, target));
-        }
-    });
+        // بدء من 1%
+        barElem.style.width = '1%';
+        valueElem.textContent = '1%';
+        step();
+    }
+    // ابدأ التحريك مباشرة عند تحميل الصفحة بعد التأكد من وجود العناصر
+    setTimeout(function() {
+        progressBars.forEach(({bar, value, target}) => animateBar(bar, value, target));
+    }, 100);
 });
 
 

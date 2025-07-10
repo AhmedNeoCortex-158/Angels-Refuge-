@@ -1532,7 +1532,7 @@
         .enhanced-progress-fill {
             background: linear-gradient(90deg, #249b8e 80%, #02c4bd 100%);
             box-shadow: 0 0 12px 2px #02c4bd44;
-            transition: width 1.2s cubic-bezier(.4,0,.2,1);
+            transition: width 1.8s cubic-bezier(.4,0,.2,1); /* مدة أطول لجاذبية أكثر */
             position: relative;
         }
         .progress-value {
