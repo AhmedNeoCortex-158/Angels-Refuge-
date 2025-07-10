@@ -68,24 +68,40 @@
             padding: 0;
         }
 
+        /* ===================== إصلاح توزيع عناصر الهيدر ===================== */
         .header-top {
             display: flex;
+            flex-direction: row;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 20px;
-            gap: 20px;
+            gap: 100px; /* تحكم رئيسي في المسافة بين مجموعات العناصر */
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            position: relative;
+        }
+
+        .logo-title-flex {
+            display: flex;
+            align-items: center;
+            gap: 28px; /* تحكم واضح في المسافة بين اللوجو وزر تسجيل الدخول فقط */
+            margin: 0; /* إزالة أي margin جانبي قد يسبب تراكب */
         }
 
         .logo {
             width: 120px;
             height: auto;
             display: block;
+            min-width: 80px; /* ضمان عدم ضغط اللوجو */
         }
 
         .main-nav {
             display: flex;
             align-items: center;
+            margin: 0; /* إزالة margin جانبي حتى لا تؤثر على التوزيع */
         }
+
+        /* توضيح: لا تستخدم !important هنا حتى يسهل التحكم من أي ملف لاحق أو من أدوات المتصفح */
 
         .main-nav ul {
             list-style: none;
@@ -505,9 +521,11 @@
             background: #188c65;
         }
         .logo-title-flex {
-            display: flex;
-            align-items: center;
-            gap: 20px;
+            display: flex !important;
+            align-items: center !important;
+            gap: 20px !important; /* زيادة المسافة بين اللوجو وزر المستخدم */
+            margin-right: 20px ;
+            margin-left: 10px ;
         }
         .site-title {
             color: #fff;
@@ -526,6 +544,7 @@
             text-decoration: none;
             transition: background 0.2s, color 0.2s;
             box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            margin: 0; /* إزالة أي margin افتراضي */
         }
         .contact-header-btn:hover {
             background: #0e9c7b;
@@ -1498,3 +1517,73 @@
         @media (max-width: 900px) {
             .modern-fade-in { transition-delay: 0.1s; }
         }
+footer, .site-footer {
+  width: 100vw;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+.container {
+  width: 100vw !important;
+  max-width: 100vw !important;
+  margin: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  box-sizing: border-box;
+}
+
+body > .main-bg > .main-container {
+  width: 100vw !important;
+  max-width: 100vw !important;
+  margin: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+.main-bg {
+  padding: 0 !important;
+  background: transparent !important;
+}
+.site-footer .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw !important;
+  max-width: 100vw !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+}
+.footer-content {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 2fr;
+  gap: 40px;
+  justify-content: center;
+  align-items: start;
+}
+@media (max-width: 1200px) {
+  .footer-content {
+    max-width: 100vw;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+}
+@media (max-width: 768px) {
+  .footer-content {
+    grid-template-columns: 1fr;
+    max-width: 100vw;
+    gap: 16px;
+    justify-items: center;
+    text-align: center;
+  }
+
+}
+ .container,  .donation-content {
+    max-width: 1100px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+ 
+
