@@ -21,7 +21,7 @@
                     <h3>التحويلات المحلية</h3>
                     <div class="method-buttons">
                         <button class="method-btn" data-method="bank-transfer">تحويل بنكي</button>
-                        <button class="method-btn" data-method="instapay">InstaPay</button>
+                      <!-- <button class="method-btn" data-method="instapay">InstaPay</button>  --> 
                     </div>
                 </div>
 
@@ -345,14 +345,11 @@
     </div>
     <script src="../assets/js/translations.js"></script>
     <script src="../assets/js/languageSwitcher.js"></script>
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        new LanguageSwitcher();
-      });
-    </script>
     <script src="../assets/js/payment-method-fix.js"></script>
     <script src="../assets/js/payment-method-selection-fix.js"></script>
-  <script src="../public/js/donate.js"></script>
- 
+    <script src="../public/js/donate.js"></script>
+
+     <script>document.addEventListener('DOMContentLoaded', function() {new LanguageSwitcher();});</script>
+
 </body>
 </html>
