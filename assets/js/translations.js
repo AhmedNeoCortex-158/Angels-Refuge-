@@ -88,7 +88,7 @@ const translations = {
         Starofgoodness: "نجمة الخير",
         cardHomelesspeople: "مشردون",
         
-        cardTitle1: "تبرع لعلاج الفقراء وأوديتهم.",
+        cardTitle1: "تبرع لعلاج الايتام وأوديتهم.",
         cardDesc1: "في كل يوم هناك من يحتاج للعلاج والدعم، ساهم في رسم بسمة على وجه المحتاجين.",
 
         cardTitle2: "الأطفال الذين نعمل معهم.",
